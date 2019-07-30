@@ -74,11 +74,6 @@ tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
 `openfairdb` should now be listening on port 6767.
 To actually get started to also need to add some [content](https://github.com/slowtec/openfairdb/issues/112#issuecomment-432724965).
 
-``` js
-OFDB_API: {  
-  link: "http://127.0.0.1:6767" //use this to connect to local db
-}
-```
 
 Get the web app running:
 ``` sh
@@ -90,8 +85,6 @@ or
     yarn start
 ```
 
-If you develop with local db, you need to disable CORS verification in you browser for now:
-Keys for launching chrome --disable-web-security --user-data-dir="~"
 
 The web app is now listening on port 8080.
 Open it in your browser `https://localhost:8080`.
