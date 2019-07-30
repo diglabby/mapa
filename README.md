@@ -35,30 +35,26 @@ To be able to start development you'll need the following tools:
 
 - [git](https://www.git-scm.com/)
 - [Node.js](https://nodejs.org/) version 6.x
-- [npm](https://www.npmjs.com/package/npm) version 3.x
+- [npm](https://www.npmjs.com/package/npm) version 3.x or [Yarn](https://yarnpkg.com/en/docs/getting-started)
 - [OpenFairDB](https://github.com/slowtec/openfairdb)
 
 Now clone this repository:
 
-    git clone https://github.com/flosse/kartevonmorgen
+    git clone https://github.com/goodmap/goodmap-old
 
 Go to the root of it and install all the dependencies:
 
-    cd kartevonmorgen/
+    cd goodmap-old/
     npm install
-
-### Build
-
-To build the web application run:
-
-    npm run pack
-
-The result can be found in `dist/`.
+or 
+    yarn
+    
 
 ### Local development setup
 
 The easiest way to get a local setup running is by using the remote API of [OpenFairDB](https://github.com/slowtec/openfairdb).
 To do so change `src/constants/URLs.js` to
+https://github.com/goodmap/goodmap-old/blob/e9658f1d2a8d77effe4cfabc085b5c7a2c65c3f3/src/constants/URLs.js#L64
 
 ``` js
 OFDB_API: {
@@ -78,13 +74,27 @@ tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
 `openfairdb` should now be listening on port 6767.
 To actually get started to also need to add some [content](https://github.com/slowtec/openfairdb/issues/112#issuecomment-432724965).
 
+``` js
+OFDB_API: {  
+  link: "http://127.0.0.1:6767" //use this to connect to local db
+}
+```
+
 Get the web app running:
 ``` sh
-    cd /path/to/kartevonmorgen/
+    cd /path/to/goodmap-old/
     npm start
 ```
+or 
+```
+    yarn start
+```
+
+If you develop with local db, you need to disable CORS verification in you browser for now:
+Keys for launching chrome --disable-web-security --user-data-dir="~"
+
 The web app is now listening on port 8080.
-Open it in your browser `http://localhost:8080`.
+Open it in your browser `https://localhost:8080`.
 
 On every file change in `src/`, the app will be build
 for you and the browser reloads automatically.
