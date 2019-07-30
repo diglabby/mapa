@@ -72,7 +72,8 @@ tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
 ./openfairdb
 ```
 `openfairdb` should now be listening on port 6767.
-To actually get started to also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (save database, copy it to local repository, unzip and override the previous database).
+
+To actually get started you also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (Save database, copy it to local repository, unzip and override the previous database).
 
 
 Get the web app running:
