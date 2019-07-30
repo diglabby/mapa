@@ -40,7 +40,7 @@ To be able to start development you'll need the following tools:
 
 Now clone this repository:
 
-    git clone https://github.com/goodmap/goodmap-old
+    git clone https://github.com/diglabby/mapa
 
 Go to the root of it and install all the dependencies:
 
