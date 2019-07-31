@@ -3,7 +3,7 @@
 ## Found a bug?
 
 Please let us know about any bugs you find via the github issue editor. Click
-[here](https://github.com/diglabby/mapa/issues/new) and report what you experienced and what you would have expected to happen.
+[here](https://github.com/flosse/kartevonmorgen/issues/new) and report what you experienced and what you would have expected to happen.
 
 ## Pull Request
 
