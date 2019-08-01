@@ -23,7 +23,7 @@ const config = {
     proxy: {
       "/api": {
         target: "http://localhost:6767",
-        pathRewrite: {"^/api" : ""}
+        pathRewrite: {"^/api/v0" : "/api"},
       }
     }
   },

@@ -49,7 +49,6 @@ Go to the root of it and install all the dependencies:
 or 
     yarn
     
-
 ### Local development setup
 
 The easiest way to get a local setup running is by using the remote API of [OpenFairDB](https://github.com/slowtec/openfairdb).
@@ -65,7 +64,8 @@ OFDB_API: {
 
 The alternative is to run OpenFairDB Server locally:
 
-Download, unpack and run (on linux):
+####Linux setup:
+
 ``` sh
 wget https://download.ofdb.io/openfairdb-x86_64-linux-v0.3.1.tar.gz
 tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
@@ -75,8 +75,15 @@ tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
 
 To actually get started you also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (Save database, copy it to local repository, unzip and override the previous database).
 
+####Docker setup:
+
+1. Clone the [openfairdb](https://github.com/slowtec/openfairdb) repo.
+2. Go to `openfairdb` folder: `cd ./openfairdb`
+3. Build image and run the container by commands from [openfairdb](https://github.com/slowtec/openfairdb#docker) repo
+4. `openfairdb` should now be listening on port 6767.
 
 Get the web app running:
+
 ``` sh
     cd /path/to/goodmap-old/
     npm start
@@ -85,7 +92,6 @@ or
 ```
     yarn start
 ```
-
 
 The web app is now listening on port 8080.
 Open it in your browser `https://localhost:8080`.
