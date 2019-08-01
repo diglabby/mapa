@@ -1,14 +1,34 @@
-# How to contribute to KVM (Karte Von Morgen) 
+# How to contribute to MAPA
 
 ## Found a bug?
 
 Please let us know about any bugs you find via the github issue editor. Click
-[here](https://github.com/flosse/kartevonmorgen/issues/new) and report what you experienced and what you would have expected to happen.
+[here](https://github.com/diglabby/mapa/issues) and report what you experienced and what you would have expected to happen.
+Please follow next issue template:
+1. Description of problem.
+2. Steps to reproduce a bug.
+3. What result do you expect from app.
+
 
 ## Pull Request
 
 We are happy about any contribution via a pull request. To be able to easily
-accept your pull request, please stick to the following Style Guide.
+accept your pull request, please stick to the following [Style Guide](https://github.com/airbnb/javascript/tree/master/react).
+
+Small guide how to use git:
+1. You just make your own [fork](https://help.github.com/en/articles/fork-a-repo) оf project.
+2. Clone your fork to your local machine with 
+````
+git clone <your_repo>
+````
+
+3. Make changes to code.
+It's recommended to do every feature in it's own branch.
+Push you result to your fork with
+````
+git push origin <your_branch_name>
+````
+4. And make a [pull request](https://help.github.com/en/articles/about-pull-requests#about-pull-requests) wiith your changes to MAPA original repo.
 
 ## Beginner Developer Guide
 
@@ -44,14 +64,6 @@ continuing:
 - HTML
 - CSS
 
-**Note**:
-If you want you can install [zeal](https://zealdocs.org/), which
-is an offline browser for JavaScript-, HTML-, CSS-, React-Documentation
-and many many more:
-
-    $ sudo add-apt-repository ppa:zeal-developers/ppa
-    $ sudo apt-get update
-    $ sudo apt-get install zeal
 
 ### React & Redux
 As a framework KVM uses [React](https://facebook.github.io/react/)
@@ -70,8 +82,6 @@ first overview.
 Now, let's put React and Redux together, for example with this ["Step by Step Guide To Building React Redux Apps"](https://medium.com/@rajaraodv/step-by-step-guide-to-building-react-redux-apps-using-mocks-48ca0f47f9a).
 
 The framework that connects React and Redux in the end is [react-redux](https://github.com/gaearon/react-redux).
-
-Congratulations, you're now a pro that can help others to hack the awesome KVM platform!
 
 That's it. Everything else is a matter of detail.
 Nevertheless here are some more libs used and you should/could know about:
