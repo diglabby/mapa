@@ -115,93 +115,135 @@ const LandingExplain = props => {
 
   return(
     <div>
-      <h2>{t("landingExplain.chapter1.heading")}</h2>
-      <div />
-      <img className="pure-img" style={{float: "left"}} src={require("../../img/lp_illu1.jpg")}/>
-      <div style={{marginTop: "200px"}}>
-        <h3>{t("landingExplain.chapter1.paragraph1.heading")}</h3>
-        <p>{t("landingExplain.chapter1.paragraph1.text")}</p>
-      </div>
-      <div style={{clear:"both"}} />
-      <img className="pure-img" style={{float: "right"}} src={require("../../img/lp_illu2.jpg")}/>
-      <div style={{marginTop: "200px"}}>
-        <h3> {t("landingExplain.chapter1.paragraph2.heading")}</h3>
-        <p>{t("landingExplain.chapter1.paragraph2.text")}</p>
-      </div>
-      <div style={{clear:"both"}} />
-      <img className="pure-img" style={{float: "left"}} src={require("../../img/lp_illu3.jpg")}/>
-      <div style={{marginTop: "200px"}}>
-        <h3>{t("landingExplain.chapter1.paragraph3.heading")}</h3>
-        <p>{t("landingExplain.chapter1.paragraph3.text")}</p>
-      </div>
+      <h2 style={{marginTop: "0px"}}><strong>{t("landingExplain.chapter1.name")}</strong>{t("landingExplain.chapter1.heading")}</h2>
+      <img style={{marginTop: "50px"}} className="pure-img" src={require("../../img/mapa_explain.png")}/>
       <div style={{clear:"both"}} />
 
-      <a id="tutorial" />
-      <hr />
-      <h2>{t("landingExplain.chapter2.heading")}</h2>
-      <div className="tutorial">
-        <img src={require("../../img/tutorial/1.jpg")} />
-        <img src={require("../../img/tutorial/2.jpg")} />
-        <img src={require("../../img/tutorial/3.jpg")} />
-        <img src={require("../../img/tutorial/4.jpg")} />
-        <img src={require("../../img/tutorial/5.jpg")} />
-        <img src={require("../../img/tutorial/6.jpg")} />
-      </div>
-      <h2>{t("landingExplain.chapter3.heading")}</h2>
-      <p>{t("landingExplain.chapter3.text.1")}</p>
-      <p>{t("landingExplain.chapter3.text.2")}</p>
-      <div style={{overflow: "visible"}}>
-        <img className="pure-img" style={{width: "100%"}} src={require("../../img/postkarte.jpg")} />
-      </div>
+        <h2 id="goals" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter2.heading")}</strong></h2>
+            <p style={{marginTop: "46px"}} >{t("landingExplain.chapter2.text")}</p>
+            <p style={{marginTop: "40px"}}>{t("landingExplain.chapter2.subtext-1")}</p>
+            <p>{t("landingExplain.chapter2.subtext-2")}</p>
+            <p>{t("landingExplain.chapter2.subtext-3")}</p>
+        <img className="pure-img"  style={{margin: "60px auto"}} src={require("../../img/map_for_2.png")}/>
+
+        <div style={{clear:"both"}} />
       <br />
       <br />
 
-      <h2>{t("landingExplain.chapter4.heading")}</h2>
-      <div style={{float: "left", paddingTop: "1px"}} >
-        <h4>{t("landingExplain.chapter4.text.1")}</h4>
-        <a href="#" onClick={() => {onClick(V.DONATE)}} >{t("landingExplain.chapter4.learnMore")}</a>
-      </div>
-      <div style={{float: "right", paddingTop: "1px"}} >
-        <h4>{t("landingExplain.chapter4.text.2")}</h4>
-        <a href="#" onClick={() => {onClick(V.JOIN)}}>{t("landingExplain.chapter4.learnMore")}</a>
-      </div>
-      <div style={{paddingTop: "1px"}}>
-        <h4>{t("landingExplain.chapter4.text.3")}</h4>
-        <a href="#" onClick={() => {onClick(V.JOIN)}}>{t("landingExplain.chapter4.learnMore")}</a>
-      </div>
-      <hr />
-      <h2>{t("landingExplain.chapter5.heading")}</h2>
+        <h2 id="for-who"><strong>{t("landingExplain.chapter3.heading")}</strong></h2>
+        <div className="pure-g" style={{marginTop: "60px"}}>
+            <div className="pure-u-1-4"><p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter3.column-1-head")}</strong>{t("landingExplain.chapter3.column-1")}</p></div>
+            <div className="pure-u-1-8">&nbsp;</div>
+            <div className="pure-u-1-4"><p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter3.column-2-head")}</strong>{t("landingExplain.chapter3.column-2")}</p></div>
+            <div className="pure-u-1-8">&nbsp;</div>
+            <div className="pure-u-1-4"><p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter3.column-3-head")}</strong>{t("landingExplain.chapter3.column-3")}</p></div>
+        </div>
+        <img className="pure-img"  style={{margin: "60px auto"}} src={require("../../img/partnership_2.png")}/>
 
-      <div className="team">
-        {getTeamMembers(t)}
-      </div>
+        <h2 id="principles" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter4.heading")}</strong></h2>
+        <p style={{marginTop: "46px"}} ><strong>{t("landingExplain.chapter4.text.head-1")}</strong></p>
+        <p>{t("landingExplain.chapter4.text.1")}</p>
+        <p style={{marginTop: "46px"}} ><strong>{t("landingExplain.chapter4.text.head-2")}</strong></p>
+        <p>{t("landingExplain.chapter4.text.2")}</p>
+        <p style={{marginTop: "46px"}} ><strong>{t("landingExplain.chapter4.text.head-3")}</strong></p>
+        <p>{t("landingExplain.chapter4.text.3")}</p>
+        <p style={{marginTop: "46px"}}><strong>{t("landingExplain.chapter4.text.4")}</strong></p>
+        <img className="pure-img"  style={{margin: "60px auto"}} src={require("../../img/ctrl_c_v.png")}/>
 
-      <hr />
 
-      <h2>{t("landingExplain.chapter6.heading")}</h2>
-      <a href="http://www.ideenhochdrei.org/de/">
-        <img className="partnerLogo" src={require("../../img/ideen.png")} />
-      </a>
-      <a href="http://slowtec.de">
-        <img className="partnerLogo" src={require("../../img/slowtec.png")} />
-      </a>
+        <h2 id="work" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter5.heading")}</strong></h2>
+        <div className="pure-g" style={{marginTop: "60px"}}>
+            <div className="pure-u-1-2">
+                <div style={{maxWidth: "350px", margin: "auto"}}>
+                    <p style={{marginTop: "46px"}}><strong>{t("landingExplain.chapter5.column-1-head")}</strong></p>
+                    <p style={{marginTop: "46px"}}>{t("landingExplain.chapter5.column-1-1")}</p>
+                    <p>{t("landingExplain.chapter5.column-1-2")}</p>
+                    <p>{t("landingExplain.chapter5.column-1-3")}</p>
+                </div>
+            </div>
+            <div className="pure-u-1-2"><img className="pure-img"  src={require("../../img/col-1.png")}/></div>
+        </div>
+        <div className="pure-g">
+            <div className="pure-u-1-2"><img className="pure-img"  src={require("../../img/col-2.png")}/></div>
+            <div className="pure-u-1-2">
+                <div style={{maxWidth: "350px", margin: "auto"}}>
+                    <p style={{marginTop: "46px"}}><strong>{t("landingExplain.chapter5.column-2-head")}</strong></p>
+                    <p style={{marginTop: "46px"}}>{t("landingExplain.chapter5.column-2-1")}</p>
+                    <p>{t("landingExplain.chapter5.column-2-2")}</p>
+                    <p>{t("landingExplain.chapter5.column-2-3")}</p>
+                </div>
+            </div>
+        </div>
 
-      <hr />
+        <h2 id="team" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter6.heading")}</strong></h2>
+        <div className="pure-g" style={{marginTop: "60px"}}>
+            <div className="pure-u-1-4">
+                <img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/>
+                <p className="team-name" style={{marginTop: "22px"}}><strong>{t("landingExplain.chapter6.team-name-1")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-1")}</p>
+            </div>
+            <div className="pure-u-1-4">
+                <img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/>
+                <p className="team-name" style={{marginTop: "22px"}}><strong>{t("landingExplain.chapter6.team-name-2")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-2")}</p>
+            </div>
+            <div className="pure-u-1-4">
+                <img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/>
+                <p className="team-name" style={{marginTop: "22px"}}><strong>{t("landingExplain.chapter6.team-name-3")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-3")}</p>
+            </div>
+            <div className="pure-u-1-4">
+                <img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/>
+                <p className="team-name" style={{marginTop: "22px"}}><strong>{t("landingExplain.chapter6.team-name-4")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-4")}</p>
+            </div>
+        </div>
+        <p style={{marginTop: "46px"}}><strong>{t("landingExplain.chapter6.text-heading")}</strong>{t("landingExplain.chapter6.text")}</p>
 
-      <h2>{t("landingExplain.chapter7.heading")}</h2>
-      <div>
-        <a href="https://www.mannheim.de/">
-          <img className="partnerLogo" src={require("../../img/mannheim.jpg")}/>
-        </a>
-        <a href="https://www.engagement-global.de/rueckkehrende.html">
-          <img className="partnerLogo" src={require("../../img/EngagementGlobal.jpg")}/>
-        </a>
-        <a href="http://www.bmz.de/">
-          <img className="partnerLogo" src={require("../../img/BMZ.jpg")}/>
-        </a>
-      </div>
-      <p>{t("landingExplain.chapter7.boell-foundation")}</p>
+        <h2 style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter7.heading")}</strong></h2>
+        <p style={{marginTop: "46px"}}>{t("landingExplain.chapter7.text.1")}</p>
+        <p>{t("landingExplain.chapter7.text.2")}</p>
+        <p>{t("landingExplain.chapter7.text.3")}</p>
 
+
+        <a href="#" className="pure-button team-button">Запоўні анкету!</a>
+
+        <h2 id="donate" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter8.heading")}</strong></h2>
+        <img style={{marginTop: "90px"}} className="pure-img"  src={require("../../img/doika.png")}/>
+
+        <h2 id="partners" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter9.heading")}</strong></h2>
+        <div className="pure-g" style={{marginTop: "100px"}}>
+            <div className="pure-u-1-4"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/></div>
+            <div className="pure-u-1-4"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/></div>
+            <div className="pure-u-1-4"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/></div>
+            <div className="pure-u-1-4"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse.png")}/></div>
+        </div>
+        <div className="pure-g" style={{marginTop: "60px"}}>
+            <div className="pure-u-1-5"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse-small.png")}/></div>
+            <div className="pure-u-1-5"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse-small.png")}/></div>
+            <div className="pure-u-1-5"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse-small.png")}/></div>
+            <div className="pure-u-1-5"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse-small.png")}/></div>
+            <div className="pure-u-1-5"><img style={{margin: "auto"}} className="pure-img"  src={require("../../img/Ellipse-small.png")}/></div>
+        </div>
+
+        <h2 id="contacts" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter10.heading")}</strong></h2>
+        <div className="pure-g" style={{marginTop: "60px"}}>
+            <div className="pure-u-2-5">
+                <p style={{textAlign: "left"}}>{t("landingExplain.chapter10.text.1")}</p>
+                <p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter10.text.email")}</strong></p>
+                <p style={{textAlign: "left", marginTop: "40px"}}>{t("landingExplain.chapter10.text.2")}</p>
+                <p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter10.text.telegram")}</strong></p>
+                <p style={{textAlign: "left", marginTop: "40px"}}>{t("landingExplain.chapter10.text.3")}</p>
+                <p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter10.text.github")}</strong></p>
+                <p style={{textAlign: "left", marginTop: "40px"}}>{t("landingExplain.chapter10.text.4")}</p>
+                <p style={{textAlign: "left"}}><strong>{t("landingExplain.chapter10.text.address")}</strong></p>
+            </div>
+
+            <div className="pure-u-3-5" style={{textAlign: "right"}}>
+                <iframe width="500" height="500" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=27.580962181091312%2C53.90581086151094%2C27.586600184440613%2C53.90777965457411&amp;layer=mapnik&amp;marker=53.9067968497328%2C27.583783864974976" >
+                </iframe>
+            </div>
+        </div>
     </div>
   )
 
