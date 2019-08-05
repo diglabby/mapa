@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import de   from './locales/translation-de.json';
 import en   from './locales/translation-en.json';
+import by   from './locales/translation-by.json';
 
 import LanguageDetector from 'i18next-browser-languagedetector';
 
@@ -30,7 +31,8 @@ i18n
   .init({
     resources: {
       de: { translation: de },
-      en: { translation: en }
+      en: { translation: en },
+      by: { translation: by }
     },
     interpolation: {
       escapeValue: false
@@ -38,7 +40,7 @@ i18n
     ns: ['translation'],
     defaultNs: 'translation',
     detection: lngDetectorOptions,
-    fallbackLng: 'en'
+    fallbackLng: 'by'
   });
 
 export default i18n;
