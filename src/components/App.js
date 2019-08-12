@@ -270,12 +270,15 @@ module.exports = translate('translation')(Main)
 /* Moved all styles here. TODO: Move to right components */
 const GlobalStyle = createGlobalStyle`
   
+  @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+  
   @media only screen and (max-width: 600px) {
     body { font-size:80%;}
   }
 
   h1, h2, h3, h4, h5, h6, h7 {
     font-family: ${STYLE.headerFont};
+    
   }
   
   html, button, input, select, textarea {
@@ -442,8 +445,16 @@ const StyledApp = styled.div `
     font-family: ${STYLE.headerFont};
     font-weight: 500;
     margin-block-end: 2px;
+    text-align: center;
   }
-
+  
+  p {
+    text-align: center;
+    font-family: ${STYLE.bodyFont};
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
   button {
     font-family: ${STYLE.bodyFont};
     &.pure-button i {
@@ -473,9 +484,19 @@ const StyledApp = styled.div `
   .pure-menu-list {
     margin: 0 50px;
   }
+  
+  .pure-menu-link {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;    
+    color: #FFFFFF;
+    padding: .5em 0.5em;
+  }
 
   .pure-menu-link:hover {
-    color: #000;
+    color: #fff;
   }
 
 
@@ -515,9 +536,7 @@ const StyledApp = styled.div `
     position: relative;
     z-index: 10;
     color: #eee;
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    text-align: center;    
     .banner-link {
       color: #000;
     }
