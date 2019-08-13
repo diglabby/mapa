@@ -1,3 +1,5 @@
+//rtyff
+
 import i18n from 'i18next';
 import by   from './locales/translation-by.json';
 import en   from './locales/translation-en.json';
