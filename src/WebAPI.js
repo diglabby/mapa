@@ -40,17 +40,32 @@ module.exports = {
       .end(jsonCallback(cb));
   },
 
-  searchEvents: (tags, bbox, start, end, cb) => { 
+  searchEvents: (tags, bbox, start, end, cb) => {
     let req = request
       .get('/events')
       .use(prefix)
       .set('Accept', 'application/json');
-    if(bbox && bbox.length > 0) req.query('bbox=' + bbox.join(','))
-    if(tags && tags.length > 0) req.query('tags=' + tags) // TODO
-    if(start) req.query(start ? ('start_min=' + start) : "")
-    if(end) req.query(end ? ('start_max=' + end) : "")
+    if (bbox && bbox.length > 0) req.query('bbox=' + bbox.join(','))
+    if (tags && tags.length > 0) req.query('tags=' + tags) // TODO
+    if (start) req.query(start ? ('start_min=' + start) : "")
+    if (end) req.query(end ? ('start_max=' + end) : "")
 
     req.end(jsonCallback(cb));
+  },
+
+  createNewEvent: (newEvent, callBack) => {
+    request
+      .post('/events')
+      .use(prefix)
+      .set({ 'Accept': 'application/json', 'Authorization': 'Bearer falanster' })
+      .send(newEvent)
+      .end((err, res) => {
+        if (err) {
+          callBack(err);
+        } else {
+          callBack(null, res.text.replace(/"/g, ""));
+        }
+      });
   },
 
   getEvent: (id, cb) => {
@@ -164,7 +179,7 @@ module.exports = {
         if (err) {
           cb(err);
         } else {
-          cb(null, res.text.replace( /"/g ,""));
+          cb(null, res.text.replace(/"/g, ""));
         }
       });
   },

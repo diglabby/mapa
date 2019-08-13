@@ -307,13 +307,20 @@ const Actions = {
       })
     },
 
-  saveEntry: (e) =>
+  saveEntry: (entry) =>
     (dispatch, getState) => {
-      const entryExists = (e != null ? e.id : void 0);
-      const saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
-      e.license = getLicenseForEntry(e.license);
+      const entryExists = (entry != null ? entry.id : void 0);
+      let saveFunc = new Function();
 
-      saveFunc(e, (err, res) => {
+      if (entry.categories[0] === IDS.EVENT) {
+        saveFunc = WebAPI.createNewEvent;
+      } else {
+        saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
+      }
+
+      entry.license = getLicenseForEntry(entry.license);
+
+      saveFunc(entry, (err, res) => {
         if (err) {
           dispatch(stopSubmit(EDIT.id, {
             _error: err
@@ -324,7 +331,8 @@ const Actions = {
             status: "error"
           }));
         } else {
-          const id = (e != null ? e.id : void 0) || res;
+          const id = (entry != null ? entry.id : void 0) || res;
+
           WebAPI.getEntries([id], (err, res) => {
             dispatch(initialize(EDIT.id, {}, EDIT.fields));
             if (!err) {
