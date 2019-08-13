@@ -206,7 +206,9 @@
 			"contact" : "Contact",
 			"donate" : "Donate",
 			"login" : "Login",
-			"logout" : "Logout"
+			"logout" : "Logout",
+			"for-whom": "for whom",
+			"goals": "Our Goals"
 		},
 		"slogan" : "Mapping for Good",
 		"city-search" : {
