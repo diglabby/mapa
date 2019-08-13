@@ -22,6 +22,9 @@ import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
 
+const renderDatePicker = ({ input, ...props }) =>
+  <DayPickerInput {...props} inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
+
 class Form extends Component {
   state = {
     isEventEntry: false,
@@ -32,7 +35,7 @@ class Form extends Component {
     
     this.setState({ isEventEntry: category=== IDS.EVENT});
   };
-  
+
   render() {
     const { isEdit, license, dispatch, handleSubmit } = this.props;
     const { isEventEntry } = this.state;
@@ -84,12 +87,27 @@ class Form extends Component {
 
                 {isEventEntry && (
                   <RangeDates>
-                    <DayPickerInput placeholder="Start date"/>
-                    
-                    <Devider>-</Devider>
+                    <Date>
+                      <FieldElement name="start" component={renderDatePicker} placeholder="Start date"/>
 
-                    <DayPickerInput placeholder="End date"/>
+                      <FieldElement 
+                        name="start"
+                        component={errorMessage}
+                      />
+                    </Date>
+
+                    <Date>
+                      <FieldElement name="end" component={renderDatePicker} placeholder="End date"/>
+
+                      <FieldElement
+                        name="end"
+                        component={errorMessage}
+                      />
+                    </Date>
+
+
                   </RangeDates>
+
                 )}
 
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
@@ -317,11 +335,11 @@ const FormWrapper = styled.div`
 `
 
 const FieldElement = styled(Field)`
-
 `;
 
 const Fieldset = styled.fieldset`
   margin: 1em 0 1.5em !important;
+
   .err {
     color: red;
     margin-bottom: 10px;
@@ -348,18 +366,23 @@ const OptionalLegend = styled.legend`
 
 const RangeDates = styled.div`
   display: flex;
-  align-items: center;
 
   .DayPickerInput input {
     width: 100%;
   }
 `;
 
-const Devider = styled.span`
-  margin 0 5px;
+const Date = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  :first-child {
+    margin-right: 10px;
+  }
+
 `;
 
-const errorMessage = ({meta}) =>
+const errorMessage = ({ meta }) =>
   meta.error && meta.touched
     ? <div className="err">{meta.error}</div>
     : null
