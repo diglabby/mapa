@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import { translate        } from "react-i18next";
 import T                    from "prop-types";
 import styled               from "styled-components";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
-         initialize }       from "redux-form";
+         initialize, formValueSelector,  }       from "redux-form";
+         
+import 'react-day-picker/lib/style.css';
 
 import Actions              from "../Actions";
 import validation           from "../util/validation";
@@ -18,11 +21,22 @@ import SelectTags           from './SelectTags';
 import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
+
 class Form extends Component {
+  state = {
+    isEventEntry: false,
+  };
 
+  handleCategoryChange = (event) => {
+    const category = event.target.value;
+    
+    this.setState({ isEventEntry: category=== IDS.EVENT});
+  };
+  
   render() {
-
     const { isEdit, license, dispatch, handleSubmit } = this.props;
+    const { isEventEntry } = this.state;
+
     var t = (key) => {
       return this.props.t("entryForm." + key);
     };
@@ -46,12 +60,13 @@ class Form extends Component {
             }
             <div className= "pure-form">
               <Fieldset>
-                <FieldElement className="pure-input-1" name="category" component="select">
+                <FieldElement className="pure-input-1" name="category" component="select" onChange={this.handleCategoryChange}>
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
                   <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option>
                   <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option>
                 </FieldElement>
+                 
                 <FieldElement name="category" component={errorMessage} />
 
                 <FieldElement
@@ -65,6 +80,16 @@ class Form extends Component {
                 <FieldElement
                   name="title"
                   component={errorMessage} />
+
+                {isEventEntry && (
+                  <RangeDates>
+                    <DayPickerInput placeholder="Start date"/>
+                    
+                    <Devider>-</Devider>
+
+                    <DayPickerInput placeholder="End date"/>
+                  </RangeDates>
+                )}
 
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
                 <FieldElement name="description" component={errorMessage} />
@@ -318,6 +343,19 @@ const FieldsetLegend = styled.legend`
 const OptionalLegend = styled.legend`
   color: #777 !important;
   font-weight: 400 !important;
+`;
+
+const RangeDates = styled.div`
+  display: flex;
+  align-items: center;
+
+  .DayPickerInput input {
+    width: 100%;
+  }
+`;
+
+const Devider = styled.span`
+  margin 0 5px;
 `;
 
 const errorMessage = ({meta}) =>
