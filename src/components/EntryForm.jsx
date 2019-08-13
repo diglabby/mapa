@@ -50,7 +50,7 @@ class Form extends Component {
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
                   <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option>
-                  <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option>
+                  {/* <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option> */}
                 </FieldElement>
                 <FieldElement name="category" component={errorMessage} />
 
