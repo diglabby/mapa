@@ -68,12 +68,20 @@ module.exports = {
       });
   },
 
-  getEvent: (id, cb) => {
-    request
-      .get('/events/' + id)
-      .use(prefix)
-      .set('Accept', 'application/json')
-      .end(jsonCallback(cb));
+  getEvent: (ids = [], cb) => {
+    if (!Array.isArray(ids)) {
+      ids = [ids];
+    }
+
+    if (ids.length < 1) {
+      cb(new Error("no IDs were passed"));
+    } else {
+      request
+        .get('/events/' + ids.join(','))
+        .use(prefix)
+        .set('Accept', 'application/json')
+        .end(jsonCallback(cb));
+    }
   },
 
   searchAddressTilehosting: (addr, cb) => {

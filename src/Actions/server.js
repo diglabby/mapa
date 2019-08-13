@@ -309,16 +309,20 @@ const Actions = {
 
   saveEntry: (entry) =>
     (dispatch, getState) => {
+      let saveFunc;
+      let getEntityRequest;
+      const isEvent = entry.categories[0] === IDS.EVENT;
       const entryExists = (entry != null ? entry.id : void 0);
-      let saveFunc = new Function();
+      entry.license = getLicenseForEntry(entry.license);
 
-      if (entry.categories[0] === IDS.EVENT) {
+      if (isEvent) {
+        entry.created_by = 'test@test.com';
         saveFunc = WebAPI.createNewEvent;
+        getEntityRequest = WebAPI.getEvent;
       } else {
         saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
+        getEntityRequest = WebAPI.getEntries;
       }
-
-      entry.license = getLicenseForEntry(entry.license);
 
       saveFunc(entry, (err, res) => {
         if (err) {
@@ -333,7 +337,9 @@ const Actions = {
         } else {
           const id = (entry != null ? entry.id : void 0) || res;
 
-          WebAPI.getEntries([id], (err, res) => {
+          getEntityRequest([id], (err, res) => {
+            isEvent ? res.categories = entry.categories : res;
+
             dispatch(initialize(EDIT.id, {}, EDIT.fields));
             if (!err) {
               dispatch(notify({
@@ -350,12 +356,12 @@ const Actions = {
               if(!entryExists){
                 dispatch({
                   type: T.NEW_ENTRY_RESULT,
-                  payload: res[0]
+                  payload: isEvent ? res : res[0]
                 });
               } else {
                 dispatch({
                   type: T.SAVED_ENTRY_RESULT,
-                  payload: res[0]
+                  payload: isEvent ? res : res[0]
                 });
               }
             }
