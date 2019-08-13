@@ -3,7 +3,6 @@ import { translate }        from "react-i18next";
 import T                    from "prop-types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled               from "styled-components";
-
 import logo                 from "../img/mapa_logo_by.png";
 import CityList             from "./pure/CityList";
 import Info                 from "./pure/Info";
@@ -236,6 +235,13 @@ class LandingPage extends Component {
               </div>
             </div>
             <div className="menu-wrapper pure-u-18-24 pure-u-md-9-12">
+              <div className = "language-wrapper">
+                <a onClick={() => {i18n.changeLanguage('by');}} href="#"
+                   className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
+                {" "}
+                <a onClick={() => {i18n.changeLanguage('en');}} href="#"
+                   className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
+              </div>
               <div className="menu pure-menu pure-menu-horizontal">
                 <ul className="pure-g menu-list">
                   <li className="menu-item">
@@ -288,6 +294,8 @@ class LandingPage extends Component {
                       </a>
                     }
                   </li>
+
+
                 </ul>
               </div>
             </div>
