@@ -49,7 +49,8 @@ class Form extends Component {
                 <FieldElement className="pure-input-1" name="category" component="select">
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
-                  <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option>
+                  {/* this functionality will be made in future */}
+                  {/* <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option> */}
                   {/* <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option> */}
                 </FieldElement>
                 <FieldElement name="category" component={errorMessage} />
