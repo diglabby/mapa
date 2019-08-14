@@ -115,7 +115,7 @@ const LandingExplain = props => {
 
   return(
     <div>
-      <h2 style={{marginTop: "0px"}}><strong>{t("landingExplain.chapter1.name")}</strong>{t("landingExplain.chapter1.heading")}</h2>
+      <h2 style={{marginTop: "0px"}}><strong>{t("landingExplain.chapter1.name")}</strong><br></br>{t("landingExplain.chapter1.heading")}</h2>
       <img style={{marginTop: "50px"}} className="pure-img" src={require("../../img/mapa_explain.png")}/>
       <div style={{clear:"both"}} />
 
