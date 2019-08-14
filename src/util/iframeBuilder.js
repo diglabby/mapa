@@ -1,7 +1,7 @@
 import parseUrl from './parseUrl';
 import constructUrl from './constructUrl';
 
-export default (originalUrl, searchTag = null, height = '500', width = '100', show = true) => {
+export default (originalUrl, searchTag = null, height = '500', width = '100', show = true, color = 'green') => {
   const parsed = parseUrl(originalUrl);
   let [categories, search, zoom, entry] = new Array(4).fill('', 0, 4);
   let center = null;
