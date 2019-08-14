@@ -22,8 +22,14 @@ import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
 
-const renderDatePicker = ({ input, ...props }) =>
-  <DayPickerInput {...props} inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
+const renderDatePicker = ({ input, ...props }) => {
+  return <DayPickerInput {...props} value={ input.value ? convertToDateForPicker(input.value) : '' } inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
+};
+
+function convertToDateForPicker(date) {
+  const d = new window.Date(date);
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
 
 class Form extends Component {
   state = {
@@ -37,7 +43,7 @@ class Form extends Component {
   };
 
   render() {
-    const { isEdit, license, dispatch, handleSubmit } = this.props;
+    const { isEdit, isEvent, license, dispatch, handleSubmit } = this.props;
     const { isEventEntry } = this.state;
 
     var t = (key) => {
@@ -51,6 +57,7 @@ class Form extends Component {
           action    = 'javascript:void();' >
 
             <h3>{isEdit ? t("editEntryHeading") :  t("newEntryHeading")}</h3>
+
             { this.props.error &&
               <div className= "err">
                 { t("savingError") + ":" + this.props.error.message}
@@ -61,9 +68,10 @@ class Form extends Component {
                 <FieldElement name="license" component={errorMessage} />
               </div>
             }
+
             <div className= "pure-form">
               <Fieldset>
-                <FieldElement className="pure-input-1" name="category" component="select" onChange={this.handleCategoryChange}>
+                <FieldElement className="pure-input-1" name="category" disabled={ isEdit } component="select" onChange={this.handleCategoryChange}>
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
                   {/* this functionality will be made in future */}
@@ -85,8 +93,9 @@ class Form extends Component {
                   name="title"
                   component={errorMessage} />
 
-                {isEventEntry && (
+                {(isEventEntry || isEvent ) && (
                   <RangeDates>
+
                     <Date>
                       <FieldElement name="start" component={renderDatePicker} placeholder="Start date"/>
 
@@ -105,9 +114,7 @@ class Form extends Component {
                       />
                     </Date>
 
-
                   </RangeDates>
-
                 )}
 
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />

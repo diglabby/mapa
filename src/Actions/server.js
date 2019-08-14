@@ -317,7 +317,7 @@ const Actions = {
 
       if (isEvent) {
         entry.created_by = 'test@test.com';
-        saveFunc = WebAPI.createNewEvent;
+        saveFunc = entryExists ? WebAPI.editEvent : WebAPI.createNewEvent;
         getEntityRequest = WebAPI.getEvent;
       } else {
         saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
