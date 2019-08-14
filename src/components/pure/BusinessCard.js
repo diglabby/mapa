@@ -88,7 +88,7 @@ const BusinessCard = ({ entry, hasImage, t, isEvent, onTag, tagsClickable }) => 
           </span>
         </EntryCategory>
         <EntryTitle>{entry.title}</EntryTitle>
-        { isEvent ? <EventTimes start={ entry.start } end={ entry.end } showTimes={ true }/> : "" }
+        { isEvent ? <EventTimes start={ entry.start } end={ entry.end } showTimes={ false }/> : "" }
         <EntryDescription>{entry.description}</EntryDescription>
         <EntryDetailsOtherData>{[
           ((entry.organizer) ?

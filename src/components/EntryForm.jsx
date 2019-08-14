@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import { translate        } from "react-i18next";
 import T                    from "prop-types";
 import styled               from "styled-components";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
-         initialize }       from "redux-form";
+         initialize, formValueSelector,  }       from "redux-form";
+         
+import 'react-day-picker/lib/style.css';
 
 import Actions              from "../Actions";
 import validation           from "../util/validation";
@@ -18,11 +21,31 @@ import SelectTags           from './SelectTags';
 import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
+
+const renderDatePicker = ({ input, ...props }) => {
+  return <DayPickerInput {...props} value={ input.value ? convertToDateForPicker(input.value) : '' } inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
+};
+
+function convertToDateForPicker(date) {
+  const d = new window.Date(date);
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
+
 class Form extends Component {
+  state = {
+    isEventEntry: false,
+  };
+
+  handleCategoryChange = (event) => {
+    const category = event.target.value;
+    
+    this.setState({ isEventEntry: category=== IDS.EVENT});
+  };
 
   render() {
+    const { isEdit, isEvent, license, dispatch, handleSubmit } = this.props;
+    const { isEventEntry } = this.state;
 
-    const { isEdit, license, dispatch, handleSubmit } = this.props;
     var t = (key) => {
       return this.props.t("entryForm." + key);
     };
@@ -34,6 +57,7 @@ class Form extends Component {
           action    = 'javascript:void();' >
 
             <h3>{isEdit ? t("editEntryHeading") :  t("newEntryHeading")}</h3>
+
             { this.props.error &&
               <div className= "err">
                 { t("savingError") + ":" + this.props.error.message}
@@ -44,14 +68,17 @@ class Form extends Component {
                 <FieldElement name="license" component={errorMessage} />
               </div>
             }
+
             <div className= "pure-form">
               <Fieldset>
-                <FieldElement className="pure-input-1" name="category" component="select">
+                <FieldElement className="pure-input-1" name="category" disabled={ isEdit } component="select" onChange={this.handleCategoryChange}>
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
-                  <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option>
-                  {/* <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option> */}
+                  {/* this functionality will be made in future */}
+                  {/* <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option> */}
+                  <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option>
                 </FieldElement>
+                 
                 <FieldElement name="category" component={errorMessage} />
 
                 <FieldElement
@@ -65,6 +92,30 @@ class Form extends Component {
                 <FieldElement
                   name="title"
                   component={errorMessage} />
+
+                {(isEventEntry || isEvent ) && (
+                  <RangeDates>
+
+                    <Date>
+                      <FieldElement name="start" component={renderDatePicker} placeholder="Start date"/>
+
+                      <FieldElement 
+                        name="start"
+                        component={errorMessage}
+                      />
+                    </Date>
+
+                    <Date>
+                      <FieldElement name="end" component={renderDatePicker} placeholder="End date"/>
+
+                      <FieldElement
+                        name="end"
+                        component={errorMessage}
+                      />
+                    </Date>
+
+                  </RangeDates>
+                )}
 
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
                 <FieldElement name="description" component={errorMessage} />
@@ -291,11 +342,11 @@ const FormWrapper = styled.div`
 `
 
 const FieldElement = styled(Field)`
-
 `;
 
 const Fieldset = styled.fieldset`
   margin: 1em 0 1.5em !important;
+
   .err {
     color: red;
     margin-bottom: 10px;
@@ -320,7 +371,25 @@ const OptionalLegend = styled.legend`
   font-weight: 400 !important;
 `;
 
-const errorMessage = ({meta}) =>
+const RangeDates = styled.div`
+  display: flex;
+
+  .DayPickerInput input {
+    width: 100%;
+  }
+`;
+
+const Date = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  :first-child {
+    margin-right: 10px;
+  }
+
+`;
+
+const errorMessage = ({ meta }) =>
   meta.error && meta.touched
     ? <div className="err">{meta.error}</div>
     : null
