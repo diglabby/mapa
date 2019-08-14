@@ -40,25 +40,48 @@ module.exports = {
       .end(jsonCallback(cb));
   },
 
-  searchEvents: (tags, bbox, start, end, cb) => { 
+  searchEvents: (tags, bbox, start, end, cb) => {
     let req = request
       .get('/events')
       .use(prefix)
       .set('Accept', 'application/json');
-    if(bbox && bbox.length > 0) req.query('bbox=' + bbox.join(','))
-    if(tags && tags.length > 0) req.query('tags=' + tags) // TODO
-    if(start) req.query(start ? ('start_min=' + start) : "")
-    if(end) req.query(end ? ('start_max=' + end) : "")
+    if (bbox && bbox.length > 0) req.query('bbox=' + bbox.join(','))
+    if (tags && tags.length > 0) req.query('tags=' + tags) // TODO
+    if (start) req.query(start ? ('start_min=' + start) : "")
+    if (end) req.query(end ? ('start_max=' + end) : "")
 
     req.end(jsonCallback(cb));
   },
 
-  getEvent: (id, cb) => {
+  createNewEvent: (newEvent, callBack) => {
     request
-      .get('/events/' + id)
+      .post('/events')
       .use(prefix)
-      .set('Accept', 'application/json')
-      .end(jsonCallback(cb));
+      .set({ 'Accept': 'application/json', 'Authorization': 'Bearer falanster' })
+      .send(newEvent)
+      .end((err, res) => {
+        if (err) {
+          callBack(err);
+        } else {
+          callBack(null, res.text.replace(/"/g, ""));
+        }
+      });
+  },
+
+  getEvent: (ids = [], cb) => {
+    if (!Array.isArray(ids)) {
+      ids = [ids];
+    }
+
+    if (ids.length < 1) {
+      cb(new Error("no IDs were passed"));
+    } else {
+      request
+        .get('/events/' + ids.join(','))
+        .use(prefix)
+        .set('Accept', 'application/json')
+        .end(jsonCallback(cb));
+    }
   },
 
   searchAddressTilehosting: (addr, cb) => {
@@ -164,7 +187,7 @@ module.exports = {
         if (err) {
           cb(err);
         } else {
-          cb(null, res.text.replace( /"/g ,""));
+          cb(null, res.text.replace(/"/g, ""));
         }
       });
   },

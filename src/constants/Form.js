@@ -14,7 +14,9 @@ module.exports = {
       "lng",
       "category",
       "license",
-      "tags"
+      "tags",
+      "start",
+      "end",
     ]
   },
 
