@@ -2,7 +2,6 @@ import React                  from "react";
 import styled                 from "styled-components";
 import T                      from "prop-types";
 import { FontAwesomeIcon }    from '@fortawesome/react-fontawesome'
-
 import STYLE                  from "../styling/Variables"
 import AddressLine            from "./AddressLine";
 import EventTimes             from "./EventTimes";

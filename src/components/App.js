@@ -2,7 +2,6 @@
 
 import "./styling/Stylesheets"
 import "./styling/Icons"
-
 import React, { Component } from "react"
 import T                    from "prop-types"
 import { translate }        from "react-i18next"
@@ -11,7 +10,6 @@ import theme                from "reapop-theme-wybo";
 import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import Swipeable            from 'react-swipeable'
 import styled, { keyframes, createGlobalStyle } from "styled-components";
-
 import V                    from "../constants/PanelView"
 import Actions              from "../Actions"
 import Modal                from "./pure/Modal"

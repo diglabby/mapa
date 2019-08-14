@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import T                    from "prop-types";
 import { translate }        from "react-i18next";
-import V                    from "../../constants/PanelView";
 
 const teamArray = [
   {

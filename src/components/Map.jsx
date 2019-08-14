@@ -7,9 +7,7 @@ import { avg_rating_for_entry } from "../rating"
 import styled                   from "styled-components";
 import T                        from "prop-types";
 import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
-
 import { Map, TileLayer, Marker, CircleMarker, Tooltip } from "react-leaflet"
-
 import  "leaflet/dist/leaflet.css"
 
 const { INITIATIVE, EVENT, COMPANY } = IDS;

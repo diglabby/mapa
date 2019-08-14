@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { translate }        from "react-i18next";
 import T                    from "prop-types";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled               from "styled-components";
 import logo                 from "../img/mapa_logo_by.png";
 import CityList             from "./pure/CityList";
