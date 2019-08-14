@@ -23,7 +23,7 @@ import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
 
 const renderDatePicker = ({ input, ...props }) =>
-  <DayPickerInput {...props} inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
+  <DayPickerInput {...props} inputProps={{...input}} onDayChange={(day) => input.onChange(day)} dayPickerProps={{ disabledDays : { before: new window.Date() }}}/>;
 
 class Form extends Component {
   state = {
@@ -369,6 +369,15 @@ const RangeDates = styled.div`
 
   .DayPickerInput input {
     width: 100%;
+  }
+  
+  .DayPickerInput-OverlayWrapper {
+    position: static;
+  }
+
+  .DayPickerInput-Overlay {
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
