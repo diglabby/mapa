@@ -12,6 +12,12 @@ const entryForm = (data) => {
     errors._error = t("invalidValues");
     return errors;
   }
+  if (!data.start) {
+    errors.start = t("requiredField");
+  }
+  if (!data.end) {
+    errors.end = t("requiredField");
+  }
   if (data.title == null) {
     errors.title = t("requiredField");
   } else {
