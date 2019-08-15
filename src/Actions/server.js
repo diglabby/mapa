@@ -83,7 +83,10 @@ const Actions = {
 
             if(cats.includes(IDS.EVENT)){
               const tags = search.text.replace(/#/g, '');
-              WebAPI.searchEvents(tags, bbox, getMidnightUnixtime(Date.now()/1000), null, (err, res) => {
+              const date = new window.Date();
+              date.setHours(0, 0, 0, 0);
+
+              WebAPI.searchEvents(tags, bbox, date.getTime(), null, (err, res) => {
                 dispatch({
                   type: T.SEARCH_RESULT_EVENTS,
                   payload: err || res,
@@ -92,13 +95,13 @@ const Actions = {
               });
 
               // search events without place:
-              WebAPI.searchEvents(tags, null, getMidnightUnixtime(Date.now()/1000), null, (err, res) => {
-                dispatch({
-                  type: T.SEARCH_RESULT_EVENTS_WITHOUT_PLACE,
-                  payload: err || res,
-                  error: err != null
-                });
-              });
+              // WebAPI.searchEvents(tags, null, null, getMidnightUnixtime(Date.now()/1000), (err, res) => {
+              //   dispatch({
+              //     type: T.SEARCH_RESULT_EVENTS_WITHOUT_PLACE,
+              //     payload: err || res,
+              //     error: err != null
+              //   });
+              // });
             }
           }
 

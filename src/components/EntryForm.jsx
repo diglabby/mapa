@@ -21,10 +21,14 @@ import SelectTags           from './SelectTags';
 import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
-
-const renderDatePicker = ({ input, ...props }) => {
-  return <DayPickerInput {...props} value={ input.value ? convertToDateForPicker(input.value) : '' } inputProps={{...input}} onDayChange={(day) => input.onChange(day)}/>;
-};
+const renderDatePicker = ({ input, ...props }) => (
+  <DayPickerInput
+    {...props}
+    value={ input.value ? convertToDateForPicker(input.value) : '' }
+    inputProps={{...input}} onDayChange={(day) => input.onChange(day)}
+    dayPickerProps={{ disabledDays : { before: new window.Date() }}}
+  />
+);
 
 function convertToDateForPicker(date) {
   const d = new window.Date(date);
@@ -137,6 +141,7 @@ class Form extends Component {
                 <FieldsetLegend>
                   <FieldsetTitle>{t("location")}</FieldsetTitle>
                 </FieldsetLegend>
+
                 <div className= "pure-g">
                   <div className= "pure-u-15-24">
                     <FieldElement name="city" className="pure-input-1" component="input" placeholder={t("city")} />
@@ -147,9 +152,12 @@ class Form extends Component {
                     <FieldElement name="zip" component={errorMessage} />
                   </div>
                 </div>
+
                 <FieldElement name="street" className="pure-input-1" component="input" placeholder={t("street")}/>
                 <FieldElement name="street" component={errorMessage} />
+
                 <ClickOnMapText>{t("clickOnMap")}</ClickOnMapText>
+
                 <div className= "pure-g">
                   <label className= "pure-u-2-24">
                     <FontAwesomeIcon icon="map-marker" />
@@ -376,6 +384,15 @@ const RangeDates = styled.div`
 
   .DayPickerInput input {
     width: 100%;
+  }
+  
+  .DayPickerInput-OverlayWrapper {
+    position: static;
+  }
+
+  .DayPickerInput-Overlay {
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
