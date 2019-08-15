@@ -21,7 +21,6 @@ import SelectTags           from './SelectTags';
 import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
-
 const renderDatePicker = ({ input, ...props }) => (
   <DayPickerInput
     {...props}
