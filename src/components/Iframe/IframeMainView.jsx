@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import { translate        } from "react-i18next";
 import T                    from "prop-types";
 import styled               from "styled-components";
-import { reduxForm,
-         Field,
-         initialize, formValueSelector,  }       from "redux-form";
 import i18n   from "../../i18n";
 
-const t = (key) => i18n.t(key)
+const t = (key) => i18n.t("IframeMainView." + key)
 
 
 class IframeMainView extends Component {
@@ -29,7 +25,7 @@ class IframeMainView extends Component {
     return (
       <Wrapper>
         <Title>
-          {t("IframeMainView.title")}
+          {t("title")}
         </Title>
         <IframeContainer>
           <TextArea
@@ -40,7 +36,7 @@ class IframeMainView extends Component {
             defaultValue={code}
           />
           <Button onClick={this.copy}>
-            {t("IframeMainView.buttonName")}
+            {t("buttonName")}
           </Button>
         </IframeContainer>
       </Wrapper>
