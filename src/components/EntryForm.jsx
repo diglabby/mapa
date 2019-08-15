@@ -142,6 +142,7 @@ class Form extends Component {
                 <FieldsetLegend>
                   <FieldsetTitle>{t("location")}</FieldsetTitle>
                 </FieldsetLegend>
+
                 <div className= "pure-g">
                   <div className= "pure-u-15-24">
                     <FieldElement name="city" className="pure-input-1" component="input" placeholder={t("city")} />
@@ -152,9 +153,12 @@ class Form extends Component {
                     <FieldElement name="zip" component={errorMessage} />
                   </div>
                 </div>
+
                 <FieldElement name="street" className="pure-input-1" component="input" placeholder={t("street")}/>
                 <FieldElement name="street" component={errorMessage} />
+
                 <ClickOnMapText>{t("clickOnMap")}</ClickOnMapText>
+
                 <div className= "pure-g">
                   <label className= "pure-u-2-24">
                     <FontAwesomeIcon icon="map-marker" />

@@ -87,11 +87,13 @@ const BusinessCard = ({ entry, hasImage, t, isEvent, onTag, tagsClickable }) => 
             { i18n.t("category." + categoryName) }
           </span>
         </EntryCategory>
+
         <EntryTitle>{entry.title}</EntryTitle>
         { isEvent ? <EventTimes start={ entry.start } end={ entry.end } showTimes={ false }/> : "" }
         <EntryDescription>{entry.description}</EntryDescription>
-        <EntryDetailsOtherData>{[
-          ((entry.organizer) ?
+
+        <EntryDetailsOtherData>
+          {[((entry.organizer) ?
           <div key="organizer">
             <FontAwesomeIconElement icon="user" />
             { entry.organizer }
@@ -129,7 +131,9 @@ const BusinessCard = ({ entry, hasImage, t, isEvent, onTag, tagsClickable }) => 
           (entry.tags && entry.tags.filter(t => t !="").length > 0
             ? Tags(entry.tags, onTag, tagsClickable)
             : null)
-        ]}</EntryDetailsOtherData>
+        ]}
+        </EntryDetailsOtherData>
+
         {
           (isEvent && entry.registration) ?
             <EventRegistrationInfo

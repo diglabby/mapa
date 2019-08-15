@@ -142,7 +142,10 @@ class Sidebar extends Component {
                 onEdit={ onEdit }
                 onBack={ onBack }
               />
-              { !isEvent ?
+
+          {/* Temp solution for hide rating */}
+
+          {/*    { !isEvent ?
                 <Ratings
                   entry={ entry }
                   ratings={ (entry ? entry.ratings || [] : []).map(id => {
@@ -150,14 +153,15 @@ class Sidebar extends Component {
                   })}
                   onRate={ id => { return dispatch(Actions.showNewRating(id)); }}
                 />
-              : ''}
+              : ''}*/}
+
               { !isEvent ?
                 <SidebarFooter
-                    changed = {entry.created}
-                    version = {entry.version}
-                    title = {entry.title}
-                />
-              : ''}
+                  changed = {entry.created}
+                  version = {entry.version}
+                  title = {entry.title}
+                /> :
+                ''}
             </ScrollableEntryDetailsWrapper>
           );
         }

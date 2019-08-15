@@ -288,8 +288,9 @@
 		}
 	},
 	"landingExplain": {
+		"button": "Fill out the form!",
 		"chapter1": {
-			"heading": "The world is full of explorers, and full of things to be explored.",
+			"heading": " - The world is full of explorers, and full of things to be explored.",
 			"name": "Map of tomorrow",
 			"paragraph1": {
 				"heading": "Discover places from an inspiring point of view.",
@@ -305,11 +306,11 @@
 			}
 		},
 		"chapter2": {
-			"heading": "How to use the von morgen map",
-			"text": "We want to increase the trust between public organizations and a wide range of citizens, so Mapai:",
-			"subtext-1": " - increased transparency and visibility of public initiatives for a wide range.",
-			"subtext-2": " - deepening the interaction between initiatives, activists and the public.",
-			"subtext-3": "- Create a cooperation of IT volunteers with other activists."
+			"heading": "How to use the map of tomorrow",
+			"text": "We want to increase the trust between public organizations and a wide range of citizens, so Map can help to: ",
+			"subtext-1": " - increase transparency and visibility of public initiatives for a wide range.",
+			"subtext-2": " - deep the interaction between initiatives, activists and the public.",
+			"subtext-3": "- create a cooperation of IT volunteers with other activists."
 		},
 		"chapter3": {
 			"heading": "We have a vision",
@@ -318,7 +319,7 @@
 				"2": "We believe in a modern society in wich we all can embrace a self-determined, content and environmental-friendly life. Our goal: a benevolent future."
 			},
 			"column-1-head": "citizens",
-			"column-1": " - finding initiatives, similar in values ​​and vluchatstsa in their activities.",
+			"column-1": " - finding initiatives, similar in values ​​and participate in their activities.",
 			"column-2-head": "organizations",
 			"column-2": "- finding initiatives, congenial, and create partnerships.",
 			"column-3-head": "activists",
@@ -344,9 +345,9 @@
 			"column-1-2": "1. Add and modify data.",
 			"column-1-3": "2. Search and filter company by region.",
 			"column-2-head": "Offline",
-			"column-2-1": "1. Hackathon work together activists and aytsivalantsorav.",
+			"column-2-1": "1. Hackathon work together activists and IT-volunteers.",
 			"column-2-2": "2. advise and teach the use of Mapai.",
-			"column-2-3": "3. Educational lectures on aopensors and community interaction.",
+			"column-2-3": "3. Educational lectures on opensource and community interaction.",
 			"text": "Das Team von morgen ist so bunt wie der Wandel. Ehemalige entwicklungspolitische Freiwillige, Studierende, Wandelgestalter*innen und Stipendiaten - Menschen, die sich ehrenamtlich für die Gesellschaft von morgen einsetzen wollen.",
 			"new-members": "We are always looking for new members!",
 			"graphic-design": "Graphic Design",
@@ -398,12 +399,12 @@
 			"text": {
 				"1": "Write your opinion on mail",
 				"email": "falanster.by@gmail.com",
-				"2": "Write us for any queations",
+				"2": "Write us for any questions",
 				"telegram": "Telegram",
 				"3": "Or coments on",
 				"github": "Github",
 				"4": "You can find us on adress:",
-				"address": "city Minsk, st.З.Buadyli, 3, ap.2Н ('Фаланстэр')"
+				"address": "city Minsk, Zm.Buadyli str., 3, ap.2N ('Falanster')"
 			}
 		}
 	},
