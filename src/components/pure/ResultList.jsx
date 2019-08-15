@@ -37,11 +37,22 @@ const ResultListElement = ({highlight, entry, ratings, onClick, onMouseEnter, on
             </div>
             { getBody(isEvent, description, entry.city, entry.organizer) }
           </TitleCategoryAndDescription>
-          { !isEvent ?
+
+          {/* Temp solution for hide rating */}
+
+      {/*    { !isEvent ?
             <FlowerWrapper>
               <Flower ratings={ratings} radius={30} showTooltip={false}/>
             </FlowerWrapper>
-          : <EventTimeLabel start={ entry.start }/> }
+            : <EventTimeLabel start={ entry.start }/>
+          }*/}
+
+          {/* !!!! change it for add rating */}
+
+          { !isEvent ? ''
+          : <EventTimeLabel start={ entry.start }/>
+          }
+
         </TitleCategoryDescriptionsAndFlower>
         {
           entry.tags && !isEvent && (entry.tags.length > 0)
