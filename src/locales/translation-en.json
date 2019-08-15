@@ -521,5 +521,15 @@
 			"close": "Close",
 			"donate": "Donate"
 		}
+	},
+	"IframeMainView": {
+		"title": "code",
+		"buttonName": "copy",
+		"advancedOptions": {
+			"width": "width",
+			"heigth": "heigth",
+			"hashtag": "hashtag",
+			"getCode": "get code"
+		}
 	}
 }
