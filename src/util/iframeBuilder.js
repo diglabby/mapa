@@ -1,7 +1,7 @@
 import parseUrl from './parseUrl';
 import constructUrl from './constructUrl';
 
-export default (originalUrl, searchTag = null, height = '500', width = '100', show = true, color = 'green') => {
+export default (originalUrl, searchTag = null, height = '500', width = '100', color = 'green') => {
   const parsed = parseUrl(originalUrl);
   let [categories, search, zoom, entry] = new Array(4).fill('', 0, 4);
   let center = null;
@@ -43,7 +43,7 @@ export default (originalUrl, searchTag = null, height = '500', width = '100', sh
   <div>
       <iframe
         title="Mapa"
-        src = "https://mapa.falanster.by/${constructUrl(entry, center, zoom, searchMain(), show, categories )}"
+        src = "https://mapa.falanster.by/map.html${constructUrl(entry, center, zoom, searchMain(), categories )}"
         width="${width}%"
         height="${height}">
         <a
