@@ -236,12 +236,26 @@ class LandingPage extends Component {
               </div>
             </div>
             <div className="menu-wrapper pure-u-18-24 pure-u-md-9-12">
-              <div className = "language-wrapper">
-                <a onClick={() => {i18n.changeLanguage('by');}} href="#"
-                   className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
-                {" "}
-                <a onClick={() => {i18n.changeLanguage('en');}} href="#"
-                   className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
+              <div className="top-wrapper">
+                <div className = "language-wrapper">
+
+                  { loggedIn ?
+                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
+                        {t("menu.logout")}
+                      </a>
+                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
+                        {t("menu.login")}
+                      </a>
+                  }
+
+                  <a onClick={() => {i18n.changeLanguage('by');}} href="#"
+                     className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
+                  {" "}
+                  <a onClick={() => {i18n.changeLanguage('en');}} href="#"
+                     className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
+
+
+                </div>
               </div>
               <div className="menu pure-menu pure-menu-horizontal">
                 <ul className="pure-g menu-list">
@@ -285,18 +299,6 @@ class LandingPage extends Component {
                           {t("menu.contact")}
                       </a>
                   </li>
-                  <li className="menu-item">
-                    { loggedIn ?
-                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="pure-menu-link">
-                        {t("menu.logout")}
-                      </a>
-                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="pure-menu-link">
-                        {t("menu.login")}
-                      </a>
-                    }
-                  </li>
-
-
                 </ul>
               </div>
             </div>
@@ -468,12 +470,27 @@ const LandingWrapper = styled.div`
         width: 100%;
       }
     }
+    .top-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;    
+    }
     .menu-wrapper {
       text-align: right;
-      .language-wrapper {
+      
+        .login-link {
+          text-decoration: none;
+          color: #fff;
+          margin-right: 30px;
+        }
+      
+      .language-wrapper {        
         margin: 1em;
+        position: absolute;
+        top 0;
+        right: 0;
         font-size: 0.8em;
-        color: #000;
+        color: #fff;
         .language-link {
           margin: 3pt;
           text-decoration: none;
@@ -482,9 +499,9 @@ const LandingWrapper = styled.div`
             pointer-events: none;
           }
           &.unselected {
-            color: #555;
+            color: #fff;
             &:hover {
-              color: #000;
+              color: #555;
             }
           }
         }
@@ -500,7 +517,7 @@ const LandingWrapper = styled.div`
       font-size: 0.9em;
       display: inline-block;
       position: relative;
-      margin-top: 30px;
+      margin-top: 50px;
       max-width: 100%;
       .menu-list {
         list-style: none;

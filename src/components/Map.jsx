@@ -186,7 +186,7 @@ class KVMMap extends Component {
                 <LocateButton
                   className   = "leaflet-bar-part leaflet-bar-part-single" //"locate-icon"
                   onClick     = { this.props.onLocate }
-                  title       = "Zeige meine Position" >
+                  title       = "Пакажыце маю пазіцыю" >
                   <LocateIcon icon="location-arrow" />
                 </LocateButton>
               </LocateButtonInnerContainer>
