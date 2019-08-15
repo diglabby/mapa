@@ -522,5 +522,15 @@
 			"close": "Зачыніць",
 			"donate": "Фінансаваць"
 		}
+	},
+	"IframeMainView": {
+		"title": "код",
+		"buttonName": "копія",
+		"advancedOptions": {
+			"width": "шырыня",
+			"heigth": "вышыня",
+			"hashtag": "хэштэг",
+			"getCode": "атрымаць код"
+		}
 	}
 }

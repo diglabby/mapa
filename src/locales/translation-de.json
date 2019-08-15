@@ -456,5 +456,15 @@
 			"close":"schließen",
 			"donate":"spenden"
 		}
+	},
+	"IframeMainView": {
+		"title": "code",
+		"buttonName": "kopieren",
+		"advancedOptions": {
+			"width": "breite",
+			"heigth": "höhe",
+			"hashtag": "hashtag",
+			"getCode": "code abrufen"
+		}
 	}
 }
