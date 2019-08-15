@@ -289,7 +289,7 @@ class LandingPage extends Component {
                           {t("menu.donate")}
                       </a>
                   </li>
-                  <li className="pmenu-item">
+                  <li className="menu-item">
                       <a href="#partners" className="pure-menu-link">
                           {t("menu.partners")}
                       </a>
