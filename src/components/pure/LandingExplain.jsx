@@ -208,8 +208,8 @@ const LandingExplain = props => {
 
         <a href="#" className="pure-button team-button">Запоўні анкету!</a>
 
-        <h2 id="donate" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter8.heading")}</strong></h2>
-        <img style={{marginTop: "90px"}} className="pure-img"  src={require("../../img/doika.png")}/>
+        {/*<h2 id="donate" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter8.heading")}</strong></h2>
+        <img style={{marginTop: "90px"}} className="pure-img"  src={require("../../img/doika.png")}/>*/}
 
         <h2 id="partners" style={{marginTop: "130px"}}><strong>{t("landingExplain.chapter9.heading")}</strong></h2>
         <div className="pure-g" style={{marginTop: "100px"}}>
