@@ -55,6 +55,7 @@ class Sidebar extends Component {
       .concat(search.eventsWithoutPlace);
 
     const entry = entries[search.current] || null;
+    const isEventForEdit = entry && entry.categories && entry.categories.length > 0 && entry.categories[0] === IDS.EVENT;
 
     var content;
     switch (view.left) {
@@ -166,8 +167,9 @@ class Sidebar extends Component {
       case V.NEW:
         content = (
           <EntryForm
-            isEdit={ form[EDIT.id] ? form[EDIT.id].kvm_flag_id : null}
-            license={ entries[search.current] ? entries[search.current].license : null}
+            isEdit={ form[EDIT.id] ? form[EDIT.id].kvm_flag_id : null }
+            isEvent={ isEventForEdit }
+            license={ entries[search.current] ? entries[search.current].license : null }
             dispatch={ dispatch }
             onSubmit={ data => (
               dispatch(Actions.saveEntry(

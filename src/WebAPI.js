@@ -68,6 +68,21 @@ module.exports = {
       });
   },
 
+  editEvent: (event, callBack) => {
+    request
+      .put('/events/' + event.id)
+      .use(prefix)
+      .set({ 'Accept': 'application/json', 'Authorization': 'Bearer falanster' })
+      .send(event)
+      .end((err, res) => {
+        if (err) {
+          callBack(err);
+        } else {
+          callBack(null, res.text);
+        }
+      });
+  },
+
   getEvent: (ids = [], cb) => {
     if (!Array.isArray(ids)) {
       ids = [ids];
