@@ -491,7 +491,13 @@ const LandingWrapper = styled.div`
       margin-bottom: 0.5em;
     }
   }
-  
+  .partners-subtitle {
+    letter-spacing: 0em !important;
+    font-size: 24px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .banner {
     background-color: #162D50;
     .content {
