@@ -5,8 +5,6 @@ Demo: [https://mapa.falanster.by/](https://mapa.falanster.by/)
 [![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=xpWn1c3XZHhwL6V72SJK
 )](https://www.browserstack.com/automate/public-build/xpWn1c3XZHhwL6V72SJK)
 [![Build Status](https://secure.travis-ci.org/flosse/kartevonmorgen.svg?branch=master)](http://travis-ci.org/flosse/kartevonmorgen)
-[![Dependency Status](https://gemnasium.com/flosse/kartevonmorgen.svg)](https://gemnasium.com/flosse/kartevonmorgen)
-[![Dependency Status](https://dependencyci.com/github/flosse/kartevonmorgen/badge)](https://dependencyci.com/github/flosse/kartevonmorgen)
 [![License](https://img.shields.io/badge/license-AGPLv3-blue.svg?style=flat)](https://github.com/flosse/kartevonmorgen/blob/master/LICENSE)
 
 Are you're interested in contributing to KVM?
