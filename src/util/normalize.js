@@ -9,17 +9,17 @@ const url = (value) => {
 };
 
 const tags = (value) => {
-  if (value == null || value == undefined) {
+  if (value === null || value === undefined) {
     return false;
   }
-  value = value.split(',')[0]
+  value = value.split(',')[0];
 
   value = value
     .toLowerCase()
     .replace(/[_ ]/g,'-')
     .replace(' ','-')
     .replace('--', '-')
-    .replace(/[^a-zA-Z0-9äöüÄÖÜß\-, ]/gi, '')
+    .replace(/[^a-zA-Z0-9а-яА-ЯЁёІіЎўäöüÄÖÜß\-, ]/gi, '');
 
   if (value.length < 3 ){
     return false;

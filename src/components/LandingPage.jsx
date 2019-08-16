@@ -349,18 +349,18 @@ class LandingPage extends Component {
                 : contentComp
         }</div>
         <div className="footer">
-          <h3>{t("footer.heading")}<a className="contact-top-link" href="email:">{t("footer.email")}</a><a className="contact-link" href="tel:{t('footer.phone')}">{t("footer.phone")}</a></h3>
+          <h3>{t("footer.heading")}<a className="contact-top-link" href="mailto:falanster.by@gmail.com">{t("footer.email")}</a><a className="contact-link" href="tel:+375 29 127 42 67">{t("footer.phone")}</a></h3>
           <p>
-            <a className="contact-link" target="_blank" href={URLs.MAIL.link}><img className="pure-img"  src={require("../img/fb.png")}/></a>
-            <a className="contact-link" target="_blank" href={URLs.FACEBOOK.link}><img className="pure-img"  src={require("../img/vk.png")}/></a>
-            <a className="contact-link" target="_blank" href={URLs.REPOSITORY.link}><img className="pure-img"  src={require("../img/telegram.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.FACEBOOK.link}><img className="pure-img"  src={require("../img/fb.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.VK.link}><img className="pure-img"  src={require("../img/vk.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.TELEGRAM.link}><img className="pure-img"  src={require("../img/telegram.png")}/></a>
             <a className="contact-link" target="_blank" href={URLs.REPOSITORY.link}><img className="pure-img"  src={require("../img/github.png")}/></a>
           </p>
             <a href="https://falanster.by"><img style={{margin: "65px auto 20px"}} className="pure-img"  src={require("../img/logo_f.png")}/></a>
           <p>
-            <a className="license-link" href="https://falanster.by"><img className="pure-img"  src={require("../img/cc.png")}/></a>
-            <a className="license-link" href="https://falanster.by"><img className="pure-img"  src={require("../img/by.png")}/></a>
-            <a className="license-link" href="https://falanster.by"><img className="pure-img"  src={require("../img/sa.png")}/></a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/cc.png")}/></a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/by.png")}/></a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/sa.png")}/></a>
           </p>
 
           <p>
@@ -404,6 +404,42 @@ const LandingWrapper = styled.div`
     font-size: 2em;
     margin-top: 1.5em;
     font-weight: 500;
+  }
+  .help-link {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-bottom:15px;
+    padding: 15px;
+    
+    color: #000000;
+  }
+  .logo-partner {
+    display: flex !important;
+    height: 150px;
+    img {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+  }
+  .landing-link {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    color:#000;
+    text-decoration: none;
+  }
+  .rounded {
+    width: 146px;
+    height: 146px;
+    border-radius: 50%;
   }
   input {
     font-size: 1.2em;
@@ -455,6 +491,7 @@ const LandingWrapper = styled.div`
       margin-bottom: 0.5em;
     }
   }
+  
   .banner {
     background-color: #162D50;
     .content {

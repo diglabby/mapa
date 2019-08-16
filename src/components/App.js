@@ -30,6 +30,7 @@ class Main extends Component {
     const { entries, ratings } = server;
 
     this.changeUrlAccordingToState(url);
+    this.changePageTile();
     const visibleEntries = this.filterVisibleEntries(entries, search);
     const loggedIn = user.username ? true : false;
     
@@ -252,6 +253,10 @@ class Main extends Component {
     this.props.dispatch(Actions.search());
   };
 
+  changePageTile() {
+    document.title = i18n.t('title');
+    i18n.on('languageChanged', () => document.title = i18n.t('title'));
+  }
 }
 
 Main.propTypes = {
@@ -265,7 +270,7 @@ Main.propTypes = {
   timedActions :  T.object.isRequired
 };
 
-module.exports = translate('translation')(Main)
+module.exports = translate('translation')(Main);
 
 /* Moved all styles here. TODO: Move to right components */
 const GlobalStyle = createGlobalStyle`
@@ -293,6 +298,7 @@ const fadein = keyframes`
 `
 
 import pincloud from "../img/pincloud.png";
+import i18n from "../i18n";
 
 const MenuFontAwesomeIcon = styled(FontAwesomeIcon)`
   padding-right: .45rem;
