@@ -1,4 +1,9 @@
 {
+	"mapButtons": {
+		"center": "Пакажыце маю пазіцыю",
+		"far": "Далей",
+		"closer": "Ближэй"
+	},
 	"title": "Мапа заўтрашняга дня",
 	"entryForm": {
 		"category": {

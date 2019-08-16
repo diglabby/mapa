@@ -1,4 +1,9 @@
 {
+	"mapButtons": {
+		"center": "Show my position",
+		"far": "Zoom out",
+		"closer": "Zoom in"
+	},
 	"title": "Mapa",
 	"entryForm": {
 		"category": {
