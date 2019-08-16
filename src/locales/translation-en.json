@@ -307,14 +307,14 @@
 			}
 		},
 		"chapter2": {
-			"heading": "How to use the map of tomorrow",
+			"heading": "Our goals",
 			"text": "We want to increase the trust between public organizations and a wide range of citizens, so Map can help to: ",
 			"subtext-1": " - increase transparency and visibility of public initiatives for a wide range.",
 			"subtext-2": " - deep the interaction between initiatives, activists and the public.",
 			"subtext-3": "- create a cooperation of IT volunteers with other activists."
 		},
 		"chapter3": {
-			"heading": "We have a vision",
+			"heading": "For whom",
 			"text": {
 				"1": "von morgen supports creativity, sustainability and joint action.",
 				"2": "We believe in a modern society in wich we all can embrace a self-determined, content and environmental-friendly life. Our goal: a benevolent future."
@@ -327,7 +327,7 @@
 			"column-3": "- initiatives to find and place them on the map, making their work visible to the wider society."
 		},
 		"chapter4": {
-			"heading": "Are you with us?",
+			"heading": "Principles",
 			"text": {
 				"1": "Support our project",
 				"2": "Become a local scout",
@@ -340,7 +340,7 @@
 			"learnMore": "more"
 		},
 		"chapter5": {
-			"heading": "How it works",
+			"heading": "How you may help",
 			"column-1-head": "Online",
 			"column-1-1": "Visitors can Maps ",
 			"column-1-2": "1. Add and modify data.",
@@ -368,7 +368,7 @@
 			"linus": "Global Sociology"
 		},
 		"chapter6": {
-			"heading": "A project by",
+			"heading": "Our team",
 			"text-heading": "Team",
 			"text": " - a dense and regular work of like-minded team to achieve greater openness and dynamism of the Belarusian society with the help of maps. Ready to be the case?",
 			"team-name-1": "Activist",
@@ -381,7 +381,7 @@
 			"team-description-4": "Role"
 		},
 		"chapter7": {
-			"heading": "Our partners",
+			"heading": "How to participate",
 			"boell-foundation": "In its pilot phase this project has been supported by the Heinrich-Böll-Foundation.",
 			"text": {
 				"1": "1. Help to write code.",
@@ -393,7 +393,8 @@
 			"heading": "Donate!"
 		},
 		"chapter9": {
-			"heading": "Activists"
+			"heading": "Our partners",
+			"infoPartners": "Info partners"
 		},
 		"chapter10": {
 			"heading": "How to contact us",
