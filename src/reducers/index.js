@@ -6,6 +6,7 @@ import server              from "./server";
 import url                 from "./url";
 import user                from "./user";
 import timedActions        from "./timedActions";
+import iframe              from "./iframe";
 import { reducer as notificationsReducer } from 'reapop';
 import { combineReducers } from "redux";
 
@@ -19,4 +20,5 @@ module.exports = combineReducers({
   url,
   user,
   timedActions,
+  iframe,
 });
