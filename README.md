@@ -1,9 +1,9 @@
-
-
-Demo: [https://kartevonmorgen.org/](https://kartevonmorgen.org/)
+Demo: [https://mapa.falanster.by/](https://mapa.falanster.by/)
 
 ## Development
 
+[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=xpWn1c3XZHhwL6V72SJK
+)](https://www.browserstack.com/automate/public-build/xpWn1c3XZHhwL6V72SJK)
 [![Build Status](https://secure.travis-ci.org/flosse/kartevonmorgen.svg?branch=master)](http://travis-ci.org/flosse/kartevonmorgen)
 [![Dependency Status](https://gemnasium.com/flosse/kartevonmorgen.svg)](https://gemnasium.com/flosse/kartevonmorgen)
 [![Dependency Status](https://dependencyci.com/github/flosse/kartevonmorgen/badge)](https://dependencyci.com/github/flosse/kartevonmorgen)
@@ -108,12 +108,6 @@ KVM uses the [OpenFairDB](https://github.com/slowtec/openfairdb) as its backend.
 * Install via `yarn install`
 * Add changes
 * Run by using `yarn start`
-
-
-## Badges
-
-[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=xpWn1c3XZHhwL6V72SJK
-)](https://www.browserstack.com/automate/public-build/xpWn1c3XZHhwL6V72SJK)
 
 ## License
 
