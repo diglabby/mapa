@@ -251,7 +251,20 @@ const Actions = {
       if(coordinates.zoom != zoom){
         dispatch(Actions.setZoom(coordinates.zoom));
       }
+    },
+
+  setIframe: (iframe) => {
+    return {
+      type: T.SET_IFRAME,
+      payload: iframe
     }
+  },
+
+  onSetIframe: (iframe) =>
+    (dispatch) => {
+      dispatch(Actions.setIframe(iframe))
+    }
+
 };
 
 module.exports = Actions;

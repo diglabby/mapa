@@ -21,7 +21,7 @@ class IframeMainView extends Component {
     }
   };
   render() {
-    const { code } = this.props;
+    const { iframe } = this.props;
     return (
       <Wrapper>
         <IframeContainer>
@@ -30,7 +30,7 @@ class IframeMainView extends Component {
             name='iframe'
             component='textarea'
             type='text'
-            defaultValue={code}
+            defaultValue={iframe.code}
           />
           <Button onClick={this.copy}>
             {t("buttonName")}
