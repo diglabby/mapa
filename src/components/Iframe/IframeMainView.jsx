@@ -24,9 +24,6 @@ class IframeMainView extends Component {
     const { code } = this.props;
     return (
       <Wrapper>
-        <Title>
-          {t("title")}
-        </Title>
         <IframeContainer>
           <TextArea
             className='iframeForCopy'
@@ -49,13 +46,9 @@ IframeMainView.propTypes = {
 };
 
 const Wrapper = styled.div`
-  width: 100%;
-`
-const Title = styled.h3`
-  font-family: "PT Sans",sans-serif;
-  font-weight: 500;
-  margin-block-end: 2px;
-  text-align: center;
+  width: 450px;
+  height: 85px;
+  margin-top: 20px;
 `
 
 const IframeContainer = styled.div`
@@ -66,6 +59,8 @@ const IframeContainer = styled.div`
 
 const TextArea = styled.textarea`
   flex-grow: 1;
+  height: 60px;
+  border: thin solid #ccc;
 `
 const Button = styled.button`
   color: #fff;
