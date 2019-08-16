@@ -3,8 +3,7 @@ import { translate }        from "react-i18next";
 import T                    from "prop-types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled               from "styled-components";
-
-import logo                 from "../img/logo.png";
+import logo                 from "../img/mapa_logo_by.png";
 import CityList             from "./pure/CityList";
 import Info                 from "./pure/Info";
 import Contact              from "./pure/Contact";
@@ -17,6 +16,7 @@ import URLs                 from "../constants/URLs";
 import V                    from "../constants/PanelView";
 import i18n                 from "../i18n";
 import STYLE                from "./styling/Variables"
+import {setLng} from "../reducers/lngReducer";
 
 class LandingPage extends Component {
   state = {
@@ -228,52 +228,82 @@ class LandingPage extends Component {
       <LandingWrapper className="landing">
         <div className = "banner">
           <div className = "content pure-g">
-            <div className = "logo-wrapper pure-u-11-24 pure-u-md-1-3">
+            <div className = "logo-wrapper pure-u-6-24 pure-u-md-3-12">
               <div className = "logo">
                 <a onClick={() => onClick('landing')} href="#">
                   <img className="logo pure-img" src={logo} />
                 </a>
               </div>
             </div>
-            <div className="menu-wrapper pure-u-1 pure-u-md-2-3">
-              <div className = "language-wrapper">
-                <a onClick={() => {i18n.changeLanguage('de');}} href="#"
-                  className={"language-link" + ((i18n.language == "de") ? " selected" : " unselected")}>de</a>
-                {" "}
-                <a onClick={() => {i18n.changeLanguage('en');}} href="#"
-                  className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
-              </div>
-              <div className="menu pure-menu pure-menu-horizontal">
-                <ul className="pure-g">
-                  <li className="pure-u-1-3 pure-u-md-1-6 menu-item">
-                    <a onClick={() => onClick('map')} href="#" className="pure-menu-link">
-                      {t("menu.map")}
-                    </a>
-                  </li>
-                  <li className="pure-u-1-3 pure-u-md-1-6 menu-item">
-                    <a onClick= {() => onClick(V.INFO)} href="#" className="pure-menu-link">
-                      {t("menu.infos")}
-                    </a>
-                  </li>
-                  <li className="pure-u-1-3 pure-u-md-1-6 menu-item">
-                    <a onClick = {() => onClick(V.CONTACT)} href="#" className="pure-menu-link">
-                      {t("menu.contact")}
-                    </a>
-                  </li>
-                  <li className="pure-u-1-3 pure-u-md-1-6 menu-item">
-                    <a onClick={() => onClick(V.DONATE)} href="#" className="pure-menu-link">
-                      {t("menu.donate")}
-                    </a>
-                  </li>
-                  <li className="pure-u-1-3 pure-u-md-1-6 menu-item">
-                    { loggedIn ?
-                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="pure-menu-link">
+            <div className="menu-wrapper pure-u-18-24 pure-u-md-9-12">
+              <div className="top-wrapper">
+                <div className = "language-wrapper">
+
+                  { loggedIn ?
+                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
                         {t("menu.logout")}
                       </a>
-                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="pure-menu-link">
+                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
                         {t("menu.login")}
                       </a>
-                    }
+                  }
+
+                  <a onClick={() => {
+                    i18n.changeLanguage('by');
+                    setLng('by');
+                  }} href="#"
+                     className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
+                  {" "}
+                  <a onClick={() => {
+                    i18n.changeLanguage('en');
+                    setLng('en');
+                  }} href="#"
+                     className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
+
+
+                </div>
+              </div>
+              <div className="menu pure-menu pure-menu-horizontal">
+                <ul className="pure-g menu-list">
+                  <li className="menu-item">
+                    <a href="#goals" className="pure-menu-link">
+                      {t("menu.goals")}
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#for-who" className="pure-menu-link">
+                      {t("menu.for-whom")}
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                      <a href="#principles" className="pure-menu-link">
+                          {t("menu.principles")}
+                      </a>
+                  </li>
+                  <li className="menu-item">
+                    <a href="#work" className="pure-menu-link">
+                      {t("menu.how-works")}
+                    </a>
+                  </li>
+                  <li className="menu-item">
+                      <a href="#team" className="pure-menu-link">
+                          {t("menu.team")}
+                      </a>
+                  </li>
+                  <li className="menu-item">
+                      <a href="#donate" className="pure-menu-link">
+                          {t("menu.donate")}
+                      </a>
+                  </li>
+                  <li className="menu-item">
+                      <a href="#partners" className="pure-menu-link">
+                          {t("menu.partners")}
+                      </a>
+                  </li>
+                  <li className="menu-item">
+                      <a href="#contacts" className="pure-menu-link">
+                          {t("menu.contact")}
+                      </a>
                   </li>
                 </ul>
               </div>
@@ -317,38 +347,28 @@ class LandingPage extends Component {
             </div>
           </div>
         </div>
-        <div className = "explain">{
-          content == null
-            ? <a href= "#tutorial" className= "circleTutorial">
-              <strong>
-                Tutorial
-                <div style ={{ paddingTop: "10px", fontSize: "12px"}}>
-                  <FontAwesomeIcon icon="chevron-down"/>
-                </div>
-              </strong>
-            </a>
-            : null }
         <div className = "content">{
-          content == null
-            ? <div>
-              {loggedIn ? loginInfo : null} <Explain onClick = { onClick } />
-            </div>
-            : contentComp
+            content == null
+                ? <div>
+                    {loggedIn ? loginInfo : null} <Explain onClick = { onClick } />
+                </div>
+                : contentComp
         }</div>
-        </div>
-        <div className= "footer">
-          <h3>{t("footer.heading")}</h3>
+        <div className="footer">
+          <h3>{t("footer.heading")}<a className="contact-top-link" href="mailto:falanster.by@gmail.com">{t("footer.email")}</a><a className="contact-link" href="tel:+375 29 127 42 67">{t("footer.phone")}</a></h3>
           <p>
-            {t("footer.contact")}<a target="_blank" href={URLs.MAIL.link}>{URLs.MAIL.name}</a>
-            <br />
-            {t("footer.social-media")}<a target="_blank" href={URLs.FACEBOOK.link}>{URLs.FACEBOOK.name}</a>
-            <br />
-            {t("footer.open-source")}<a target="_blank" href={URLs.REPOSITORY.link}>{URLs.REPOSITORY.name}</a>
+            <a className="contact-link" target="_blank" href={URLs.FACEBOOK.link}><img className="pure-img"  src={require("../img/fb.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.VK.link}><img className="pure-img"  src={require("../img/vk.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.TELEGRAM.link}><img className="pure-img"  src={require("../img/telegram.png")}/></a>
+            <a className="contact-link" target="_blank" href={URLs.REPOSITORY.link}><img className="pure-img"  src={require("../img/github.png")}/></a>
           </p>
+            <a href="https://falanster.by"><img style={{margin: "65px auto 20px"}} className="pure-img"  src={require("../img/logo_f.png")}/></a>
           <p>
-            <a className="smallLink" href="#" onClick={() => onClick(V.IMPRINT)}>{t("footer.imprint")}</a>
-            <a className="smallLink" href="#" onClick={() => onClick(V.PRIVACY_STATEMENT)}>{t("footer.privacyStatement")}</a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/cc.png")}/></a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/by.png")}/></a>
+            <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/sa.png")}/></a>
           </p>
+
           <p>
             {user.username != null ? <a onClick={onDeleteAccount} href="#">
               Account löschen
@@ -391,6 +411,42 @@ const LandingWrapper = styled.div`
     margin-top: 1.5em;
     font-weight: 500;
   }
+  .help-link {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0px;
+    padding: 15px;
+    
+    color: #000000;
+  }
+  .logo-partner {
+    display: flex !important;
+    height: 150px;
+    img {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+  }
+  .landing-link {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    color:#000;
+    text-decoration: none;
+  }
+  .rounded {
+    width: 146px;
+    height: 146px;
+    border-radius: 50%;
+  }
   input {
     font-size: 1.2em;
   }
@@ -430,7 +486,7 @@ const LandingWrapper = styled.div`
     }
   }
   .content {
-    max-width: 900px;
+    max-width: 945px;
     margin: auto;
     z-index: 0;
     .login-info {
@@ -441,8 +497,15 @@ const LandingWrapper = styled.div`
       margin-bottom: 0.5em;
     }
   }
+  .partners-subtitle {
+    letter-spacing: 0em !important;
+    font-size: 24px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .banner {
-    background-color: #fff;
+    background-color: #162D50;
     .content {
       max-width: initial;
       padding-bottom: 20px;
@@ -451,17 +514,32 @@ const LandingWrapper = styled.div`
         margin-left: 50px;
       }
       img.logo {
-        max-width: 137.633px;
-        max-height: 57px;
+        max-width: 239px;
+        max-height: 95px;
         width: 100%;
       }
     }
+    .top-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;    
+    }
     .menu-wrapper {
       text-align: right;
-      .language-wrapper {
+      
+        .login-link {
+          text-decoration: none;
+          color: #fff;
+          margin-right: 30px;
+        }
+      
+      .language-wrapper {        
         margin: 1em;
+        position: absolute;
+        top 0;
+        right: 0;
         font-size: 0.8em;
-        color: #777;
+        color: #fff;
         .language-link {
           margin: 3pt;
           text-decoration: none;
@@ -470,9 +548,9 @@ const LandingWrapper = styled.div`
             pointer-events: none;
           }
           &.unselected {
-            color: #555;
+            color: #fff;
             &:hover {
-              color: #000;
+              color: #555;
             }
           }
         }
@@ -488,7 +566,12 @@ const LandingWrapper = styled.div`
       font-size: 0.9em;
       display: inline-block;
       position: relative;
-      max-width: 655px;
+      margin-top: 50px;
+      max-width: 100%;
+      .menu-list {
+        list-style: none;
+        letter-spacing: 0.05em;
+      }
       ul {
         margin: 0;
       }
@@ -508,6 +591,29 @@ const LandingWrapper = styled.div`
       }
     }
   }
+  
+  .team-name {
+    font-size: 18px;
+  }
+  
+  .team-role {
+    font-size: 18px;
+  }
+  
+  .team-button {
+    font-size: 36px;
+    width: 100%;
+    height: 82px;
+    background: #FF7F2A;
+    margin-top: 50px;
+    color: #fff;
+    cursor: pointer;
+    
+    &:hover {
+      background: #90dd90;
+    }
+  }
+  
   .explain {
     background-color: #fff;
     text-align: center;
@@ -610,19 +716,37 @@ const LandingWrapper = styled.div`
     }
   }
   .footer {
-    background-color: ${STYLE.darkGray};
+    background-color: #162D50;
+    height: 349px;
+    margin-top: 100px;
+
     color: #fff;
     text-align: center;
     padding: 20px 20px 50px 20px;
     line-height: 1.5em;
     h3 {
-      font-size: 1.5em;
+      font-size: 18px;
     }
     a {
       color: #fff;
     }
     .smallLink {
       margin: 0 7px;
+    }
+    .license-link {
+      display:inline-block;
+    }
+    
+    .contact-link {
+      display:inline-block;
+      margin-top: 18px;
+    }
+    
+    .contact-top-link {
+      display:inline-block;
+      padding-right: 10px;
+      padding-left: 10px;
+      font-size: 18px;
     }
   }
   .search {
@@ -639,6 +763,12 @@ const LandingWrapper = styled.div`
     h1 {
       margin-top: 0;
       font-size: 3em;
+      font-family: PT Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 39px;
+      color: #FFFFFF;
     }
     .landing-content {
       position: relative;

@@ -22,8 +22,8 @@ const rating_contexts = {
   "default": lightGray
 }
 
-const bodyFont= `"Rubik", sans-serif`;
-const headerFont= `"Rubik", sans-serif`;
+const bodyFont= `"PT Sans", sans-serif`;
+const headerFont= `"PT Sans", sans-serif`;
 
 
 module.exports = {

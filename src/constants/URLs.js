@@ -22,8 +22,14 @@ const OFDB_API_LINK = (() => {
 
 module.exports = {
   CC_LICENSE: {
-    name: "creativecommons.org/publicdomain/zero/1.0/deed.de",
-    link: "https://creativecommons.org/publicdomain/zero/1.0/deed.de"
+    by: {
+      name: "creativecommons.org/publicdomain/zero/1.0/deed.be",
+      link: "https://creativecommons.org/publicdomain/zero/1.0/deed.be"
+    },
+    en: {
+      name: "creativecommons.org/publicdomain/zero/1.0/deed.en",
+      link: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    }
   },
   ODBL_LICENSE: {
     name: "opendatacommons.org/licenses/odbl/summary/",
@@ -38,16 +44,24 @@ module.exports = {
     link: "https://prototyp.kartevonmorgen.org"
   },
   REPOSITORY: {
-    name: "github.com/flosse/kartevonmorgen",
-    link: "https://github.com/flosse/kartevonmorgen"
+    name: "https://github.com/diglabby/mapa",
+    link: "https://github.com/diglabby/mapa"
+  },
+  VK: {
+    name: "https://vk.com/falanster_by",
+    link: "https://vk.com/falanster_by"
+  },
+  TELEGRAM: {
+    name: "https://t.me/hackmapagithub",
+    link: "https://t.me/hackmapagithub"
   },
   FACEBOOK: {
-    name: "facebook.com/vonmorgen",
-    link: "https://www.facebook.com/vonmorgen"
+    name: "facebook.com/falanster",
+    link: "https://www.facebook.com/falanster.by"
   },
   MAIL: {
-    name: "info@kartevonmorgen.org",
-    link: "mailto:info@kartevonmorgen.org"
+    name: "falanster.by@gmail.com",
+    link: "mailto:falanster.by@gmail.com"
   },
   OSM_ATTR: {
     name: "OpenStreetMap",
