@@ -27,7 +27,7 @@ class IframeAdvancedOptions extends React.Component {
           {({ errors, touched }) => (
             <Form>
               <FieldContainer>
-                <LabelWrapper><label>{"width"}</label></LabelWrapper>
+                <LabelWrapper><label>{t("width")}</label></LabelWrapper>
                 <FieldWrapper>
                   <Field name="width" validate={validateHeightWidth} />
                   {errors.width && touched.width && <div>{errors.width}</div>}

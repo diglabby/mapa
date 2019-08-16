@@ -533,6 +533,13 @@
 		"title": "code",
 		"buttonName": "copy",
 		"advancedOptions": {
+			"errors":{
+				"digits": "Only digits",
+				"short": "Too short",
+				"hight": "Too hight",
+				"zero": "Zero can't been first",
+				"whitespace": "No whitespace!"
+			},
 			"width": "width",
 			"heigth": "heigth",
 			"hashtag": "hashtag",
