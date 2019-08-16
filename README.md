@@ -1,3 +1,4 @@
+
 # Karte von morgen
 
 ![Screenshot](https://raw.githubusercontent.com/flosse/kartevonmorgen/master/screenshot.jpg)
@@ -124,8 +125,12 @@ KVM uses the [OpenFairDB](https://github.com/slowtec/openfairdb) as its backend.
 * Add changes
 * Run by using `yarn start`
 
+
+## Badges
+
+[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=<badge_key>)](https://www.browserstack.com/automate/public-build/<badge_key>)
+
 ## License
 
 Copyright (c) 2015 - 2018 Markus Kohlhase <mail@markus-kohlhase.de>
-
 This project is licensed under the [AGPLv3 license](http://www.gnu.org/licenses/agpl-3.0.txt).
