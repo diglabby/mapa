@@ -416,11 +416,11 @@ const LandingWrapper = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 31px;
+    line-height: 28px;
     text-align: center;
     text-decoration: none;
     display: block;
-    margin-bottom:15px;
+    margin-bottom: 0px;
     padding: 15px;
     
     color: #000000;
@@ -497,7 +497,13 @@ const LandingWrapper = styled.div`
       margin-bottom: 0.5em;
     }
   }
-  
+  .partners-subtitle {
+    letter-spacing: 0em !important;
+    font-size: 24px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .banner {
     background-color: #162D50;
     .content {
