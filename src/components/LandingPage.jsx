@@ -410,11 +410,11 @@ const LandingWrapper = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 31px;
+    line-height: 28px;
     text-align: center;
     text-decoration: none;
     display: block;
-    margin-bottom:15px;
+    margin-bottom: 0px;
     padding: 15px;
     
     color: #000000;
