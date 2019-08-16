@@ -18,7 +18,7 @@
 		"description": "Description",
 		"tags": "Tags (separate by comma)",
 		"newTag": "New:",
-		"noTagSuggestion": "Type for sugestions.",
+		"noTagSuggestion": "Type for suggestions.",
 		"tagsLoading": "Loading suggestions…",
 		"homepage": "Homepage",
 		"phone": "Phone",

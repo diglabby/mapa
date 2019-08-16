@@ -125,18 +125,19 @@ class Form extends Component {
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
                 <FieldElement name="description" component={errorMessage} />
 
-              <FieldElement
-                name="tags"
-                required={true}
-                className="pure-input-1"
-                component="input"
-                placeholder={t("tags")}
-                component={SelectTags} 
-              />
-              <FieldElement
-                name="tags"
-                component={errorMessage} />
-            </Fieldset>
+                <FieldElement
+                  name="tags"
+                  required={true}
+                  className="pure-input-1"
+                  component="input"
+                  placeholder={t("tags")}
+                  component={SelectTags}
+                />
+                <FieldElement
+                  name="tags"
+                  component={errorMessage}
+                />
+              </Fieldset>
 
               <Fieldset>
                 <FieldsetLegend>
