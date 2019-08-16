@@ -1,46 +1,47 @@
 // Copyright (c) 2015 - 2017 Markus Kohlhase <mail@markus-kohlhase.de>
 
+// leaflet-control-attribution leaflet-control bottom right
+
 import "./styling/Stylesheets"
 import "./styling/Icons"
-
 import React, { Component } from "react"
-import T                    from "prop-types"
-import { translate }        from "react-i18next"
-import NotificationsSystem  from "reapop";
-import theme                from "reapop-theme-wybo";
-import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
-import Swipeable            from 'react-swipeable'
+import T from "prop-types"
+import { translate } from "react-i18next"
+import NotificationsSystem from "reapop";
+import theme from "reapop-theme-wybo";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Swipeable from 'react-swipeable'
 import styled, { keyframes, createGlobalStyle } from "styled-components";
-
-import V                    from "../constants/PanelView"
-import Actions              from "../Actions"
-import Modal                from "./pure/Modal"
-import Map                  from "./Map"
-import Sidebar              from "./Sidebar"
-import LandingPage          from "./LandingPage"
-import { EDIT }             from "../constants/Form"
-import STYLE                from "./styling/Variables"
+import V from "../constants/PanelView"
+import Actions from "../Actions"
+import Modal from "./pure/Modal"
+import Map from "./Map"
+import Sidebar from "./Sidebar"
+import LandingPage from "./LandingPage"
+import { EDIT } from "../constants/Form"
+import STYLE from "./styling/Variables"
 import { NUM_ENTRIES_TO_SHOW } from "../constants/Search"
-import mapConst             from "../constants/Map"
+import mapConst from "../constants/Map"
+import SubscribesTestForm from "./SubscribesTestForm";
 
 class Main extends Component {
-  
-  render(){
+
+  render() {
     const { dispatch, search, view, server, map, form, url, user, t } = this.props;
     const { entries, ratings } = server;
 
     this.changeUrlAccordingToState(url);
     const visibleEntries = this.filterVisibleEntries(entries, search);
     const loggedIn = user.username ? true : false;
-    
+
     return (
       <StyledApp className="app">
         <GlobalStyle />
-        <NotificationsSystem theme={theme}/>
-        { 
-          view.menu ? 
+        <NotificationsSystem theme={theme} />
+        {
+          view.menu ?
             <LandingPage
-              onMenuItemClick={ id => {
+              onMenuItemClick={id => {
                 switch (id) {
                   case 'map':
                     return dispatch(Actions.toggleLandingPage());
@@ -59,66 +60,65 @@ class Main extends Component {
                     return dispatch(Actions.showInfo(id));
                 }
               }}
-              onChange={ (city) => {
+              onChange={(city) => {
                 dispatch(Actions.setCitySearchText(city));
                 if (city) {
                   return dispatch(Actions.searchCity())
                 }
               }}
-              content={ view.right }
-              searchText={ search.city }
-              loadingSearch={ server.loadingSearch }
-              searchError={ search.error }
-              cities={ search.cities }
-              onEscape={ () => { return dispatch(Actions.setCitySearchText('')); }}
-              onSelection={ this.onLandingPageCitySelection.bind(this) }
-              onLogin={ data => {
+              content={view.right}
+              searchText={search.city}
+              loadingSearch={server.loadingSearch}
+              searchError={search.error}
+              cities={search.cities}
+              onEscape={() => { return dispatch(Actions.setCitySearchText('')); }}
+              onSelection={this.onLandingPageCitySelection.bind(this)}
+              onLogin={data => {
                 var password, username;
                 username = data.username, password = data.password;
                 return dispatch(Actions.login(username, password));
               }}
-              onRegister={ data => {
+              onRegister={data => {
                 var email, password, username;
                 username = data.username, password = data.password, email = data.email;
                 return dispatch(Actions.register(username, password, email));
               }}
-              loggedIn={ loggedIn}
-              user={ user}
-              onDeleteAccount={ () => {
+              loggedIn={loggedIn}
+              user={user}
+              onDeleteAccount={() => {
                 return dispatch(Actions.deleteAccount());
               }}
             />
             : ""
         }
-        { 
+        {
           view.modal != null ? <Modal view={view} dispatch={dispatch} /> : ""
         }
-
         <LeftPanelAndHideSidebarButton>
           <SwipeableLeftPanel className={"left " + (view.showLeftPanel && !view.menu ? 'opened' : 'closed')}
-            onSwipedLeft={ () => this.swipedLeftOnPanel() }>
+            onSwipedLeft={() => this.swipedLeftOnPanel()}>
             <Sidebar
-              view={ view }
-              search={ search }
-              map={ map }
-              server={ server }
-              user={ user }
-              form={ form }
+              view={view}
+              search={search}
+              map={map}
+              server={server}
+              user={user}
+              form={form}
               entries={entries}
-              resultEntries={ visibleEntries }
-              ratings={ ratings }
+              resultEntries={visibleEntries}
+              ratings={ratings}
               // LeftPanelentries={ server.entries } never used…?
-              dispatch={ dispatch }
-              t={ t }
-              showAddEntryButton={ true }
-              showSearchBar={ true }
-              onTagClick={ this.onTagClick }
-              tagsClickable={ true }
+              dispatch={dispatch}
+              t={t}
+              showAddEntryButton={true}
+              showSearchBar={true}
+              onTagClick={this.onTagClick}
+              tagsClickable={true}
             />
           </SwipeableLeftPanel>
           <HideSidebarButtonWrapper>
             <button
-              onClick={ () => {
+              onClick={() => {
                 if (view.showLeftPanel) {
                   return dispatch(Actions.hideLeftPanel());
                 } else {
@@ -127,56 +127,55 @@ class Main extends Component {
               }}>
               <ToggleLeftSidebarIcon icon={"caret-" + (view.showLeftPanel ? 'left' : 'right')} />
             </button>
-          </HideSidebarButtonWrapper>   
+          </HideSidebarButtonWrapper>
+          <SubscribesTestForm i={search.current} t={search.text} l={map.bbox} />
         </LeftPanelAndHideSidebarButton>
         <RightPanel>
           <div className="menu-toggle">
-            <button onClick={()=>{ return dispatch(Actions.toggleMenu()); }} >
+            <button onClick={() => { return dispatch(Actions.toggleMenu()); }} >
               <span className="pincloud">
                 <MenuFontAwesomeIcon icon={'bars'} />
               </span>
             </button>
           </div>
-        </RightPanel> 
-
-        <Swipeable onSwipedRight={ (e, deltaX) => this.swipedRightOnMap(e, deltaX) } className="center">
+        </RightPanel>
+        <Swipeable className="center" onSwipedRight={(e, deltaX) => this.swipedRightOnMap(e, deltaX)}>
           <Map
-            marker={ (view.left === V.EDIT || view.left === V.NEW) ? map.marker : null}
-            highlight={ search.highlight }
-            center={ map.center}
-            zoom={ map.zoom}
-            category={ form[EDIT.id] ? form[EDIT.id].category ? form[EDIT.id].category.value : null : null}
-            entries={ visibleEntries}
-            ratings={ ratings}
-            onClick={ (event) => {
-              if(event.originalEvent.srcElement.tagName.toLowerCase() === 'path'){
+            marker={(view.left === V.EDIT || view.left === V.NEW) ? map.marker : null}
+            highlight={search.highlight}
+            center={map.center}
+            zoom={map.zoom}
+            category={form[EDIT.id] ? form[EDIT.id].category ? form[EDIT.id].category.value : null : null}
+            entries={visibleEntries}
+            ratings={ratings}
+            onClick={(event) => {
+              if (event.originalEvent.srcElement.tagName.toLowerCase() === 'path') {
                 return false;
-              } else if(view.left === V.NEW || view.left === V.EDIT){
+              } else if (view.left === V.NEW || view.left === V.EDIT) {
                 return dispatch(Actions.setMarker(event.latlng));
               } else {
                 //back to overview
                 dispatch(Actions.setCurrentEntry(null, null));
                 dispatch(Actions.showSearchResults());
                 dispatch(Actions.setCenterInUrl(map.center));
-
                 return dispatch(Actions.hideLeftPanelOnMobile());
               }
             }}
-            onMarkerClick={ (id) => {
+            onMarkerClick={(id) => {
               dispatch(Actions.setCurrentEntry(id, null));
               return dispatch(Actions.showLeftPanel());
             }}
-            onMoveend={ coordinates => { return dispatch(Actions.onMoveend(coordinates, map.center)); }}
-            onZoomend={ coordinates => { return dispatch(Actions.onZoomend(coordinates, map.zoom)); }}
-            onLocate={ () => { return dispatch(Actions.showOwnPosition()); }}
-            showLocateButton={ true }
+            onMoveend={coordinates => { return dispatch(Actions.onMoveend(coordinates, map.center)); }}
+            onZoomend={coordinates => { return dispatch(Actions.onZoomend(coordinates, map.zoom)); }}
+            onLocate={() => { return dispatch(Actions.showOwnPosition()); }}
+            showLocateButton={true}
           />
         </Swipeable>
       </StyledApp>
-    );  
+    );
   }
 
-  filterVisibleEntries(entries, search){
+  filterVisibleEntries(entries, search) {
     return search.entryResults.filter(e => entries[e.id])
       .map(e => entries[e.id])
       .filter(this.categoryIsEnabled(search.categories))
@@ -184,13 +183,13 @@ class Main extends Component {
       .slice(0, NUM_ENTRIES_TO_SHOW);
   }
 
-  categoryIsEnabled(enabledCategories){
+  categoryIsEnabled(enabledCategories) {
     return (entry) => {
       return entry.categories.some(cat => enabledCategories.includes(cat));
     }
   }
 
-  onLandingPageCitySelection(city){
+  onLandingPageCitySelection(city) {
     const { dispatch } = this.props;
     if (city) {
       dispatch(Actions.setCenter({
@@ -205,35 +204,35 @@ class Main extends Component {
     }
   }
 
-  changeUrlAccordingToState(urlState){
+  changeUrlAccordingToState(urlState) {
     if (urlState.hash !== window.location.hash) {
       console.log("URL CHANGE FROM APP: " + window.location.hash + " --> " + urlState.hash);
       window.history.pushState(null, null, window.location.pathname + urlState.hash);
     }
   }
 
-  escFunction(event){
-    if(event.keyCode === 27) { //ESC
-      const { view, dispatch}  = this.props
-      if(view.menu) return dispatch(Actions.toggleLandingPage())
-      if(!view.showLeftPanel) return dispatch(Actions.showLeftPanel());
-      if(view.left === V.ENTRY) {
+  escFunction(event) {
+    if (event.keyCode === 27) { //ESC
+      const { view, dispatch } = this.props
+      if (view.menu) return dispatch(Actions.toggleLandingPage())
+      if (!view.showLeftPanel) return dispatch(Actions.showLeftPanel());
+      if (view.left === V.ENTRY) {
         dispatch(Actions.setCurrentEntry(null, null));
         dispatch(Actions.showSearchResults());
         return dispatch(Actions.setCenterInUrl(this.props.map.center));
       }
-      if(view.left === V.RESULT){
+      if (view.left === V.RESULT) {
         dispatch(Actions.setSearchText(''))
         return dispatch(Actions.search())
-      } 
+      }
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("keydown", (e) => this.escFunction(e), false);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     document.removeEventListener("keydown");
   }
 
@@ -242,27 +241,27 @@ class Main extends Component {
   }
 
   swipedRightOnMap(e, deltaX) {
-    if( e.nativeEvent === undefined || e.nativeEvent.changedTouches === undefined) return true
-    if(e.nativeEvent.changedTouches[0].pageX + deltaX < 26 ) this.props.dispatch(Actions.showLeftPanel())
+    if (e.nativeEvent === undefined || e.nativeEvent.changedTouches === undefined) return true
+    if (e.nativeEvent.changedTouches[0].pageX + deltaX < 26) this.props.dispatch(Actions.showLeftPanel())
   }
 
   onTagClick = (t) => {
     this.props.dispatch(Actions.showSearchResults());
-    this.props.dispatch(Actions.setSearchText('#'+t));
+    this.props.dispatch(Actions.setSearchText('#' + t));
     this.props.dispatch(Actions.search());
   };
 
 }
 
 Main.propTypes = {
-  view :          T.object.isRequired,
-  server :        T.object.isRequired,
-  map:            T.object.isRequired,
-  search :        T.object.isRequired,
-  form :          T.object.isRequired,
-  url:            T.object.isRequired,
-  user :          T.object.isRequired,
-  timedActions :  T.object.isRequired
+  view: T.object.isRequired,
+  server: T.object.isRequired,
+  map: T.object.isRequired,
+  search: T.object.isRequired,
+  form: T.object.isRequired,
+  url: T.object.isRequired,
+  user: T.object.isRequired,
+  timedActions: T.object.isRequired
 };
 
 module.exports = translate('translation')(Main)
@@ -295,7 +294,7 @@ const MenuFontAwesomeIcon = styled(FontAwesomeIcon)`
   padding-right: .45rem;
 `;
 
-const ToggleLeftSidebarIcon = styled(FontAwesomeIcon) `
+const ToggleLeftSidebarIcon = styled(FontAwesomeIcon)`
   margin-right: 0.3em;
   width: 0.7em;
 `
@@ -336,7 +335,7 @@ const SwipeableLeftPanel = styled(Swipeable)`
   }
 `
 
-const RightPanel = styled.div `
+const RightPanel = styled.div`
   position: absolute;
   top: 15px;
   right: 0;
@@ -383,7 +382,7 @@ const LeftPanelAndHideSidebarButton = styled.div`
   height: 100%;
 `
 
-const HideSidebarButtonWrapper = styled.div `
+const HideSidebarButtonWrapper = styled.div`
   position: relative;
   z-index: 2;
   height: 0;
@@ -408,7 +407,7 @@ const HideSidebarButtonWrapper = styled.div `
   }
 `
 
-const StyledApp = styled.div `
+const StyledApp = styled.div`
 
   background: #fff;
 
