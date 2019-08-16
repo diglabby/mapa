@@ -22,8 +22,14 @@ const OFDB_API_LINK = (() => {
 
 module.exports = {
   CC_LICENSE: {
-    name: "creativecommons.org/publicdomain/zero/1.0/deed.de",
-    link: "https://creativecommons.org/publicdomain/zero/1.0/deed.de"
+    by: {
+      name: "creativecommons.org/publicdomain/zero/1.0/deed.be",
+      link: "https://creativecommons.org/publicdomain/zero/1.0/deed.be"
+    },
+    en: {
+      name: "creativecommons.org/publicdomain/zero/1.0/deed.en",
+      link: "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    }
   },
   ODBL_LICENSE: {
     name: "opendatacommons.org/licenses/odbl/summary/",

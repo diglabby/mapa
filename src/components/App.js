@@ -26,7 +26,7 @@ import mapConst             from "../constants/Map"
 class Main extends Component {
   
   render(){
-    const { dispatch, search, view, server, map, form, url, user, t } = this.props;
+    const { dispatch, search, view, server, map, form, url, user, t, lng } = this.props;
     const { entries, ratings } = server;
 
     this.changeUrlAccordingToState(url);
@@ -99,6 +99,7 @@ class Main extends Component {
           <SwipeableLeftPanel className={"left " + (view.showLeftPanel && !view.menu ? 'opened' : 'closed')}
             onSwipedLeft={ () => this.swipedLeftOnPanel() }>
             <Sidebar
+              lng={ lng }
               view={ view }
               search={ search }
               map={ map }
