@@ -70,6 +70,7 @@ const OpenDropdown = styled.div`
 const Close = styled.div`
   width: 25px;
   height: 25px;
+  left: 95%;
   position: relative;
   transform:rotate(45deg);
   &:before, &:after {
