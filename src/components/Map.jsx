@@ -7,10 +7,15 @@ import { avg_rating_for_entry } from "../rating"
 import styled                   from "styled-components";
 import T                        from "prop-types";
 import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
+import i18n from "../i18n";
 
 import { Map, TileLayer, Marker, CircleMarker, Tooltip } from "react-leaflet"
 
 import  "leaflet/dist/leaflet.css"
+
+var t = (key) => {
+  return i18n.t("mapButtons." + key);
+};
 
 const { INITIATIVE, EVENT, COMPANY } = IDS;
 
@@ -186,7 +191,7 @@ class KVMMap extends Component {
                 <LocateButton
                   className   = "leaflet-bar-part leaflet-bar-part-single" //"locate-icon"
                   onClick     = { this.props.onLocate }
-                  title       = "Пакажыце маю пазіцыю" >
+                  title={t("center")} >
                   <LocateIcon icon="location-arrow" />
                 </LocateButton>
               </LocateButtonInnerContainer>
