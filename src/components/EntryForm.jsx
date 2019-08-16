@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect }          from 'react-redux'
 import { translate        } from "react-i18next";
 import T                    from "prop-types";
 import styled               from "styled-components";
@@ -260,7 +261,7 @@ class Form extends Component {
                       ? <a target="_blank" href={URLs.ODBL_LICENSE.link}>
                         {t("openDatabaseLicense")}
                       </a>
-                      : <a target="_blank" href={URLs.CC_LICENSE.link}>
+                      : <a target="_blank" href={URLs.CC_LICENSE[this.props.lng].link}>
                         {t("creativeCommonsLicense")}
                       </a>
                     } {" " + t("licenseAccepted")}
@@ -295,6 +296,13 @@ class Form extends Component {
       </FormWrapper>)
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    lng: state.lng.lng
+  }
+}
+
 
 Form.propTypes = {
   isEdit : T.string,

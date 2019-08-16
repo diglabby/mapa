@@ -9,6 +9,7 @@ import timedActions        from "./timedActions";
 import iframe              from "./iframe";
 import { reducer as notificationsReducer } from 'reapop';
 import { combineReducers } from "redux";
+import lngReducer          from "../reducers/lngReducer"
 
 module.exports = combineReducers({
   notifications: notificationsReducer(),
@@ -21,4 +22,5 @@ module.exports = combineReducers({
   user,
   timedActions,
   iframe,
+  lng: lngReducer
 });
