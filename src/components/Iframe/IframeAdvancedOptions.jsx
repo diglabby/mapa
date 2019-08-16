@@ -10,7 +10,7 @@ const t = (key) => i18n.t("IframeMainView.advancedOptions." + key)
 class IframeAdvancedOptions extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <form>
           <FieldContainer>
             <LabelWrapper><label>{t("width")}</label></LabelWrapper>
@@ -34,7 +34,7 @@ class IframeAdvancedOptions extends Component {
             <Button type='submit'>{t("getCode")}</Button>
           </ButtonContainer>
         </form>
-      </div>
+      </Container>
     );
   };
 }
@@ -42,6 +42,10 @@ class IframeAdvancedOptions extends Component {
 IframeAdvancedOptions.propTypes = {
   code : T.string,
 };
+
+const Container =styled.div`
+  margin-top: 20px;
+`
 
 const FieldContainer = styled.div`
   display: flex;
@@ -67,6 +71,7 @@ const FieldElement = styled(Field)`
   border-radius: 4px;
   vertical-align: middle;
   box-sizing: border-box;
+  margin: 5px 0;
 `;
 
 const ButtonContainer = styled.div`
