@@ -1,20 +1,4 @@
 
-# Karte von morgen
-
-![Screenshot](https://raw.githubusercontent.com/flosse/kartevonmorgen/master/screenshot.jpg)
-
-## Mapping for Good
-
-von morgen supports kindness, sustainability and joint action.
-Everything that brings a little happiness to our world.
-We believe that living in a de‐stressed, environmental‐friendly and
-trust‐worthy society, is already in progress.
-We want to support people in finding ways to embrace those values.
-
-The Map von morgen is a website and app, that allows users to share their
-favorite places in the world. Places that are forward‐thinking and inspiring.
-The goal is to collect projects, companies and events that make a world of
-tomorrow, already experienceable today.
 
 Demo: [https://kartevonmorgen.org/](https://kartevonmorgen.org/)
 
@@ -128,7 +112,8 @@ KVM uses the [OpenFairDB](https://github.com/slowtec/openfairdb) as its backend.
 
 ## Badges
 
-[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=<badge_key>)](https://www.browserstack.com/automate/public-build/<badge_key>)
+[![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=xpWn1c3XZHhwL6V72SJK
+)](https://www.browserstack.com/automate/public-build/xpWn1c3XZHhwL6V72SJK)
 
 ## License
 
