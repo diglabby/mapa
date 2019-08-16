@@ -40,19 +40,6 @@ export default (originalUrl, searchTag = null, height = '500', width = '100', co
     }
   }
   return `
-  <div>
-      <iframe
-        title="Mapa"
-        src = "https://mapa.falanster.by/map.html${constructUrl(entry, center, zoom, searchMain(), categories )}"
-        width="${width}%"
-        height="${height}">
-        <a
-          href="https://kartevonmorgen.org/"
-          target="_blank">
-          The map
-        </a>
-      </iframe>
-    </div>
-  </div>
+      <iframe title="Mapa" src="https://mapa.falanster.by/map.html${constructUrl(entry, center, zoom, searchMain(), categories )}" width="${width}%" height="${height}"><a href="https://kartevonmorgen.org/" target="_blank">The map</a></iframe>
   `
 }

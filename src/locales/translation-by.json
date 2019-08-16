@@ -535,6 +535,13 @@
 		"title": "код",
 		"buttonName": "копія",
 		"advancedOptions": {
+			"errors": {
+				"digits": "Толькі лічбы",
+				"short": "Занадта коратка",
+				"hight": "Занадта доўга",
+				"zero": "Нуль не можа быць першым!",
+				"whitespace": "Без прабелаў!"
+			},
 			"width": "шырыня",
 			"heigth": "вышыня",
 			"hashtag": "хэштэг",
