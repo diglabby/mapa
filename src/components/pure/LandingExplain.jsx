@@ -96,7 +96,10 @@ const getTeamMembers = t =>
       return (
         <div key={key} className="teamMember">
           <div className={"circle " + member.color}>
-
+              {link
+                  ? <a target="_blank" href={member.homepage}><img className="teamImage" src={member.image} /></a>
+                  : !!member.image && <img className="teamImage" src={member.image} />
+              }
           </div>
           <div className="team-member-name">{member.name}</div>
           {member.position.map(pos =>
