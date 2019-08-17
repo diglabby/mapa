@@ -8,7 +8,7 @@ const customStyles = {
     display: 'flex',
     flexDirection: 'column',
     top: '20%',
-    left: '50%',
+    left: '60%',
     right: 'auto',
     bottom: 'auto',
     width: 'auto',
@@ -56,7 +56,7 @@ Modal.propTypes = {
 const Title = styled.h3`  
   font-family: "PT Sans",sans-serif;
   font-weight: 500;
-  margin-top: 0;
+  margin-top: -20px;
   text-transform: capitalize;
   margin-block-end: 2px;
   text-align: center;

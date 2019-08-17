@@ -35,13 +35,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   top: 50%;
-  right: 20px;
+  right: 10px;
 `
 
 const OpenOptions = styled(FontAwesomeIcon)`
   width: 30px !important;
   height: 30px;
   cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 `
 
 export default IframeMainView;
