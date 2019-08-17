@@ -2,7 +2,7 @@ import React, { Component }    from "react";
 import T                       from "prop-types";
 import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
 import { faPlusSquare }        from '@fortawesome/free-solid-svg-icons';
-import IframeWrapperContainer                  from'./Iframe/IframeWrapperContainer';
+import IframeWrapperContainer  from'./Iframe/IframeWrapperContainer';
 import styled                  from "styled-components";
 
 class IframeMainView extends Component {
