@@ -8,6 +8,11 @@ import FileCopyIcon from '@material-ui/icons/FileCopyOutlined';
 import SaveIcon from '@material-ui/icons/Save';
 import PrintIcon from '@material-ui/icons/Print';
 
+import Subscribe from '../components/Subcribe'
+
+import logo from './icons/logo.svg'
+import map from './icons/map.svg'
+
 const ActionButtonStyled = styled(SpeedDial)`
   .MuiFab-root {
     background-color: white;
@@ -31,14 +36,27 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <img src={logo} />, name: 'Subcribe' },
+  { icon:<img src={map} />, name: 'Iframe' },
   { icon: <PrintIcon />, name: 'Print' }
 ];
 
 export const ActionButton = () => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = React.useState(false);
+
+  const [modal, setModal] = React.useState(false)
+
+
+
+  const closeModal = () => setModal(false)
+  // const handleWindowOpen = () => {
+  //   setShowWindow(true)
+  // }
+
+  // const handleWindowClose = () => {
+  //   setShowWindow(false)
+  // }
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -49,24 +67,35 @@ export const ActionButton = () => {
   };
 
   return (
-    <ActionButtonStyled
-      ariaLabel='SpeedDial tooltip example'
-      className={classes.speedDial}
-      icon={<SpeedDialIcon />}
-      onBlur={handleClose}
-      onClose={handleClose}
-      onFocus={handleOpen}
-      onMouseEnter={handleOpen}
-      onMouseLeave={handleClose}
-      open={isOpen}
-    >
-      {actions.map(action => (
-        <SpeedDialAction
-          key={action.name}
-          icon={action.icon}
-          tooltipTitle={action.name}
-        />
-      ))}
-    </ActionButtonStyled>
+    <div>
+      {/* {modal ?  <Subcribe closeModal={closeModal} /> : null} */}
+
+      {modal ? (modal === 'Subcribe' ?
+        <Subscribe closeModal={closeModal} /> :
+        <Iframe closeModal={closeModal} />) : null}
+
+      <ActionButtonStyled
+        ariaLabel='SpeedDial tooltip example'
+        className={classes.speedDial}
+        icon={<SpeedDialIcon />}
+        onBlur={handleClose}
+        onClose={handleClose}
+        onFocus={handleOpen}
+        onClick={handleOpen}
+        onMouseLeave={handleClose}
+        open={isOpen}
+      >
+
+        {actions.map(action => (
+          <SpeedDialAction
+
+            onClick={() => setModal(action.name)}
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </ActionButtonStyled>
+    </div>
   );
 };
