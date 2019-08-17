@@ -207,13 +207,13 @@ const LandingExplain = props => {
         <img style={{marginTop: "90px"}} className="pure-img"  src={require("../../img/doika.png")}/>*/}
 
       <h2 id="partners" style={{ marginTop: "130px" }}><strong>{t("landingExplain.chapter9.heading")}</strong></h2>
-      <div className="pure-g" style={{ marginTop: "60px" }}>
-        <div className="pure-u-1-2 logo-partner"><img style={{ margin: "auto" }} className="pure-img" src={require("../../img/kvm-logo.png")} /></div>
+      <div className="pure-g" style={{ alignItems: "center" }}>
+        <div className="pure-u-1-2 logo-partner" style={{ height: "270px" }}><img style={{ margin: "auto" }} className="pure-img" src={require("../../img/kvm-logo.png")} /></div>
         <div className="pure-u-1-2 logo-partner"><img style={{ margin: "auto" }} className="pure-img" src={require("../../img/wechange-logo.png")} /></div>
 
       </div>
-      <div className="pure-g" style={{ marginTop: "30px" }}>
-         <h4 className="partners-subtitle" style={{ marginTop: "30px"}}><strong>{t("landingExplain.chapter9.infoPartners")}</strong></h4>
+      <div className="pure-g">
+         <h4 className="partners-subtitle" style={{ marginTop: "0px"}}><strong>{t("landingExplain.chapter9.infoPartners")}</strong></h4>
         <div className="pure-u-1-1 logo-partner">
 
             <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/dev-logo.svg")} />
