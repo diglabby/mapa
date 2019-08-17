@@ -1,4 +1,7 @@
 import React, { Component }  from 'react';
+import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
+import { faShareAlt }          from '@fortawesome/free-solid-svg-icons';
+import styled                  from "styled-components";
 import T                     from "prop-types";
 
 import Modal                 from'../Modal';
@@ -7,17 +10,16 @@ import IframeAdvancedOptions from './IframeAdvancedOptions'
 
 import iframeBuilder         from '../../util/iframeBuilder';
 
-class IframeWrapper extends React.Component {
+class IframeWrapper extends Component {
   state = {
     isShow: false,
-    iframe: '',
   }
 
   handleOpen = () => {
-    const currentUrls = window.location.href;
-    const currentIframe = iframeBuilder(currentUrls);
+    const currentUrl = window.location.href;
+    const currentIframe = iframeBuilder(currentUrl);
     this.props.putIframe(currentIframe);
-    this.setState({ iframe: currentIframe, isShow: true })
+    this.setState({ isShow: true })
   }
   handleClose = () => {
     this.setState({ isShow: false });
@@ -26,7 +28,7 @@ class IframeWrapper extends React.Component {
     const { isShow } = this.state;
     return (
       <div>
-        <span onClick={this.handleOpen}>Iframe</span>
+        <IframeButton icon={faShareAlt} onClick={this.handleOpen} />
         {isShow ? (
           <Modal
           title='code'
@@ -49,5 +51,11 @@ IframeWrapper.propTypes = {
   Dropdown: T.func,
   isOpen: T.bool,
 };
+
+const IframeButton = styled(FontAwesomeIcon)`
+  width: 30px !important;
+  height: 30px;
+  cursor: pointer;
+`
   
 export default IframeWrapper;

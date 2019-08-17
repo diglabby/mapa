@@ -9,7 +9,7 @@ import T                        from "prop-types";
 import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
 import i18n from "../i18n";
 
-import { ActionButton } from './ActionButton';
+import ActionButton from './ActionButton';
 import { Map, TileLayer, Marker, CircleMarker, Tooltip } from 'react-leaflet';
 
 import 'leaflet/dist/leaflet.css';

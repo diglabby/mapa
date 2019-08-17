@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import T from "prop-types";
 import styled from "styled-components";
 import i18n from "../../i18n";
@@ -9,7 +9,7 @@ import { validateHeightWidth, validateHashtag } from '../../util/validationForms
 const t = (key) => i18n.t("IframeMainView.advancedOptions." + key)
 
 
-class IframeAdvancedOptions extends React.Component {
+class IframeAdvancedOptions extends Component {
   render() {
     return (
       <div>
