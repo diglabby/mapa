@@ -488,13 +488,18 @@ const StyledApp = styled.div `
 
   .pure-menu-list {
     margin: 0 50px;
+    padding-left: 60px;
   }
-
+  .menu-list {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 60px;
+  }
   .pure-menu-link {
     font-family: PT Sans;
     font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
+    font-weight: normal;
+    font-size: 18px;
     line-height: 31px;    
     color: #FFFFFF;
     padding: .5em 0.5em;
