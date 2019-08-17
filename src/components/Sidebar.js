@@ -173,6 +173,7 @@ class Sidebar extends Component {
           <EntryForm
             isEdit={ form[EDIT.id] ? form[EDIT.id].kvm_flag_id : null }
             isEvent={ isEventForEdit }
+            formStartEndDate={ { startDate: entry ? entry.start : null, endDate: entry ? entry.end : null } }
             license={ entries[search.current] ? entries[search.current].license : null }
             dispatch={ dispatch }
             onSubmit={ data => (
