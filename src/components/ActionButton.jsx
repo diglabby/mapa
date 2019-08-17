@@ -23,7 +23,7 @@ class IframeMainView extends Component {
         ) : null}
       </Wrapper>
     );
-  };
+  }
 }
 
 IframeMainView.propTypes = {
@@ -39,8 +39,11 @@ const Wrapper = styled.div`
 `
 
 const OpenOptions = styled(FontAwesomeIcon)`
-  width: 30px !important;
-  height: 30px;
+  width: 28px !important;
+  height: 28px;
+  cursor: pointer;
+  background: #fff;
+  color: black;
   cursor: pointer;
   border: 1px solid #ccc;
   border-radius: 4px;

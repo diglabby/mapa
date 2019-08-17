@@ -532,10 +532,10 @@
 	"IframeMainView": {
 		"title": "code",
 		"buttonName": "copy",
+		"advanced": "advanced options",
 		"advancedOptions": {
 			"errors":{
 				"digits": "Only digits",
-				"short": "Too short",
 				"hight": "Too hight",
 				"zero": "Zero can't been first",
 				"whitespace": "No whitespace!"

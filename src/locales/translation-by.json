@@ -534,10 +534,10 @@
 	"IframeMainView": {
 		"title": "код",
 		"buttonName": "копія",
+		"advanced": "дадатковыя опцыі",
 		"advancedOptions": {
 			"errors": {
 				"digits": "Толькі лічбы",
-				"short": "Занадта коратка",
 				"hight": "Занадта доўга",
 				"zero": "Нуль не можа быць першым!",
 				"whitespace": "Без прабелаў!"

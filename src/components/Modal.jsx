@@ -43,7 +43,7 @@ class Modal extends React.Component {
       </ReactModal>
     )
   }  
-};
+}
   
 Modal.propTypes = {
   title: T.string,
@@ -90,6 +90,10 @@ const Close = styled.div`
     height: 30%;
     margin-top: -15%;
     width: 100%;
+  }
+
+  &:hover{
+    cursor: pointer;
   }
 `
   
