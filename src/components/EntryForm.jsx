@@ -21,15 +21,35 @@ import SelectTags           from './SelectTags';
 import ScrollableDiv        from "./pure/ScrollableDiv";
 import NavButtonWrapper     from "./pure/NavButtonWrapper";
 
-
-const renderDatePicker = ({ input, ...props }) => (
+const renderDatePickerStart = ({ input, initEndDate, endDate, ...props }) => (
   <DayPickerInput
     {...props}
     value={ input.value ? convertToDateForPicker(input.value) : '' }
-    inputProps={{...input}} onDayChange={(day) => input.onChange(day)}
-    dayPickerProps={{ disabledDays : { before: new window.Date() }}}
+    inputProps={{ ...input, readOnly: true }}
+    onDayChange={(day) => input.onChange(day)}
+    dayPickerProps={{
+      disabledDays : {
+        before: new window.Date(), after: endDate ? endDate : (initEndDate ? initEndDate : '')
+      },
+      showOverlay: false }}
   />
 );
+
+const renderDatePickerEnd = ({ input, initStartDate, startDate,  ...props }) => {
+  return (
+    <DayPickerInput
+      {...props}
+      value={input.value ? convertToDateForPicker(input.value) : ''}
+      inputProps={{ ...input, readOnly: true }}
+      onDayChange={(day) => input.onChange(day)}
+      dayPickerProps={{
+        disabledDays: {
+          before: startDate ? startDate : (initStartDate ? initStartDate : new window.Date())
+        },
+        showOverlay: false }}
+    />
+  );
+};
 
 function convertToDateForPicker(date) {
   const d = new window.Date(date);
@@ -39,17 +59,30 @@ function convertToDateForPicker(date) {
 class Form extends Component {
   state = {
     isEventEntry: false,
+    startDate: '',
+    endDate: '',
   };
 
   handleCategoryChange = (event) => {
     const category = event.target.value;
-    
     this.setState({ isEventEntry: category=== IDS.EVENT});
   };
 
+  handleFromChange = (from) => {
+    this.setState({ startDate: from });
+  };
+
+  handleToChange = (to) => {
+    this.setState({ endDate: to });
+  };
+
   render() {
-    const { isEdit, isEvent, license, dispatch, handleSubmit } = this.props;
+    const { isEdit, isEvent, formStartEndDate, license, dispatch, handleSubmit } = this.props;
     const { isEventEntry } = this.state;
+    const { startDate } = this.state;
+    const { endDate } = this.state;
+    const initStartDate = formStartEndDate.startDate ? new window.Date(formStartEndDate.startDate) : '';
+    const initEndDate = formStartEndDate.endDate ? new window.Date(formStartEndDate.endDate) : '';
 
     var t = (key) => {
       return this.props.t("entryForm." + key);
@@ -79,6 +112,7 @@ class Form extends Component {
                 <FieldElement className="pure-input-1" name="category" disabled={ isEdit } component="select" onChange={this.handleCategoryChange}>
                   <option value={-1}>- {t("chooseCategory")} -</option>
                   <option value={IDS.INITIATIVE}>{t("category." + NAMES[IDS.INITIATIVE])}</option>
+
                   {/* this functionality will be made in future */}
                   {/* <option value={IDS.COMPANY}>{t("category." + NAMES[IDS.COMPANY])}</option> */}
                   <option value={IDS.EVENT}>{t("category." + NAMES[IDS.EVENT])}</option>
@@ -99,19 +133,34 @@ class Form extends Component {
                   component={errorMessage} />
 
                 {(isEventEntry || isEvent ) && (
+
                   <RangeDates>
 
                     <Date>
-                      <FieldElement name="start" component={renderDatePicker} placeholder="Start date"/>
+                      <FieldElement
+                        name="start"
+                        component={ renderDatePickerStart }
+                        placeholder="Start date"
+                        initEndDate={ initEndDate }
+                        endDate={ endDate }
+                        onChange={ this.handleFromChange }
+                      />
 
-                      <FieldElement 
+                      <FieldElement
                         name="start"
                         component={errorMessage}
                       />
                     </Date>
 
                     <Date>
-                      <FieldElement name="end" component={renderDatePicker} placeholder="End date"/>
+                      <FieldElement
+                        name="end"
+                        component={ renderDatePickerEnd }
+                        initStartDate={ initStartDate }
+                        startDate={ startDate }
+                        placeholder="End date"
+                        onChange={ this.handleToChange }
+                      />
 
                       <FieldElement
                         name="end"
@@ -120,6 +169,7 @@ class Form extends Component {
                     </Date>
 
                   </RangeDates>
+
                 )}
 
                 <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
@@ -316,7 +366,7 @@ module.exports = reduxForm({
       ));
       return new Promise((resolve, reject) => resolve());
   }
-})(translate('translation')(Form))
+})(translate('translation')(Form));
 
 const StyledNavButtonWrapper = styled(NavButtonWrapper)`
   height: 68px;
@@ -386,6 +436,11 @@ const RangeDates = styled.div`
 
   .DayPickerInput input {
     width: 100%;
+  }
+  
+  input[readonly] {
+    background-color: #fff;
+    color: initial;
   }
   
   .DayPickerInput-OverlayWrapper {
