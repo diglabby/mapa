@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import IframeWrapper from './IframeWrapper';
+import IframeAdvancedOptions from './IframeAdvancedOptions';
 import Actions from '../../Actions/client';
 
 const mapDispatchToProps = (dispatch) => (
@@ -9,4 +9,4 @@ const mapDispatchToProps = (dispatch) => (
   }, dispatch)
 );
 
-export default connect(null, mapDispatchToProps)(IframeWrapper);
+export default connect(null, mapDispatchToProps)(IframeAdvancedOptions);
