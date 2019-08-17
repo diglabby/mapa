@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import T from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import i18n from "../../i18n";
 import { Formik, Form, Field } from 'formik';
 
@@ -29,22 +29,22 @@ class IframeAdvancedOptions extends Component {
               <FieldContainer>
                 <LabelWrapper><label>{t("width")}</label></LabelWrapper>
                 <FieldWrapper>
-                  <Field name="width" validate={validateHeightWidth} />
-                  {errors.width && touched.width && <div>{errors.width}</div>}
+                  <Input name="width" validate={validateHeightWidth} />
+                  {errors.width && touched.width && <Error>{errors.width}</Error>}
                 </FieldWrapper>
               </FieldContainer>
               <FieldContainer>
                 <LabelWrapper><label>{t("heigth")}</label></LabelWrapper>
                 <FieldWrapper>
-                  <Field name="height" validate={validateHeightWidth} />
-                  {errors.height && touched.height && <div>{errors.height}</div>}
+                  <Input name="height" validate={validateHeightWidth} />
+                  {errors.height && touched.height && <Error>{errors.height}</Error>}
                 </FieldWrapper>
               </FieldContainer>
               <FieldContainer>
                 <LabelWrapper><label>{t("hashtag")}</label></LabelWrapper>
                 <FieldWrapper>
-                  <Field name="hashtag" validate={validateHashtag} />
-                  {errors.hashtag && touched.hashtag && <div>{errors.hashtag}</div>}
+                  <Input name="hashtag" validate={validateHashtag} />
+                  {errors.hashtag && touched.hashtag && <Error>{errors.hashtag}</Error>}
                 </FieldWrapper>
               </FieldContainer>
               <ButtonContainer>
@@ -63,13 +63,23 @@ IframeAdvancedOptions.propTypes = {
   code: T.string,
 };
 
-const Container =styled.div`
+const Container = styled.div`
   margin-top: 20px;
+`
+
+const Error = styled.div`
+    color: #f44;
+    font-size: 0.9em;
+    padding-top: 0.2em;
 `
 
 const FieldContainer = styled.div`
         display: flex;
         align-items: center;
+        padding: 0.5em 0.6em;
+        border-radius: 3px;
+        box-sizing: border-box;
+        margin-left: -30%;
       `
 
 const LabelWrapper = styled.div`
@@ -77,36 +87,48 @@ const LabelWrapper = styled.div`
         text-align: end;
         padding-right: 10px;
         text-transform: capitalize;
+        color: #777777;
       `
 
 const FieldWrapper = styled.div`
         width: 66.6%;
+        heigth: 100%;
       `
 
-// const Field = styled(Field)`
-//         width: 100%;
-//         padding: 0.5em 0.6em;
-//         display: inline-block;
-//         border: 1px solid #ccc;
-//         border-radius: 4px;
-//         vertical-align: middle;
-//         box-sizing: border-box;
-//       `;
+const commonCss = css`
+      width: 100%;
+       padding: 0.5em 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      vertical-align: middle;
+      box-sizing: border-box;   
+`
+
+
+const Input = styled(Field)`
+      ${commonCss}
+      
+`
 
 const ButtonContainer = styled.div`
         margin: 0 30px;
       `
 
 const Button = styled.button`
-        font-size: 36px;
-        width: 100%;
+        font-size: 28px;
+        width: 80%;
         height: 50px;
-        background-color: rgb(0, 120, 231);
+        background-color: #1890ff;
         outline: none;
-        border: none;
+        border: 1px solid transparent;
+        border-color: #1890ff;
         margin-top: 15px;
+        margin-left: 13%;
         color: #fff;
         cursor: pointer;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+        border-radius: 4px;
       
   &:hover {
           background - image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));

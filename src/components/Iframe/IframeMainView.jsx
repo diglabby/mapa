@@ -55,11 +55,12 @@ const IframeContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+
 `
 
 const TextArea = styled.textarea`
   flex-grow: 1;
-  height: 60px;
+  height: 30px;
   border: thin solid #ccc;
 `
 const Button = styled.button`
