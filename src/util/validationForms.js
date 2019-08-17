@@ -6,8 +6,6 @@ export function validateHeightWidth(value) {
   let error;
   if (/\D/i.test(value)) {
     error = `${t('digits')}`;
-  } else if (!/\w{2}/i.test(value)) {
-    error = `${t('short')}`;
   } else if (/\w{5}/i.test(value)) {
     error = `${t('hight')}`;
   } else if (/^0/i.test(value)) {

@@ -23,7 +23,7 @@ class IframeMainView extends Component {
         ) : null}
       </Wrapper>
     );
-  };
+  }
 }
 
 IframeMainView.propTypes = {
@@ -35,12 +35,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   top: 50%;
-  right: 20px;
+  right: 10px;
 `
 
 const OpenOptions = styled(FontAwesomeIcon)`
-  width: 30px !important;
-  height: 30px;
+  width: 28px !important;
+  height: 28px;
+  cursor: pointer;
+  background: #fff;
+  color: black;
   cursor: pointer;
 `
 

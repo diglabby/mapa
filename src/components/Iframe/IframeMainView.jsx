@@ -38,7 +38,7 @@ class IframeMainView extends Component {
         </IframeContainer>
       </Wrapper>
     );
-  };
+  }
 }
 
 IframeMainView.propTypes = {
@@ -61,6 +61,8 @@ const TextArea = styled.textarea`
   flex-grow: 1;
   height: 60px;
   border: thin solid #ccc;
+  font-size: 12px;
+  word-break: break-all;
 `
 const Button = styled.button`
   color: #fff;

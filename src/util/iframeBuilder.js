@@ -36,7 +36,6 @@ export default (originalUrl, searchTag = null, height = '500', width = '100%', c
       return '';
     }
   }
-  return `
-      <iframe title="Mapa" src="https://mapa.falanster.by/map.html${constructUrl(entry, center, zoom, searchMain(), categories )}" width="${width}" height="${height}"><a href="https://mapa.falanster.by/" target="_blank">The map</a></iframe>
-  `
+  return `<iframe title="Mapa" src="https://mapa.falanster.by/map.html${constructUrl(entry, center, zoom, searchMain(), categories )}" width="${width}" height="${height}"><a href="https://mapa.falanster.by/" target="_blank">The map</a></iframe>`
+  
 }
