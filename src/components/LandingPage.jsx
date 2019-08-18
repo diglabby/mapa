@@ -265,6 +265,11 @@ class LandingPage extends Component {
               </div>
               <div className="menu pure-menu pure-menu-horizontal">
                 <ul className="pure-g menu-list">
+                <li className="menu-item">
+                    <a onClick={() => onClick('map')} href="#map" className="pure-menu-link">
+                      {t("menu.map")}
+                    </a>
+                  </li>
                   <li className="menu-item">
                     <a href="#goals" className="pure-menu-link">
                       {t("menu.goals")}

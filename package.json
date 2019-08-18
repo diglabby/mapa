@@ -9,7 +9,7 @@
     "watch-test": "karma start --auto-watch --no-single-run",
     "pack": "NODE_ENV=production webpack -p --progress",
     "pack-nightly": "NODE_ENV=nightly webpack --progress",
-    "start": "NODE_ENV=development webpack-dev-server --progress --host 0.0.0.0 --hot --https"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --host 0.0.0.0 --hot --https"
   },
   "repository": {
     "type": "git",
@@ -83,6 +83,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "debug": "^4.1.0",
     "es5-shim": "^4.5.12",
