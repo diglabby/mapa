@@ -213,12 +213,12 @@
 			"donate": "Donate",
 			"login": "Login",
 			"logout": "Logout",
-			"goals": "goals",
-			"for-whom": "for who",
-			"principles": "principles",
-			"how-works": "work",
-			"team": "team",
-			"partners": "partners"
+			"goals": "Goals",
+			"for-whom": "For who",
+			"principles": "Principles",
+			"how-works": "Work",
+			"team": "Team",
+			"partners": "Partners"
 		},
 		"slogan": "Mapping for Good",
 		"city-search": {
