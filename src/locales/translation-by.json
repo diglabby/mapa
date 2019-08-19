@@ -207,18 +207,18 @@
 	},
 	"landingPage": {
 		"menu": {
-			"map": "мапа",
-			"infos": "пра нас",
-			"contact": "кантакт",
-			"donate": "падтрымаць",
-			"login": "увайсці",
-			"logout": "выйсці",
-			"goals": "мэты",
-			"for-whom": "каму",
-			"principles": "прынцыпы",
-			"how-works": "праца",
-			"team": "каманда",
-			"partners": "партнеры"
+			"map": "Мапа",
+			"infos": "Пра нас",
+			"contact": "Кантакт",
+			"donate": "Падтрымаць",
+			"login": "Увайсці",
+			"logout": "Выйсці",
+			"goals": "Мэты",
+			"for-whom": "Каму",
+			"principles": "Прынцыпы",
+			"how-works": "Праца",
+			"team": "Каманда",
+			"partners": "Партнеры"
 		},
 		"slogan": "Мы робім дзейнасць грамадскіх ініцыятыў бачнай!",
 		"city-search": {
