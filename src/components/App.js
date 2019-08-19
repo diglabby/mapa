@@ -29,7 +29,7 @@ class Main extends Component {
     
     const { dispatch, search, view, server, map, form, url, user, t } = this.props;
     const { entries, ratings } = server;
-    console.log(map)
+    
     this.changeUrlAccordingToState(url);
     this.changePageTile();
     const visibleEntries = this.filterVisibleEntries(entries, search);
