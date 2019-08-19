@@ -184,25 +184,29 @@ const EntryLink = styled.a`
   }
 `;
 
-const EntryTitle = styled.h3`
+const EntryTitle = styled.div`
   color:       ${STYLE.anthracite};
+  text-align: left;
+  font-weight: 500;
   font-size: 1.3rem;
-  margin-bottom: -6px;
   margin-top: .4rem;
 `;
 
 const EntryCategory = styled.div`
-  font-size: 0.8em;
+  font-size: 0.6em;
   color: ${props => STYLE[props.category]};
   text-transform: uppercase;
   margin-top: .9rem;
-`
+`;
 
-const EntryDescription = styled.p`
+const EntryDescription = styled.div`
+  margin-top: .4rem;
+  font-size: 0.8em;
   color: ${STYLE.darkGray};
 `;
 
 const EntryDetailsOtherData = styled.div`
+  margin-top: .4rem;
   font-family: ${STYLE.headerFont};
 `;
 
