@@ -14,6 +14,11 @@ c.NAMES[c.IDS.EVENT] = "event"
 // c.MAIN_IDS = [c.IDS.INITIATIVE, c.IDS.EVENT, c.IDS.COMPANY];
 c.MAIN_IDS = [c.IDS.INITIATIVE, c.IDS.EVENT];
 
+//   Temp solution for disable EVENTS
+c.DISABLE = {};
+c.DISABLE[c.IDS.INITIATIVE] = false;
+c.DISABLE[c.IDS.EVENT] = true;
+
 c.CSS_CLASS_SIZE = {};
 c.CSS_CLASS_SIZE[c.IDS.INITIATIVE] = "pure-u-1-2";
 c.CSS_CLASS_SIZE[c.IDS.EVENT] = "pure-u-1-2";
