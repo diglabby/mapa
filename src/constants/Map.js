@@ -3,17 +3,17 @@ module.exports = {
   CITY_DEFAULT_ZOOM: 13,
   ENTRY_DEFAULT_ZOOM: 15,
   DEFAULT_CENTER: {
-    lat: 50.826,
-    lng: 10.920
+    lat: 53.737,
+    lng: 26.580
   },
   DEFAULT_BBOX: {
     _northEast: {
-      lat: 48.82099347817258,
-      lng: 9.299583435058596
+      lat: 55.70090921407907,
+      lng: 33.61083970405162
     },
     _southWest: {
-      lat: 48.73547433443503,
-      lng: 9.116249084472658
+      lat: 51.67777683000696,
+      lng: 19.548339704051617
     }
   },
   NUM_DECIMALS_FOR_ZOOM: 2,
