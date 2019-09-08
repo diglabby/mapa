@@ -74,22 +74,24 @@ class SelectTags extends Component {
   }
 
   valueToString(cb,newValue,event) {
+    const val = newValue; // ? newValue : this.props.input.value
 
-    const val = newValue  // ? newValue : this.props.input.value
-    if( typeof val === "string" ) return val
+    if (typeof val === "string") return val;
 
-    const currentTagsArray = this.props.input.value.split(',')
+    const currentTagsArray = this.props.input.value.split(',');
 
+    let arr = [];
 
-    let arr = []
     for (let i = 0; i < val.length; i++) {
-      const normalized = normalize.tags(val[i].value)
-      if ( normalized==false ) continue
-      
-      const isNew = (i == (val.length -1) && event.action == "create-option")
-      if (isNew ) if (currentTagsArray.indexOf(normalized) != -1 ) return false
+      const normalized = normalize.tags(val[i].value);
 
-      arr.push( normalized )
+      if ( normalized === false ) continue;
+
+      const isNew = (i === (val.length -1) && event.action === "create-option");
+
+      if (isNew ) if (currentTagsArray.indexOf(normalized) !== -1 ) return false;
+
+      arr.push( normalized );
     }
     cb( arr.join(',') );
   }
@@ -110,6 +112,7 @@ class SelectTags extends Component {
         options={this.state.options || []}
         placeholder={this.props.t("entryForm.tags")}
         noOptionsMessage={() => this.props.t("entryForm.noTagSuggestion") }
+
         formatCreateLabel={(inputValue) => this.props.t("entryForm.newTag")+" "+normalize.tags(inputValue) }
 
         onInputChange={this.onInputChange.bind(this)}
@@ -121,6 +124,5 @@ class SelectTags extends Component {
     )
   }
 }
-
 
 module.exports = translate('translation')(SelectTags)

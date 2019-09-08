@@ -83,7 +83,10 @@ const Actions = {
 
             if(cats.includes(IDS.EVENT)){
               const tags = search.text.replace(/#/g, '');
-              WebAPI.searchEvents(tags, bbox, getMidnightUnixtime(Date.now()/1000), null, (err, res) => {
+              const date = new window.Date();
+              date.setHours(0, 0, 0, 0);
+
+              WebAPI.searchEvents(tags, bbox, date.getTime(), null, (err, res) => {
                 dispatch({
                   type: T.SEARCH_RESULT_EVENTS,
                   payload: err || res,
@@ -92,13 +95,13 @@ const Actions = {
               });
 
               // search events without place:
-              WebAPI.searchEvents(tags, null, getMidnightUnixtime(Date.now()/1000), null, (err, res) => {
-                dispatch({
-                  type: T.SEARCH_RESULT_EVENTS_WITHOUT_PLACE,
-                  payload: err || res,
-                  error: err != null
-                });
-              });
+              // WebAPI.searchEvents(tags, null, null, getMidnightUnixtime(Date.now()/1000), (err, res) => {
+              //   dispatch({
+              //     type: T.SEARCH_RESULT_EVENTS_WITHOUT_PLACE,
+              //     payload: err || res,
+              //     error: err != null
+              //   });
+              // });
             }
           }
 
@@ -307,13 +310,24 @@ const Actions = {
       })
     },
 
-  saveEntry: (e) =>
+  saveEntry: (entry) =>
     (dispatch, getState) => {
-      const entryExists = (e != null ? e.id : void 0);
-      const saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
-      e.license = getLicenseForEntry(e.license);
+      let saveFunc;
+      let getEntityRequest;
+      const isEvent = entry.categories[0] === IDS.EVENT;
+      const entryExists = (entry != null ? entry.id : void 0);
+      entry.license = getLicenseForEntry(entry.license);
 
-      saveFunc(e, (err, res) => {
+      if (isEvent) {
+        entry.created_by = 'test@test.com';
+        saveFunc = entryExists ? WebAPI.editEvent : WebAPI.createNewEvent;
+        getEntityRequest = WebAPI.getEvent;
+      } else {
+        saveFunc = entryExists ? WebAPI.saveEntry : WebAPI.saveNewEntry;
+        getEntityRequest = WebAPI.getEntries;
+      }
+
+      saveFunc(entry, (err, res) => {
         if (err) {
           dispatch(stopSubmit(EDIT.id, {
             _error: err
@@ -324,8 +338,11 @@ const Actions = {
             status: "error"
           }));
         } else {
-          const id = (e != null ? e.id : void 0) || res;
-          WebAPI.getEntries([id], (err, res) => {
+          const id = (entry != null ? entry.id : void 0) || res;
+
+          getEntityRequest([id], (err, res) => {
+            isEvent ? res.categories = entry.categories : res;
+
             dispatch(initialize(EDIT.id, {}, EDIT.fields));
             if (!err) {
               dispatch(notify({
@@ -342,12 +359,12 @@ const Actions = {
               if(!entryExists){
                 dispatch({
                   type: T.NEW_ENTRY_RESULT,
-                  payload: res[0]
+                  payload: isEvent ? res : res[0]
                 });
               } else {
                 dispatch({
                   type: T.SAVED_ENTRY_RESULT,
-                  payload: res[0]
+                  payload: isEvent ? res : res[0]
                 });
               }
             }
