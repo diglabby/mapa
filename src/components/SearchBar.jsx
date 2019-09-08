@@ -1,7 +1,7 @@
 import { translate }                       from "react-i18next";
 import React                               from "react";
 import T                                   from "prop-types";
-import { MAIN_IDS, CSS_CLASS_SIZE, NAMES } from "../constants/Categories";
+import { MAIN_IDS, CSS_CLASS_SIZE, NAMES, DISABLE } from "../constants/Categories";
 import styled, { keyframes }               from "styled-components";
 import { FontAwesomeIcon }                 from '@fortawesome/react-fontawesome'
 import STYLE                               from "./styling/Variables"
@@ -14,7 +14,7 @@ const CategoryButtons = ({ disabled, active, onToggle, t }) => {
     return (
       <button
         key       = { c }
-        disabled  = { disabled }
+        disabled  = { DISABLE[c] } // Temp solution for disable EVENTS
         onClick   = { () => { onToggle(c) }}
         className = { NAMES[c] + " " + CSS_CLASS_SIZE[c] + (act ? " active" : "")}>
         { t("category." + NAMES[c]) + " " }
@@ -229,6 +229,11 @@ const Bar = styled.div `
     box-sizing:  border-box;
     border:      none;
     outline: none;
+  }
+  
+  button[disabled]{
+    background-color: #eaeaea;
+    cursor: not-allowed;
   }
 
   input, span.search-icon {
