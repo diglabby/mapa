@@ -233,7 +233,7 @@ class KVMMap extends Component {
           ) : null}
           }
         </Map>
-        <ActionButton />
+        {/* <ActionButton /> */}
         {showLocateButton ? (
           <div className='leaflet-control-container'>
             <LocateButtonContainer className='leaflet-right'>
