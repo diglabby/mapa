@@ -231,7 +231,6 @@ class KVMMap extends Component {
               icon={this.getIconById(parseInt(this.props.category))}
             />
           ) : null}
-          }
         </Map>
         {/* <ActionButton /> */}
         {showLocateButton ? (
