@@ -28,7 +28,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.4.2",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/react-fontawesome": "^0.1.3",
-    "@material-ui/core": "^4.3.2",
+    "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.23",
     "acorn": "^6.0.4",
