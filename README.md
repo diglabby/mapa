@@ -42,7 +42,10 @@ https://github.com/goodmap/goodmap-old/blob/e9658f1d2a8d77effe4cfabc085b5c7a2c65
 OFDB_API: {
   //link: window.location.origin + "/api" //use when you run openfairdb locally
   link: window.location.protocol + "//" + "api.ofdb.io/v0" //use this to use the remote api
+//    link: window.location.protocol + "//" + "dev.ofdb.io/v0" //if you want to work with development environment
+
 }
+
 ```
 
 The alternative is to run OpenFairDB Server locally:
