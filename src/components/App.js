@@ -143,6 +143,8 @@ class Main extends Component {
 
         <Swipeable onSwipedRight={ (e, deltaX) => this.swipedRightOnMap(e, deltaX) } className="center">
           <Map
+            iframeUrl={url.hash}
+            subscribe={{i: search.current, t: search.text, g: map.bbox}}
             marker={ (view.left === V.EDIT || view.left === V.NEW) ? map.marker : null}
             highlight={ search.highlight }
             center={ map.center}
