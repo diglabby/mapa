@@ -6,16 +6,28 @@ if (!window.location.origin) {
 }
 
 const API_VERSION = 'v0';
+
 const OFDB_API_LINK = (() => {
   switch (__STAGE__){
     case APP_STAGES.LOCAL:
-      return "https://nightly.ofdb.io/";
+
+      console.log('env LOCAL');
+
+      return "https://dev.ofdb.io/";
+      // return "https://kartevonmorgen.org/api/";
+      // return "https://api.ofdb.io/";
+      // return "https://nightly.ofdb.io/";
 
     case APP_STAGES.NIGHTLY:
+      console.log('env NIGHTLY');
       return "https://nightly.ofdb.io/";
-    
+
+    case APP_STAGES.DEV:
+      console.log('env DEV');
+      return "https://dev.ofdb.io/";
+
     default:
-      // production
+      // production  // ?? api.ofdb.io ??
       return "https://kartevonmorgen.org/api/";
   }
 })() + API_VERSION;
