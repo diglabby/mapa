@@ -46,7 +46,7 @@ const IframeForm = ({ data, close }) => {
       style={modalStyle}
       ariaHideApp={false}
     >
-      <form >
+      <div>
         <TextIframe ref={textAreaRef} readOnly value={code} />
         {options ? (<IframeOptions applyWidth={setWidth} applyHeight={setHeight} />) : null}
         <ButtonsContainer>
@@ -54,7 +54,7 @@ const IframeForm = ({ data, close }) => {
           <Button onClick={openOptions} >Options</Button>
           <Button onClick={close} >Close</Button>
         </ButtonsContainer>
-      </form>
+      </div>
     </ReactModal>
   )
 }

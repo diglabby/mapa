@@ -71,7 +71,7 @@ const SubscribeForm = ({ data, close }) => {
       style={modalStyle}
       ariaHideApp={false}
     >
-      <form >
+      <div>
         <ButtonsRadioContainer>
           <Label >
             Initiative
@@ -101,7 +101,7 @@ const SubscribeForm = ({ data, close }) => {
           <Button onClick={cancelChecked} >Cancel</Button>
           <Button onClick={close} >Close</Button>
         </ButtonsContainer>
-      </form>
+      </div>
     </ReactModal>
   )
 }
