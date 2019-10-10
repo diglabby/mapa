@@ -5,6 +5,7 @@ import { OFDB_API, TH_GEOCODER, NOMINATIM } from "./constants/URLs"
 import CATEGORY_IDS from "./constants/Categories";
 
 const prefix = saPrefix(OFDB_API.link);
+const FALANSTER_TOKEN = 'eyJzdWIiOiJtYXBhLWZhbGFuc3RlciIsIm5hbWUiOiJmYWxhbn';
 
 const jsonCallback = (cb) => (err, res) => {
   if (err) {
@@ -57,7 +58,7 @@ module.exports = {
     request
       .post('/events')
       .use(prefix)
-      .set({ 'Accept': 'application/json', 'Authorization': 'Bearer falanster' })
+      .set({ 'Accept': 'application/json', 'Authorization': `Bearer ${ FALANSTER_TOKEN }` })
       .send(newEvent)
       .end((err, res) => {
         if (err) {
@@ -72,7 +73,7 @@ module.exports = {
     request
       .put('/events/' + event.id)
       .use(prefix)
-      .set({ 'Accept': 'application/json', 'Authorization': 'Bearer falanster' })
+      .set({ 'Accept': 'application/json', 'Authorization': `Bearer ${ FALANSTER_TOKEN }` })
       .send(event)
       .end((err, res) => {
         if (err) {
