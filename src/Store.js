@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from "redux";
 import { APP_STAGES } from "./constants/App";
 
 if (__STAGE__ === APP_STAGES.LOCAL) {
-  middlewares.push(logger);
+  // middlewares.push(logger); // todo kill redux-logger )
 }
 
 // https://github.com/zalmoxisus/redux-devtools-extension
@@ -25,4 +25,4 @@ if (module.hot) {
   });
 }
 
-module.exports = store
+module.exports = store;

@@ -143,6 +143,8 @@ class Main extends Component {
 
         <Swipeable onSwipedRight={ (e, deltaX) => this.swipedRightOnMap(e, deltaX) } className="center">
           <Map
+            iframeUrl={url.hash}
+            subscribe={{i: search.current, t: search.text, g: map.bbox}}
             marker={ (view.left === V.EDIT || view.left === V.NEW) ? map.marker : null}
             highlight={ search.highlight }
             center={ map.center}
@@ -297,7 +299,7 @@ const fadein = keyframes`
   to { opacity: 1; }
 `
 
-import pincloud from "../img/pincloud.png";
+import logoBel from '../img/logoBel.png'
 import i18n from "../i18n";
 
 const MenuFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -376,7 +378,7 @@ const RightPanel = styled.div `
       width: 3.5em;
       height: 1.2em;
       background-position: left;
-      background-image: url(${pincloud});
+      background-image: url(${logoBel});
       background-repeat: no-repeat;
       background-size: 50%;
     }

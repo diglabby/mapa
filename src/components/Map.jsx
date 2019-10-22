@@ -7,11 +7,9 @@ import { avg_rating_for_entry } from "../rating"
 import styled                   from "styled-components";
 import T                        from "prop-types";
 import { FontAwesomeIcon }      from '@fortawesome/react-fontawesome'
+import MapOptions               from "./MapOptions/MapOptions";
 import i18n from "../i18n";
-
-import ActionButton from './ActionButton';
 import { Map, TileLayer, Marker, CircleMarker, Tooltip } from 'react-leaflet';
-
 import 'leaflet/dist/leaflet.css';
 
 var t = (key) => {
@@ -72,6 +70,8 @@ class KVMMap extends Component {
     var markers = [];
 
     const {
+      iframeUrl,
+      subscribe,
       entries,
       center,
       zoom,
@@ -231,11 +231,10 @@ class KVMMap extends Component {
               icon={this.getIconById(parseInt(this.props.category))}
             />
           ) : null}
-          }
         </Map>
-        <ActionButton />
         {showLocateButton ? (
           <div className='leaflet-control-container'>
+            <MapOptions iframeUrl={iframeUrl} subscribe={subscribe} />
             <LocateButtonContainer className='leaflet-right'>
               <LocateButtonInnerContainer className='leaflet-control-locate leaflet-bar leaflet-control'>
                 <LocateButton
