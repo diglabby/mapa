@@ -344,6 +344,14 @@
 			}
 		},
 
+		"howTo": {
+			"title": "Як дадаць кропку на мапу?",
+			"tutorial-1": "Як дадаць новую ініцыятыву",
+			"tutorial-2": "Як рэдагаваць ініцыятыву",
+			"tutorial-3": "Як дадаць новы тэг",
+			"tutorial-4": "Як шукаць па тэгах"
+		},
+
 		"chapter5": {
 			"heading": "Як мы дзейнічаем?",
 			"column-1-head": "Анлайн",
@@ -382,8 +390,10 @@
 			"team-description-2": "брэндбук і піяр",
 			"team-name-3": "Аляксей",
 			"team-description-3": "тэхнічныя задачы",
-			"team-name-4": "Удзельнік",
-			"team-description-4": "Роля"
+			"team-name-4": "Юлія",
+			"team-description-4": "фатаграфія і дызайн",
+			"team-name-5": "Марыя",
+			"team-description-5": "адміністратарка праэкта"
 		},
 		"chapter7": {
 			"heading": "Як удзельнічаць?",

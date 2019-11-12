@@ -18,6 +18,7 @@ import i18n                 from "../i18n";
 import STYLE                from "./styling/Variables"
 import {setLng} from "../reducers/lngReducer";
 
+
 class LandingPage extends Component {
   state = {
     selectedCity : 0,
@@ -721,6 +722,40 @@ const LandingWrapper = styled.div`
       }
     }
   }
+  .slide {
+    background: #fff !important;
+  }
+  .carousel-slider {    
+    padding-left: 55px;
+    padding-right: 55px;
+    box-sizing: border-box;
+  }
+  
+  .slider-wrapper h3 {
+    letter-spacing: 0.05em !important;
+  }
+  
+  .carousel.carousel-slider .control-arrow {
+    top: 30px !important; 
+    opacity: 1;
+  }
+  
+  .carousel .control-next.control-arrow:before {
+    border-left: 35px solid #FF7F2A;
+  }
+  
+  .carousel .control-prev.control-arrow:before {
+    border-right: 35px solid #FF7F2A;
+  }
+  .carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {   
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;    
+  }
+  
+  .carousel.carousel-slider .control-arrow:hover {
+    background: #fff;
+  }
+
   .footer {
     background-color: #162D50;
     height: 349px;

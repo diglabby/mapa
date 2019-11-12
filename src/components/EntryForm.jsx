@@ -410,6 +410,7 @@ const FormWrapper = styled.div`
 `
 
 const FieldElement = styled(Field)`
+  resize: none;
 `;
 
 const Fieldset = styled.fieldset`

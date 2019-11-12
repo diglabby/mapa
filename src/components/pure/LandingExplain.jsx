@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import T from "prop-types";
 import { translate } from "react-i18next";
 import V from "../../constants/PanelView";
+import Carousel from "./TutorialCarousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import i18n                 from "../../i18n";
+
 
 const teamArray = [
   {
@@ -175,6 +179,11 @@ const LandingExplain = props => {
         </div>
       </div>
 
+        <h2 style={{ marginTop: "80px"}}><strong>{t("landingExplain.howTo.title")}</strong></h2>
+        <div className="pure-g" style={{ marginTop: "40px"}}>
+            <Carousel />
+        </div>
+
       <h2 id="team" style={{ marginTop: "130px" }}><strong>{t("landingExplain.chapter6.heading")}</strong></h2>
       <div className="pure-g" style={{ marginTop: "60px" }}>
         <div className="pure-u-1-3">
@@ -187,12 +196,24 @@ const LandingExplain = props => {
           <p className="team-name" style={{ marginTop: "22px" }}><strong>{t("landingExplain.chapter6.team-name-2")}</strong></p>
           <p className="team-role">{t("landingExplain.chapter6.team-description-2")}</p>
         </div>
-        <div className="pure-u-1-3">
-          <img style={{ margin: "auto" }} className="pure-img rounded" src={require("../../img/team/team-3.jpg")} />
-          <p className="team-name" style={{ marginTop: "22px" }}><strong>{t("landingExplain.chapter6.team-name-3")}</strong></p>
-          <p className="team-role">{t("landingExplain.chapter6.team-description-3")}</p>
-        </div>
+          <div className="pure-u-1-3">
+              <img style={{ margin: "auto" }} className="pure-img rounded" src={require("../../img/team/team-5.jpg")} />
+              <p className="team-name" style={{ marginTop: "22px" }}><strong>{t("landingExplain.chapter6.team-name-5")}</strong></p>
+              <p className="team-role">{t("landingExplain.chapter6.team-description-5")}</p>
+          </div>
       </div>
+        <div className="pure-g" style={{ marginTop: "40px" }}>
+            <div className="pure-u-1-2">
+                <img style={{ margin: "auto" }} className="pure-img rounded" src={require("../../img/team/team-4.jpg")} />
+                <p className="team-name" style={{ marginTop: "22px" }}><strong>{t("landingExplain.chapter6.team-name-4")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-4")}</p>
+            </div>
+            <div className="pure-u-1-2">
+                <img style={{ margin: "auto" }} className="pure-img rounded" src={require("../../img/team/team-3.jpg")} />
+                <p className="team-name" style={{ marginTop: "22px" }}><strong>{t("landingExplain.chapter6.team-name-3")}</strong></p>
+                <p className="team-role">{t("landingExplain.chapter6.team-description-3")}</p>
+            </div>
+        </div>
       <p style={{ marginTop: "46px" }}><strong>{t("landingExplain.chapter6.text-heading")}</strong>{t("landingExplain.chapter6.text")}</p>
 
       <h2 style={{ marginTop: "130px" }}><strong>{t("landingExplain.chapter7.heading")}</strong></h2>
