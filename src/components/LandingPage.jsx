@@ -724,10 +724,10 @@ const LandingWrapper = styled.div`
   .slide {
     background: #fff !important;
   }
-  .carousel-slider {
-    height: 640px;
+  .carousel-slider {    
     padding-left: 55px;
     padding-right: 55px;
+    box-sizing: border-box;
   }
   
   .slider-wrapper h3 {
