@@ -433,7 +433,10 @@ const LandingWrapper = styled.div`
   }
   .logo-partner {
     display: flex !important;
-    height: 150px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     img {
         padding: 15px;
         box-sizing: border-box;

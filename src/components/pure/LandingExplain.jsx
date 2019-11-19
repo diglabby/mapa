@@ -235,9 +235,64 @@ const LandingExplain = props => {
       </div>
       <div className="pure-g">
          <h4 className="partners-subtitle" style={{ marginTop: "0px"}}><strong>{t("landingExplain.chapter9.infoPartners")}</strong></h4>
-        <div className="pure-u-1-1 logo-partner">
+      </div>
 
-            <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/dev-logo.svg")} />
+      <div className="pure-g">
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/dev-logo.svg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/1.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/2.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/3.jpg")} />
+        </div>
+      </div>
+
+      <div className="pure-g">
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/4.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/5.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/6.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/7.jpg")} />
+        </div>
+      </div>
+
+      <div className="pure-g">
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/8.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/9.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/10.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/11.jpg")} />
+        </div>
+      </div>
+
+      <div className="pure-g">
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/12.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/13.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
+          <img style={{ margin: "auto" }} className="pure-img" src={require("../../img/14.jpg")} />
+        </div>
+        <div className="pure-u-1-4 logo-partner">
         </div>
       </div>
 
