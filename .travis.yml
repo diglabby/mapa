@@ -7,20 +7,22 @@ cache:
   directories:   
     - $HOME/.npm
     - node_modules
-    
+
+addons:
+  chrome: stable
+  apt:
+    packages:
+        - sshpass        
+        
 before_install:
   - nvm install 'lts/*'
   - npm i -g npm
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   
 install:
   - npm install --no-audit --no-progress --quiet
   - npm run pack
   
-addons:
-    apt:
-        packages:
-            - sshpass
-            
 after_success: 
   - shopt -s extglob
   - mkdir build
@@ -29,3 +31,7 @@ after_success:
   - sshpass -p $DEPLOY_PASSWORD scp -o stricthostkeychecking=no -P $DEPLOY_PORT package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
   - sshpass -p $DEPLOY_PASSWORD ssh -o stricthostkeychecking=no -p $DEPLOY_PORT $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 
+notifications:
+  email:
+    on_success: never
+    on_failure: always  
