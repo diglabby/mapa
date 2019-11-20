@@ -21,6 +21,7 @@ before_install:
   
 install:
   - npm install --no-audit --no-progress --quiet
+  - cp URL.js.develop src/constants/URLs.js
   - npm run pack
   
 after_success: 
