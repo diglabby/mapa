@@ -510,7 +510,7 @@ const LandingWrapper = styled.div`
       max-width: 945px;
     }
     .gray {
-      background-color: #f7f7f7;
+      background-color: #f0f0f0;
       width: 100%;
       padding-top: 4rem;
       padding-bottom: 4rem;
