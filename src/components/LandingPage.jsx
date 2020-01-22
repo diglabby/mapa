@@ -433,7 +433,10 @@ const LandingWrapper = styled.div`
   }
   .logo-partner {
     display: flex !important;
-    height: 150px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     img {
         padding: 15px;
         box-sizing: border-box;
@@ -492,7 +495,7 @@ const LandingWrapper = styled.div`
     }
   }
   .content {
-    max-width: 945px;
+    width: 100;
     margin: auto;
     z-index: 0;
     .login-info {
@@ -501,6 +504,22 @@ const LandingWrapper = styled.div`
     .imprint-heading {
       margin-top: 2em;
       margin-bottom: 0.5em;
+    }
+    .content-wrapper {
+      margin:auto;
+      max-width: 945px;
+    }
+    .gray {
+      background-color: #f0f0f0;
+      width: 100%;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .white {
+      width: 100%;
+      background-color: #fff;
+      padding-bottom: 4rem;
+      
     }
   }
   .partners-subtitle {
@@ -539,7 +558,8 @@ const LandingWrapper = styled.div`
           margin-right: 30px;
         }
       
-      .language-wrapper {        
+      .language-wrapper {
+        display: none;        
         margin: 1em;
         position: absolute;
         top 0;
@@ -724,10 +744,10 @@ const LandingWrapper = styled.div`
   .slide {
     background: #fff !important;
   }
-  .carousel-slider {
-    height: 640px;
+  .carousel-slider {    
     padding-left: 55px;
     padding-right: 55px;
+    box-sizing: border-box;
   }
   
   .slider-wrapper h3 {
@@ -757,8 +777,7 @@ const LandingWrapper = styled.div`
 
   .footer {
     background-color: #162D50;
-    height: 349px;
-    margin-top: 100px;
+    height: 349px;    
 
     color: #fff;
     text-align: center;
