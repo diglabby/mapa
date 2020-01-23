@@ -20,6 +20,8 @@
 		"licenseAccepted": "",
 		"license": "License",
 		"title": "Title",
+		"startDate": "Start date",
+		"endDate": "End date",
 		"description": "Description",
 		"tags": "Tags (separate by enter)",
 		"newTag": "New:",
