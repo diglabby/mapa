@@ -21,7 +21,7 @@
 		"license": "License",
 		"title": "Title",
 		"description": "Description",
-		"tags": "Tags (separate by comma)",
+		"tags": "Tags (separate by enter)",
 		"newTag": "New:",
 		"noTagSuggestion": "Type for suggestions.",
 		"tagsLoading": "Loading suggestions…",
