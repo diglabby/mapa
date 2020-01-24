@@ -20,6 +20,8 @@
 		"licenseAccepted": "",
 		"license": "Ліцэнзія",
 		"title": "Загаловак",
+        "startDate": "Пачатак",
+        "endDate": "Канец",
 		"description": "Апісанне",
 		"tags": "Тэгі (праз энтэр)",
 		"newTag": "Новае:",
