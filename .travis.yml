@@ -26,8 +26,8 @@ after_success:
 - mkdir build
 - mv dist/* build
 - tar -czf package.tgz build
-- scp -o stricthostkeychecking=no -p $PORT -i ./deploy_key package.tgz $USER@$HOST:$DEPLOY_PATH/
-- ssh -o stricthostkeychecking=no -p $PORT  -i ./deploy_key $USER@HOST $DEPLOY_PATH/deploy.sh
+- scp -o stricthostkeychecking=no -p $PORT -i ./deploy_key package.tgz $DEPLOY_USER@$HOST:$DEPLOY_PATH/
+- ssh -o stricthostkeychecking=no -p $PORT  -i ./deploy_key $DEPLOY_USER@HOST $DEPLOY_PATH/deploy.sh
 
 notifications:
   email:
