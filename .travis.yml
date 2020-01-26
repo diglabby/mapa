@@ -24,6 +24,8 @@ install:
 after_success:
 - shopt -s extglob
 - mkdir build
+- pwd
+- ll
 - mv dist/* build
 - tar -czf package.tgz build
 - scp -o stricthostkeychecking=no -p $PORT -i ./deploy_key package.tgz $DEPLOY_USER@$HOST:$DEPLOY_PATH/
