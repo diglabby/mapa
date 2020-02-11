@@ -33,7 +33,7 @@
     "@material-ui/lab": "^4.0.0-alpha.23",
     "acorn": "^6.3.0",
     "babel-polyfill": "^6.26.0",
-    "es6-promise": "^3.1.2",
+    "es6-promise": "^4.2.8",
     "formik": "^1.5.8",
     "i18next": "^10.6.0",
     "i18next-browser-languagedetector": "^2.2.3",
