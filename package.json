@@ -31,7 +31,7 @@
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.23",
-    "acorn": "^6.3.0",
+    "acorn": "^6.4.0",
     "babel-polyfill": "^6.26.0",
     "es6-promise": "^3.1.2",
     "formik": "^1.5.8",
