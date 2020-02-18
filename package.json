@@ -37,7 +37,7 @@
     "formik": "^1.5.8",
     "i18next": "^10.6.0",
     "i18next-browser-languagedetector": "^2.2.3",
-    "leaflet": "^1.4.0",
+    "leaflet": "^1.6.0",
     "museo": "^0.1.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
