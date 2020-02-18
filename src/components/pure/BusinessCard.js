@@ -49,27 +49,6 @@ const getTelLink = (entry) => {
   return <EntryLink href={url}>{tel}</EntryLink>
 };
 
-const getRoutePlannerLink = (entry) => {
-  let url = '';
-  let provider = '';
-  if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) provider = "apple"
-  else if( navigator.userAgent.toLowerCase().indexOf("android") !== -1 ) provider = "android"
-  else provider = 'default'
-
-  if( provider === "apple" || provider === "default") {
-    url = ROUTEPLANNERS[provider].link.replace("{addr}",entry.street + "+" + entry.zip + "+" + entry.city)
-  }
-  else url = ROUTEPLANNERS[provider].link.replace('{lat}',entry.lat).replace('{lng}',entry.lng)
-
-  return(
-    <EntryLink
-      title={ "Hinfinden mit "+ROUTEPLANNERS[provider].name }
-      href={url} target="_blank">
-      Routenplaner
-    </EntryLink>
-  )
-};
-
 const BusinessCard = ({ entry, hasImage, t, isEvent, onTag, tagsClickable }) => {
   if (!entry) {
     return(
@@ -123,10 +102,7 @@ const BusinessCard = ({ entry, hasImage, t, isEvent, onTag, tagsClickable }) => 
                   <AddressLine { ...entry } />
                 </AddressWrapper>
               </div>
-              <div key="route">
-                <FontAwesomeIconElement icon="route" />
-                { getRoutePlannerLink(entry) }
-            </div></div>
+            </div>
             : null),
           (entry.tags && entry.tags.filter(t => t !="").length > 0
             ? Tags(entry.tags, onTag, tagsClickable)
