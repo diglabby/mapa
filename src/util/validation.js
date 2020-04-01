@@ -1,7 +1,7 @@
 import i18n from "../i18n";
 
 const entryForm = (data) => {
-  let errors, h, l, ref, u;
+  let errors, h, l, ref, u,p;
   errors = {};
 
   const t = (key) => {
@@ -101,6 +101,15 @@ const entryForm = (data) => {
       errors.image_link_url = t("invalidURL");
     }
   }
+  // eslint-disable-next-line no-useless-escape
+  const TelRegexp  =/^(?:\+|\d)[\d\-(\) ]{4,14}\d$/;
+
+  if ((p = data.telephone) != null) {
+    if (!TelRegexp.test(p)) {
+      errors.telephone = t("invalidPhone");
+    }
+  }
+
   return errors;
 };
 
