@@ -58,7 +58,10 @@ const config = {
       },
       {
         test:   /\.jpe?g$|\.gif$|\.png$/,
-        loader: "url-loader?limit=10000"
+        loader: "url-loader?limit=10000",
+        options: {
+              esModule: false,
+        },
       },
       {
         test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
@@ -78,7 +81,10 @@ const config = {
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+        loader: "url-loader?limit=10000&mimetype=image/svg+xml",
+        options: {
+              esModule: false,
+        },        
       }
     ]
   },

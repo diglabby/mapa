@@ -19,7 +19,7 @@ const Footer = props => {
   const body = "%0D%0A"
     + t("entryDetails.reportBody").replace("{link}", (" «"+props.title + "»%0D%0A (" + encodeURIComponent(window.location.href) + ")%0D%0A "))
     + '%0D%0A%0D%0A'
-  const mailToString = `mailto:report@kartevonmorgen.org?subject=${subject}&body=${body}`
+  const mailToString = `mailto:falanster.by@gmail.com?subject=${subject}&body=${body}`
 
   return(
     <FooterWrapper>
