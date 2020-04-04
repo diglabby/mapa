@@ -102,13 +102,13 @@ const entryForm = (data) => {
     }
   }
   // eslint-disable-next-line no-useless-escape
-  const TelRegexp  =/^(?:\+|\d)[\d\-(\) ]{4,14}\d$/;
-
-  if ((p = data.telephone) != null) {
-    if (!TelRegexp.test(p)) {
-      errors.telephone = t("invalidPhone");
-    }
-  }
+  // const TelRegexp  =/^(?:\+|\d)[\d\-(\) ]{4,14}\d$/;
+  //
+  // if ((p = data.telephone) != null) {
+  //   if (!TelRegexp.test(p)) {
+  //     errors.telephone = t("invalidPhone");
+  //   }
+  // }
 
   return errors;
 };
