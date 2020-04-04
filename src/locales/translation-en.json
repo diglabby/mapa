@@ -61,7 +61,6 @@
 		"acceptLicense": "Please accept the license",
 		"invalidLicenseAgreement": "Invalid License Agreement",
 		"invalidURL": "Invalid URL",
-		"invalidPhone": "Invalid Phone",
 		"httpMissing": "\"http://\" or \"https://\" missing"
 	},
 	"entryDetails": {

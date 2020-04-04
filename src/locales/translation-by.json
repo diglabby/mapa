@@ -26,7 +26,7 @@
 		"noTagSuggestion": "Пачніце пісаць, каб убачыць падказкі.",
 		"tagsLoading": "Загрузка падказак…",
 		"homepage": "Галоўная",
-		"phone": "Тэлелефон",
+		"phone": "Тэл",
 		"street": "Адрас",
 		"city": "Горад",
 		"zip": "Паштовы індэкс",
@@ -61,7 +61,6 @@
 		"acceptLicense": "Калі ласка, прыміце ліцэнзію",
 		"invalidLicenseAgreement": "Недапушчальная ліцэнзійная дамова",
 		"invalidURL": "Недапушчальны URL",
-		"invalidPhone": "Недапушчальны Tэлефон",
 		"httpMissing": "Прапушчаны \"http://\" або \"https://\""
 	},
 	"entryDetails": {
