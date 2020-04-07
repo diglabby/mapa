@@ -45,7 +45,7 @@
     "react": "^16.8.2",
     "react-day-picker": "^7.3.2",
     "react-dom": "^16.8.2",
-    "react-i18next": "^7.13.0",
+    "react-i18next": "^9.0.3",
     "react-leaflet": "^2.2.0",
     "react-loaders-spinners": "^0.4.0",
     "react-modal": "^3.9.1",
