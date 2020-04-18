@@ -166,9 +166,21 @@ class Main extends Component {
                 return dispatch(Actions.hideLeftPanelOnMobile());
               }
             }}
+            // onMarkerClick={ (id) => {
+            //
+            //
+            //   dispatch(Actions.setCurrentEntry(id, null));
+            //         return dispatch(Actions.showLeftPanel());
+            //
+            // }}
             onMarkerClick={ (id) => {
-              dispatch(Actions.setCurrentEntry(id, null));
-              return dispatch(Actions.showLeftPanel());
+
+              let result=  confirm ("Are you sure to go away? All changes will be lost")
+              if (result) {
+                dispatch(Actions.setCurrentEntry(id, null));
+                return dispatch(Actions.showLeftPanel());
+              }
+
             }}
             onMoveend={ coordinates => { return dispatch(Actions.onMoveend(coordinates, map.center)); }}
             onZoomend={ coordinates => { return dispatch(Actions.onZoomend(coordinates, map.zoom)); }}
