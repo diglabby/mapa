@@ -2,6 +2,8 @@
  * Copyright (c) 2015 - 2017 Markus Kohlhase <mail@markus-kohlhase.de>
  */
 
+import {BrowserRouter} from "react-router-dom";
+
 require('es6-promise').polyfill(); // required for redux-form
 
 import React    from "react";
@@ -16,6 +18,7 @@ import i18n     from './i18n';
 import { I18nextProvider }   from 'react-i18next';
 import { Provider, connect } from "react-redux";
 import { APP_STAGES }        from "./constants/App";
+import { browserHistory } from 'react-router-dom';
 
 import "babel-polyfill";
 
@@ -33,9 +36,10 @@ const rootElement = document.querySelector('#app');
 
 // inject the 'dispatch' method and the state
 const Wrapper = (
-  <Provider store = {store} >
-    <I18nextProvider i18n={ i18n } >
-      <ConnectedApp />
+
+  <Provider store={store}>
+    <I18nextProvider i18n={i18n}>
+      <ConnectedApp history={browserHistory}/>
     </I18nextProvider>
   </Provider>);
 

@@ -10,6 +10,7 @@ const darkGray   = "rgb(102,  102,  102)";
 const gray       = "rgb(136,  136,  136)";
 const lightGray  = "rgb(221,  221,  221)";
 const teal       = "rgb(0,    152,  137)";
+const lila       = "rgb(171,  55,   106)";;
 const yellowText = "rgb(214,  201,  0  )";
 
 const rating_contexts = {
@@ -38,11 +39,13 @@ module.exports = {
   lightGray,
   darkGray,
   yellowText,
+  lila,
 
   company:    teal,
   initiative: green,
   event:      pink,
   otherCategory: lightGray,
+  markered: lila ,
 
   rating_contexts,
 

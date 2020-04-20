@@ -22,25 +22,47 @@ import { EDIT }             from "../constants/Form"
 import STYLE                from "./styling/Variables"
 import { NUM_ENTRIES_TO_SHOW } from "../constants/Search"
 import mapConst             from "../constants/Map"
+import i18n from "../i18n";
+import {BrowserRouter, HashRouter, Route} from "react-router-dom";
+
+
+
 
 class Main extends Component {
-  
+
+
+
   render(){
-    
+
+    var tt = (key) => {
+      return this.props.t("dialogWindow." + key);
+    };
+
+
     const { dispatch, search, view, server, map, form, url, user, t } = this.props;
     const { entries, ratings } = server;
+
+
+
     
     this.changeUrlAccordingToState(url);
     this.changePageTile();
     const visibleEntries = this.filterVisibleEntries(entries, search);
     const loggedIn = user.username ? true : false;
-    
+
+
+
+
+
+
     return (
+      // <div>
       <StyledApp className="app">
+
         <GlobalStyle />
         <NotificationsSystem theme={theme}/>
-        { 
-          view.menu ? 
+        {
+          view.menu ?
             <LandingPage
               onMenuItemClick={ id => {
                 switch (id) {
@@ -92,7 +114,7 @@ class Main extends Component {
             />
             : ""
         }
-        { 
+        {
           view.modal != null ? <Modal view={view} dispatch={dispatch} /> : ""
         }
 
@@ -129,7 +151,7 @@ class Main extends Component {
               }}>
               <ToggleLeftSidebarIcon icon={"caret-" + (view.showLeftPanel ? 'left' : 'right')} />
             </button>
-          </HideSidebarButtonWrapper>   
+          </HideSidebarButtonWrapper>
         </LeftPanelAndHideSidebarButton>
         <RightPanel>
           <div className="menu-toggle">
@@ -139,7 +161,7 @@ class Main extends Component {
               </span>
             </button>
           </div>
-        </RightPanel> 
+        </RightPanel>
 
         <Swipeable onSwipedRight={ (e, deltaX) => this.swipedRightOnMap(e, deltaX) } className="center">
           <Map
@@ -173,9 +195,10 @@ class Main extends Component {
             //         return dispatch(Actions.showLeftPanel());
             //
             // }}
+
             onMarkerClick={ (id) => {
 
-              let result=  confirm ("Are you sure to go away? All changes will be lost")
+              let result=  confirm (tt("message"))
               if (result) {
                 dispatch(Actions.setCurrentEntry(id, null));
                 return dispatch(Actions.showLeftPanel());
@@ -189,6 +212,9 @@ class Main extends Component {
           />
         </Swipeable>
       </StyledApp>
+
+
+
     );  
   }
 
@@ -312,7 +338,9 @@ const fadein = keyframes`
 `
 
 import logoBel from '../img/logoBel.png'
-import i18n from "../i18n";
+//import i18n from "../i18n";
+import MyComponent from "./pure/OpenAPI";
+
 
 const MenuFontAwesomeIcon = styled(FontAwesomeIcon)`
   padding-right: .45rem;

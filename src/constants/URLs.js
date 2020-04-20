@@ -116,5 +116,9 @@ module.exports = {
   JOB_ADS: {
     name: "www.betterplace.org/de/organisations/vonmorgen",
     link: "https://www.betterplace.org/de/organisations/vonmorgen"
+  },
+  OPEN_API: {
+    name: "OpenApi",
+    link: "https://raw.githubusercontent.com/kartevonmorgen/openfairdb/master/openapi.yaml"
   }
 };

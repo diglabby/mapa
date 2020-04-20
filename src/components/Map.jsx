@@ -16,7 +16,7 @@ var t = (key) => {
   return i18n.t("mapButtons." + key);
 };
 
-const { INITIATIVE, EVENT, COMPANY } = IDS;
+const { INITIATIVE, EVENT, COMPANY,MARKER } = IDS;
 
 class KVMMap extends Component {
   getIconById(id) {
@@ -25,6 +25,8 @@ class KVMMap extends Component {
         return icons.initiative;
       case EVENT:
         return icons.event;
+      case   MARKER:
+        return icons.markered
       case COMPANY:
         return icons.company;
       default:
@@ -38,6 +40,8 @@ class KVMMap extends Component {
         return STYLE.initiative;
       case EVENT:
         return STYLE.event;
+      case   MARKER:
+        return STYLE.markered
       case COMPANY:
         return STYLE.company;
       default:
@@ -107,17 +111,26 @@ class KVMMap extends Component {
             e.categories[0] === EVENT
           ) {
             let opacity = 0.5;
-            if (highlight.indexOf(e.id) == 0 || highlight.length == 0)
+          let  colorIcon=this.getIconById(e.categories[0])
+            if (highlight.indexOf(e.id) == 0 || highlight.length == 0) {
               opacity = 1;
+           colorIcon = icons.company
+             // colorIcon=this.getIconById("77b3c33a92554bcf8e8c2c86cedd6f6f")
+            }
+          if (highlight.length == 0){
+            opacity = 1;
+            colorIcon=this.getIconById(e.categories[0])
+          }
             if (marker) opacity = 0.3;
             markers.push(
               <Marker
                 key={e.id}
                 onClick={() => {
-                  onMarkerClick(e.id);
+                  onMarkerClick(e.id)
                 }}
                 position={{ lat: e.lat, lng: e.lng }}
-                icon={this.getIconById(e.categories[0])}
+             // icon={this.getIconById(e.categories[0])}
+               icon={colorIcon}
                 opacity={opacity}
               >
                 <SmallTooltip direction='bottom' offset={[0, 2]}>
@@ -129,14 +142,23 @@ class KVMMap extends Component {
             // to make clicking the circle easier add a larger circle with 0 opacity:
 
             let opacity = 0.5;
-            if (highlight.indexOf(e.id) == 0 || highlight.length == 0)
-              opacity = 1;
-            if (marker) opacity = 0.3;
-
+            let colorMarker=this.getCategoryColorById(e.categories[0])
+            if (highlight.indexOf(e.id) == 0 || highlight.length == 0) {
+               opacity = 1;
+              colorMarker = this.getCategoryColorById("77b3c33a92554bcf8e8c2c86cedd6f6f")
+            }
+          if (highlight.length == 0) {
+            opacity = 1;
+            colorMarker=this.getCategoryColorById(e.categories[0])
+          }
+            if (marker) {
+              opacity = 0.3;
+              //colorMarker = this.getCategoryColorById(e.categories[0])
+            }
             markers.push(
               <CircleMarker
                 onClick={() => {
-                  onMarkerClick(e.id);
+                  onMarkerClick(e.id)
                 }}
                 key={e.id}
                 center={{ lat: e.lat, lng: e.lng }}
@@ -144,7 +166,8 @@ class KVMMap extends Component {
                 radius={9}
                 color={'#fff'}
                 weight={0.7}
-                fillColor={this.getCategoryColorById(e.categories[0])}
+              //  fillColor={this.getCategoryColorById(blabla)}
+              fillColor={colorMarker}
                 fillOpacity={opacity}
               >
                 <SmallTooltip direction='bottom' offset={[0, 10]}>
@@ -152,6 +175,7 @@ class KVMMap extends Component {
                 </SmallTooltip>
               </CircleMarker>
             );
+
           }
 
           if (highlight.length > 0 && highlight.indexOf(e.id) == 0) {

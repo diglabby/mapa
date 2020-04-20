@@ -17,9 +17,16 @@ import V                    from "../constants/PanelView";
 import i18n                 from "../i18n";
 import STYLE                from "./styling/Variables"
 import {setLng} from "../reducers/lngReducer";
+import {HashRouter, Link, NavLink, Route} from "react-router-dom";
+import ApiComponent from "./pure/OpenApi/ApiComponent";
 
 
 class LandingPage extends Component {
+
+
+
+
+
   state = {
     selectedCity : 0,
   }
@@ -240,26 +247,26 @@ class LandingPage extends Component {
               <div className="top-wrapper">
                 <div className = "language-wrapper">
 
-                  { loggedIn ?
-                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
-                        {t("menu.logout")}
-                      </a>
-                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
-                        {t("menu.login")}
-                      </a>
-                  }
+                  {/*{ loggedIn ?*/}
+                  {/*    <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">*/}
+                  {/*      {t("menu.logout")}*/}
+                  {/*    </a>*/}
+                  {/*    : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">*/}
+                  {/*      {t("menu.login")}*/}
+                  {/*    </a>*/}
+                  {/*}*/}
 
-                  <a onClick={() => {
-                    i18n.changeLanguage('by');
-                    setLng('by');
-                  }} href="#"
-                     className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
-                  {" "}
-                  <a onClick={() => {
-                    i18n.changeLanguage('en');
-                    setLng('en');
-                  }} href="#"
-                     className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
+                  {/*<a onClick={() => {*/}
+                  {/*  i18n.changeLanguage('by');*/}
+                  {/*  setLng('by');*/}
+                  {/*}} href="#"*/}
+                  {/*   className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>*/}
+                  {/*{" "}*/}
+                  {/*<a onClick={() => {*/}
+                  {/*  i18n.changeLanguage('en');*/}
+                  {/*  setLng('en');*/}
+                  {/*}} href="#"*/}
+                  {/*   className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>*/}
 
 
                 </div>
@@ -374,9 +381,25 @@ class LandingPage extends Component {
             <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/by.png")}/></a>
             <a className="license-link" href="http://creativecommons.org/licenses/by/4.0/"><img className="pure-img"  src={require("../img/sa.png")}/></a>
           </p>
+                 <a className='open-api' href={URLs.OPEN_API.link}>API /api</a>
+          {/*F*/}
+          {/*<ul>*/}
+          {/*  <li>*/}
+          {/*    <NavLink  className='open-api' to="/a">Modus</NavLink>*/}
+          {/*    f*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
 
+            {/*<Route path='/openapi' component={ApiComponent}/>*/}
+          {/*<NavLink to="/openapi">OPEN/ API</NavLink>*/}
+
+              <Route path="/api" component={ApiComponent} />
+
+
+          <NavLink to="/api">API</NavLink>
           <p>
             {user.username != null ? <a onClick={onDeleteAccount} href="#">
+
               Account löschen
             </a> : ""}
           </p>
@@ -787,6 +810,12 @@ const LandingWrapper = styled.div`
       padding-right: 10px;
       padding-left: 10px;
       font-size: 18px;
+    }
+    .open-api{
+    border:1px solid red;
+    width:max-content;
+    padding:10px 15px;
+    margin: 0 auto
     }
   }
   .search {
