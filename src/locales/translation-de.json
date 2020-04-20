@@ -55,6 +55,7 @@
 		"acceptLicense":"Lizenzzustimmung ist nötig",
 		"invalidLicenseAgreement":"Ungültige Zustimmung",
 		"invalidURL":"Ungültige URL",
+		"invalidPhone": "Ungültige Telefon",
 		"httpMissing":"\"http://\" oder \"https://\" fehlt)"
 	},
 	"entryDetails":{

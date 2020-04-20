@@ -247,26 +247,26 @@ class LandingPage extends Component {
               <div className="top-wrapper">
                 <div className = "language-wrapper">
 
-                  {/*{ loggedIn ?*/}
-                  {/*    <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">*/}
-                  {/*      {t("menu.logout")}*/}
-                  {/*    </a>*/}
-                  {/*    : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">*/}
-                  {/*      {t("menu.login")}*/}
-                  {/*    </a>*/}
-                  {/*}*/}
+                  { loggedIn ?
+                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
+                        {t("menu.logout")}
+                      </a>
+                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
+                        {t("menu.login")}
+                      </a>
+                  }
 
-                  {/*<a onClick={() => {*/}
-                  {/*  i18n.changeLanguage('by');*/}
-                  {/*  setLng('by');*/}
-                  {/*}} href="#"*/}
-                  {/*   className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>*/}
-                  {/*{" "}*/}
-                  {/*<a onClick={() => {*/}
-                  {/*  i18n.changeLanguage('en');*/}
-                  {/*  setLng('en');*/}
-                  {/*}} href="#"*/}
-                  {/*   className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>*/}
+                  <a onClick={() => {
+                    i18n.changeLanguage('by');
+                    setLng('by');
+                  }} href="#"
+                     className={"language-link" + ((i18n.language == "by") ? " selected" : " unselected")}>by</a>
+                  {" "}
+                  <a onClick={() => {
+                    i18n.changeLanguage('en');
+                    setLng('en');
+                  }} href="#"
+                     className={"language-link" + ((i18n.language == "en") ? " selected" : " unselected")}>en</a>
 
 
                 </div>

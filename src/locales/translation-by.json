@@ -61,6 +61,7 @@
 		"acceptLicense": "Калі ласка, прыміце ліцэнзію",
 		"invalidLicenseAgreement": "Недапушчальная ліцэнзійная дамова",
 		"invalidURL": "Недапушчальны URL",
+		"invalidPhone": "Недапушчальны Tэлефон",
 		"httpMissing": "Прапушчаны \"http://\" або \"https://\""
 	},
 	"entryDetails": {
