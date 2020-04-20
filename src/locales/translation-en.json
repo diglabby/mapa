@@ -20,8 +20,10 @@
 		"licenseAccepted": "",
 		"license": "License",
 		"title": "Title",
+		"startDate": "Start date",
+		"endDate": "End date",
 		"description": "Description",
-		"tags": "Tags (separate by comma)",
+		"tags": "Tags (separate by enter)",
 		"newTag": "New:",
 		"noTagSuggestion": "Type for suggestions.",
 		"tagsLoading": "Loading suggestions…",
@@ -320,24 +322,24 @@
 			"subtext-3": "- create a cooperation of IT volunteers with other activists."
 		},
 		"chapter3": {
-			"heading": "For whom",
+			"heading": "It will be useful for",
 			"text": {
 				"1": "von morgen supports creativity, sustainability and joint action.",
 				"2": "We believe in a modern society in wich we all can embrace a self-determined, content and environmental-friendly life. Our goal: a benevolent future."
 			},
 			"column-1-head": "citizens",
-			"column-1": " - finding initiatives, similar in values ​​and participate in their activities.",
+			"column-1": " - to find initiatives and involve in their activities.",
 			"column-2-head": "organizations",
-			"column-2": "- finding initiatives, congenial, and create partnerships.",
+			"column-2": "- to find initiatives and create partnerships.",
 			"column-3-head": "activists",
-			"column-3": "- initiatives to find and place them on the map, making their work visible to the wider society."
+			"column-3": "- to find initiatives and place them on the map to make their work more visible to the society."
 		},
 		"chapter4": {
 			"heading": "Principles",
 			"text": {
-				"1": "Support our project",
-				"2": "Become a local scout",
-				"3": "Join our team",
+				"1": "we create 'Mapa' with the help of activists and IT-volunteers",
+				"2": "different programs from other countries are illustrated on the map. we develop ourselves and moreover diverse world community",
+				"3": "all created data are saved under the license of cc0",
 				"head-1": "Opensource.",
 				"head-2": "Part of the global map.",
 				"head-3": "Opendata.",
@@ -352,7 +354,7 @@
 			"column-1-2": "1. Add and modify data.",
 			"column-1-3": "2. Search and filter company by region.",
 			"column-2-head": "Offline",
-			"column-2-1": "1. Hackathon work together activists and IT-volunteers.",
+			"column-2-1": "1. Hold hackathons to draw together activists and IT-volunteers.",
 			"column-2-2": "2. advise and teach the use of Mapai.",
 			"column-2-3": "3. Educational lectures on opensource and community interaction.",
 			"text": "Das Team von morgen ist so bunt wie der Wandel. Ehemalige entwicklungspolitische Freiwillige, Studierende, Wandelgestalter*innen und Stipendiaten - Menschen, die sich ehrenamtlich für die Gesellschaft von morgen einsetzen wollen.",
