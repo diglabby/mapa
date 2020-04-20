@@ -393,10 +393,10 @@ class LandingPage extends Component {
             {/*<Route path='/openapi' component={ApiComponent}/>*/}
           {/*<NavLink to="/openapi">OPEN/ API</NavLink>*/}
 
-              <Route path="/api" component={ApiComponent} />
+          {/*    <Route path="/api" component={ApiComponent} />*/}
 
 
-          <NavLink to="/api">API</NavLink>
+          {/*<NavLink to="/api">API</NavLink>*/}
           <p>
             {user.username != null ? <a onClick={onDeleteAccount} href="#">
 
