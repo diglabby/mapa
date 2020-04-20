@@ -566,8 +566,8 @@ const LandingWrapper = styled.div`
           margin-right: 30px;
         }
       
-      .language-wrapper {
-        display: none;        
+
+      .language-wrapper {     
         margin: 1em;
         position: absolute;
         top 0;
