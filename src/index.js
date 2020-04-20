@@ -18,7 +18,7 @@ import i18n     from './i18n';
 import { I18nextProvider }   from 'react-i18next';
 import { Provider, connect } from "react-redux";
 import { APP_STAGES }        from "./constants/App";
-import { browserHistory } from 'react-router-dom';
+
 
 import "babel-polyfill";
 
@@ -39,7 +39,7 @@ const Wrapper = (
 
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
-      <ConnectedApp history={browserHistory}/>
+      <ConnectedApp />
     </I18nextProvider>
   </Provider>);
 
