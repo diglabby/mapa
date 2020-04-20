@@ -14,6 +14,8 @@
 		"licenseAccepted":"gelesen und akzeptiere sie",
 		"license":"Lizenz",
 		"title":"Titel",
+		"startDate": "",
+		"endDate": "",
 		"description":"Beschreibung",
 		"tags":"Stichworte (Komma-getrennt)",
 		"newTag":"Neu:",

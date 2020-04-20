@@ -141,7 +141,7 @@ class Form extends Component {
                       <FieldElement
                         name="start"
                         component={ renderDatePickerStart }
-                        placeholder="Start date"
+                        placeholder={t("startDate")}
                         initEndDate={ initEndDate }
                         endDate={ endDate }
                         onChange={ this.handleFromChange }
@@ -159,7 +159,7 @@ class Form extends Component {
                         component={ renderDatePickerEnd }
                         initStartDate={ initStartDate }
                         startDate={ startDate }
-                        placeholder="End date"
+                        placeholder={t("endDate")}
                         onChange={ this.handleToChange }
                       />
 

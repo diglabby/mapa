@@ -536,7 +536,10 @@ const StyledApp = styled.div `
   .menu-list {
     display: flex;
     justify-content: flex-end;
-    padding-right: 60px;
+    padding-right: 60px;    
+  }
+  ul.menu-list  {
+    padding-inline-start: 0px !important;
   }
   .pure-menu-link {
     font-family: PT Sans;
@@ -545,7 +548,7 @@ const StyledApp = styled.div `
     font-size: 18px;
     line-height: 31px;    
     color: #FFFFFF;
-    padding: .5em 0.5em;
+    padding: .5em 0.8em;
   }
 
   .pure-menu-link:hover {
@@ -591,8 +594,8 @@ const StyledApp = styled.div `
     z-index: 10;
     color: #eee;
     text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    
+    
     .banner-link {
       color: #000;
     }
