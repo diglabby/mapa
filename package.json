@@ -60,7 +60,7 @@
     "reapop": "^2.0.1",
     "reapop-theme-wybo": "^1.0.2",
     "redux": "^4.0.1",
-    "redux-form": "^8.1.0",
+    "redux-form": "^8.3.5",
     "redux-form-input-masks": "^2.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
