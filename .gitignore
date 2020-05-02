@@ -4,4 +4,3 @@ node_modules/
 dist/
 .idea/
 .vscode/
-src/constants/URLs.js
