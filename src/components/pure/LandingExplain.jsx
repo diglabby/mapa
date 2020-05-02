@@ -342,8 +342,11 @@ const LandingExplain = props => {
             </div>
 
             <div className="pure-u-3-5" style={{ textAlign: "right" }}>
-              <iframe width="500" height="500" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=27.580962181091312%2C53.90581086151094%2C27.586600184440613%2C53.90777965457411&amp;layer=mapnik&amp;marker=53.9067968497328%2C27.583783864974976" >
-              </iframe>
+              <object
+                  width="500px"
+                  height="500px"
+                  data="https://www.openstreetmap.org/export/embed.html?bbox=27.580962181091312%2C53.90581086151094%2C27.586600184440613%2C53.90777965457411&amp;layer=mapnik&amp;marker=53.9067968497328%2C27.583783864974976">
+              </object>
             </div>
           </div>
         </div>
