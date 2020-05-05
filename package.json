@@ -109,7 +109,7 @@
     "stack-source-map": "^1.0.5",
     "style-loader": "^0.18.2",
     "url-loader": "^1.1.2",
-    "webpack": "^4.25.1",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.10.1",
