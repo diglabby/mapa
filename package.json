@@ -41,7 +41,7 @@
     "museo": "^0.1.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
-    "purecss": "^1.0.0",
+    "purecss": "^2.0.3",
     "react": "^16.8.2",
     "react-day-picker": "^7.4.8",
     "react-dom": "^16.8.2",
