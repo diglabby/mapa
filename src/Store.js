@@ -1,6 +1,7 @@
 import reducers from "./reducers";
 import thunk    from "redux-thunk"; // lets us dispatch() functions
 import logger   from "redux-logger";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 let middlewares = [thunk];
 
@@ -8,14 +9,15 @@ import { createStore, applyMiddleware } from "redux";
 import { APP_STAGES } from "./constants/App";
 
 if (__STAGE__ === APP_STAGES.LOCAL) {
-  // middlewares.push(logger); // todo kill redux-logger )
+  middlewares.push(logger); // todo kill redux-logger )
 }
 
 // https://github.com/zalmoxisus/redux-devtools-extension
-const createStoreWrapper =
-  window.devToolsExtension ? window.devToolsExtension(createStore) : createStore;
+// const createStoreWrapper =
+//   window.devToolsExtension ? window.devToolsExtension(createStore) : createStore;
 
-const store = applyMiddleware.apply(null,middlewares)(createStoreWrapper)(reducers);
+// const store = applyMiddleware.apply(null,middlewares)(createStoreWrapper)(reducers);
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(...middlewares)));
 
 if (module.hot) {
   // Enable Webpack hot module replacement for reducers
