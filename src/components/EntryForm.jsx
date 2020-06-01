@@ -8,8 +8,13 @@ import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
          initialize, formValueSelector,  }       from "redux-form";
-         
+
+import InputMask from 'react-input-mask';
+import { parsePhoneNumberFromString, AsYouType } from 'libphonenumber-js';
+import IMask from 'imask';
 import 'react-day-picker/lib/style.css';
+
+
 
 import Actions              from "../Actions";
 import validation           from "../util/validation";
@@ -56,6 +61,12 @@ function convertToDateForPicker(date) {
   const d = new window.Date(date);
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
+//  99/99/9999
+// const Input = (props) => (
+//   <InputMask mask="+\3\7\5 (99) 999 99 99" maskChar="_" alwaysShowMask={true} value={props.value} onChange={props.onChange}>
+//     {(inputProps) => <FieldElement {...inputProps} name="telephone" className="pure-input-1 optional" component="input" type="tel" placeholder={props.t} />}
+//   </InputMask>
+// )
 
 class Form extends Component {
   state = {
@@ -65,6 +76,23 @@ class Form extends Component {
     maxCountOfCharacters: 250,
     countOfCharacters: 0,
   };
+
+  // handleMaskOfPhoneChange = (event) => {
+    // const input = event.target;
+    // const phoneNumber = new AsYouType('BY').input(input.value);
+    // const testDiv = document.querySelector('#testDiv');
+    // console.log(phoneNumber);
+    // console.log(event.target.value);
+    // // if (typeof phoneNumber === undefined) {
+    // //   console.log(phoneNumber.formatInternational());
+    // // }
+    // input.innerHTML = phoneNumber;
+    // let mask = IMask(event.target, { mask: '+{375}(00)000-00-00'} );
+  // }
+
+  componentDidMount() {
+    let mask = IMask(document.getElementById('phone-input'), { mask: '+{375} (00) 000 00 00'});
+  }
 
   handleCountOfCharactersChange = (event) => {
     const textarea = event.target.value;
@@ -272,7 +300,9 @@ class Form extends Component {
                     <FontAwesomeIcon icon="phone" />
                   </OptionalFieldLabel>
                   <div className= "pure-u-22-24">
-                    <FieldElement name="telephone" className="pure-input-1 optional" component="input" placeholder={t("phone")} />
+                    {/*<Input t={t("phone")}/> ^(\+375)\s(.(29.)|.(25.)|.(33.)|.(44.))\s(\d{3})\s(\d{2})\s(\d{2}) */}
+                    <FieldElement name="telephone" id="phone-input" pattern="^(\+375)\s.([0-9]{2}.)\s(\d{3})\s(\d{2})\s(\d{2})" className="pure-input-1 optional" onChange={this.handleMaskOfPhoneChange} component="input" type="tel" value={"+375"} placeholder={t("phone")} />
+                    {/* <div id="testDiv"></div> */}
                     <FieldElement name="telephone" component={errorMessage} />
                   </div>
                 </div>
