@@ -28,7 +28,8 @@ const OFDB_API_LINK = (() => {
 
     default:
       // production  // ?? api.ofdb.io ??
-      return "https://kartevonmorgen.org/api/";
+      // return "https://kartevonmorgen.org/api/";
+      return 'https://cors-anywhere.herokuapp.com/' + "https://kartevonmorgen.org/api/";
   }
 })() + API_VERSION;
 
