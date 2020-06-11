@@ -62,7 +62,14 @@ class Form extends Component {
     isEventEntry: false,
     startDate: '',
     endDate: '',
+    maxCountOfCharacters: 250,
+    countOfCharacters: 0,
   };
+
+  handleCountOfCharactersChange = (event) => {
+    const textarea = event.target.value;
+    this.setState({countOfCharacters: textarea.length});
+  }
 
   handleCategoryChange = (event) => {
     const category = event.target.value;
@@ -173,7 +180,10 @@ class Form extends Component {
 
                 )}
 
-                <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
+                <FieldElement name="description" className="pure-input-1" id="description-form-textarea" onChange={this.handleCountOfCharactersChange} component="textarea" placeholder={t("description")} maxLength={this.state.maxCountOfCharacters}/>
+                <CountOfCharacters>
+                  <div className="countOfCharacters-block">{this.state.countOfCharacters}/{this.state.maxCountOfCharacters}</div>
+                </CountOfCharacters>
                 <FieldElement name="description" component={errorMessage} />
 
                 <FieldElement
@@ -382,6 +392,15 @@ module.exports = reduxForm({
       return new Promise((resolve, reject) => resolve());
   }
 })(translate('translation')(Form));
+
+const CountOfCharacters = styled.div`
+    div.countOfCharacters-block {
+      font-size: .5em;
+      text-align: right;
+      margin-top: 0rem;
+      margin-bottom: .5rem;
+    }
+`
 
 const StyledNavButtonWrapper = styled(NavButtonWrapper)`
   height: 68px;
