@@ -66,7 +66,6 @@ class Form extends Component {
     endDate: '',
     maxCountOfCharacters: 250,
     countOfCharacters: 0,
-    phoneInputValue: ''
   };
 
   componentDidMount() {
