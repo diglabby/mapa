@@ -105,7 +105,7 @@
     "lodash": "^4.17.15",
     "mocha": "^5.2.0",
     "null-loader": "^0.1.1",
-    "react-hot-loader": "^4.12.19",
+    "react-hot-loader": "^4.12.21",
     "redbox-react": "^1.6.0",
     "stack-source-map": "^1.0.5",
     "style-loader": "^0.18.2",
