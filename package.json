@@ -88,7 +88,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "cross-env": "^5.2.1",
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.6.0",
     "debug": "^4.1.0",
     "es5-shim": "^4.5.12",
     "eslint": "^5.8.0",
