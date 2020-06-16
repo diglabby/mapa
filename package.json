@@ -90,7 +90,7 @@
     "cross-env": "^5.2.1",
     "css-loader": "^3.4.2",
     "debug": "^4.1.0",
-    "es5-shim": "^4.5.12",
+    "es5-shim": "^4.5.14",
     "eslint": "^5.8.0",
     "eslint-plugin-react": "^7.18.0",
     "file-loader": "^3.0.1",
