@@ -197,6 +197,7 @@ class Sidebar extends Component {
                   image_link_url: data.image_link_url,
                   end: data.end && converDateToTimestamp(data.end),
                   start: data.start && converDateToTimestamp(data.start),
+                  captcha: data.captcha,
                 }
               ))
             )}

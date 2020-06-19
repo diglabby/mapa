@@ -57,7 +57,13 @@
 		"acceptLicense":"Lizenzzustimmung ist nötig",
 		"invalidLicenseAgreement":"Ungültige Zustimmung",
 		"invalidURL":"Ungültige URL",
-		"httpMissing":"\"http://\" oder \"https://\" fehlt)"
+		"httpMissing":"\"http://\" oder \"https://\" fehlt)",
+		"captchaInput": "Bitte geben Sie das Ergebnis ein",
+		"captchaSuccess": "Erfolgreich einreichen",
+		"captchaError": "Bitte versuche es erneut",
+		"captchaCheckButton": "Prüfen",
+		"captchaPass": "CAPTCHA gescheitert",
+		"captchaTittle": "Ich bin kein Roboter"
 	},
 	"entryDetails":{
 		"loadingEntry": "Eintrag wird geladen...",

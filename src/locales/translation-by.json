@@ -63,7 +63,13 @@
 		"acceptLicense": "Калі ласка, прыміце ліцэнзію",
 		"invalidLicenseAgreement": "Недапушчальная ліцэнзійная дамова",
 		"invalidURL": "Недапушчальны URL",
-		"httpMissing": "Прапушчаны \"http://\" або \"https://\""
+		"httpMissing": "Прапушчаны \"http://\" або \"https://\"",
+		"captchaInput": "Калі ласка, увядзіце вынік",
+		"captchaSuccess": "Паспяхова",
+		"captchaError": "Калі ласка, паспрабуйце яшчэ раз",
+		"captchaCheckButton": "Праверка",
+		"captchaPass": "CAPTCHA ўведзена няправільна",
+		"captchaTittle": "Я не робат"
 	},
 	"entryDetails": {
 		"loadingEntry": "загрузка запіса...",

@@ -8,7 +8,7 @@ import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
          initialize, formValueSelector,  }       from "redux-form";
-
+import jCaptcha from 'js-captcha'
 import 'react-day-picker/lib/style.css';
 
 
@@ -59,6 +59,12 @@ function convertToDateForPicker(date) {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
+function initializationOfPhoneInput() {
+  const phoneInput = document.querySelector('#input-telephone');
+  phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+  phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+}
+
 class Form extends Component {
   state = {
     isEventEntry: false,
@@ -66,12 +72,71 @@ class Form extends Component {
     endDate: '',
     maxCountOfCharacters: 250,
     countOfCharacters: 0,
+    captcha: null,
+    captchaStatus: false
   };
 
+  initializationOfCaptcha = (t) => {
+    const captchaSubmitButton = document.querySelector('#captcha-submit-button');
+    // const maxNumberOfTries = 5;
+    let captcha = new jCaptcha({
+      el: ".jCaptcha",
+      canvasClass: "jCaptchaCanvas",
+      canvasStyle: {
+        width: "100px",
+        height: "15px",
+        textBaseline: "top",
+        font: "15px Arial",
+        textAlign: "left",
+        fillStyle: "#000"
+      },
+      status: 'error',
+      requiredValue: '=',
+      callback: function(response, $el, numberOfTries) {
+  
+        // if (maxNumberOfTries === numberOfTries) {
+  
+        //   document.querySelector("form").removeEventListener("submit", formSubmit);
+        //   $el.classList.add("disabled");
+        //   $el.placeholder = "Maximum attempts reached!";
+        //   $el.setAttribute("disabled", "true");
+        //   document.querySelector("button").setAttribute("disabled", "true");
+  
+        //   return;
+        // }
+        captcha.options.status = response;
+        if (response == 'success') {
+          captchaSubmitButton.classList.remove('captcha-error');
+          captchaSubmitButton.classList.add('captcha-success');
+          $el.placeholder = t("entryForm.captchaSuccess");
+        }
+  
+        if (response == 'error') {
+          captchaSubmitButton.classList.remove('captcha-success');
+          captchaSubmitButton.classList.add('captcha-error');
+          $el.placeholder = t("entryForm.captchaError");
+        }
+      }
+    });
+    captchaSubmitButton.addEventListener('click', (event) => {
+      const jCaptchaCanvas = document.querySelector('.jCaptchaCanvas');
+      const ctx = jCaptchaCanvas.getContext('2d');
+      event.preventDefault();
+      if (captcha.options.status == 'error') {
+        ctx.clearRect(0, 0, 100, 45);
+        this.setState({captchaStatus: false});
+        captcha.validate();
+      }
+      if (captcha.options.status == 'success') {
+        this.setState({captchaStatus: true});
+        document.querySelector('#form-captcha-input').setAttribute("disabled", "disabled");
+      }
+    })
+  }
+
   componentDidMount() {
-    const phoneInput = document.querySelector('#input-telephone');
-    phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
-    phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+    initializationOfPhoneInput();
+    this.initializationOfCaptcha(this.props.t);
   }
 
   handleCountOfCharactersChange = (event) => {
@@ -336,7 +401,18 @@ class Form extends Component {
                   </div>
                 </div>
               </Fieldset>
-
+              <Fieldset>
+                <FieldsetLegend>
+                  <FieldsetTitle>&laquo; {`${t("captchaTittle")}`} &raquo;</FieldsetTitle>
+                </FieldsetLegend>
+                <div className="captcha-container">
+                  <div className="captcha-wrapper">
+                    <FieldElement name="captcha" className="jCaptcha pure-input-1" id="form-captcha-input" type="text" component="input" placeholder={t("captchaInput")} />
+                  </div>
+                  <SubmitCaptchaButton id="captcha-submit-button">{t("captchaCheckButton")}</SubmitCaptchaButton>
+                  <FieldElement name="captcha" component={errorMessage} />
+                </div>
+              </Fieldset>
             </div>
           </AddEntryForm>
         </ScrollableDiv>
@@ -355,7 +431,12 @@ class Form extends Component {
             keyName = "save"
             classname = "pure-u-1-2"
             onClick = { () => {
-              this.props.handleSubmit();
+              if (this.state.captchaStatus === false){
+                document.querySelector('#captcha-submit-button').classList.add('captcha-error');
+                alert(`${t("captchaPass")}. ${t("captchaError")}.`);
+              } else {
+                this.props.handleSubmit();
+              }
             }}
             icon = "save"
             text = { t("save") }
@@ -395,12 +476,21 @@ module.exports = reduxForm({
 })(translate('translation')(Form));
 
 const CountOfCharacters = styled.div`
-    div.countOfCharacters-block {
-      font-size: .5em;
-      text-align: right;
-      margin-top: 0rem;
-      margin-bottom: .5rem;
-    }
+  div.countOfCharacters-block {
+    font-size: .5em;
+    text-align: right;
+    margin-top: 0rem;
+    margin-bottom: .5rem;
+  }
+`
+
+const SubmitCaptchaButton = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin: 0.25em 0;
+  padding: 0.5em 0.6em;
+  width: 100%;
 `
 
 const StyledNavButtonWrapper = styled(NavButtonWrapper)`
@@ -446,6 +536,16 @@ const Fieldset = styled.fieldset`
   .err {
     color: red;
     margin-bottom: 10px;
+  }
+  
+  .captcha-error {
+    border-color: #f44;
+    color: #f44;
+  }
+
+  .captcha-success {
+    border-color: #08b008;
+    color: #08b008;
   }
 `;
 

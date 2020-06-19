@@ -101,6 +101,12 @@ const entryForm = (data) => {
       errors.image_link_url = t("invalidURL");
     }
   }
+  if (data.captcha == null) {
+    errors.captcha = t("requiredField");
+  }
+  if (data.captchaStatus == 'error') {
+    errors.captchaStatus = 'error';
+  }
   return errors;
 };
 
