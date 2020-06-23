@@ -11,8 +11,6 @@ import { reduxForm,
 import jCaptcha from 'js-captcha'
 import 'react-day-picker/lib/style.css';
 
-
-
 import Actions              from "../Actions";
 import validation           from "../util/validation";
 import NavButton            from "./pure/NavButton";
@@ -78,7 +76,6 @@ class Form extends Component {
 
   initializationOfCaptcha = (t) => {
     const captchaSubmitButton = document.querySelector('#captcha-submit-button');
-    // const maxNumberOfTries = 5;
     let captcha = new jCaptcha({
       el: ".jCaptcha",
       canvasClass: "jCaptchaCanvas",
@@ -93,17 +90,6 @@ class Form extends Component {
       status: 'error',
       requiredValue: '=',
       callback: function(response, $el, numberOfTries) {
-  
-        // if (maxNumberOfTries === numberOfTries) {
-  
-        //   document.querySelector("form").removeEventListener("submit", formSubmit);
-        //   $el.classList.add("disabled");
-        //   $el.placeholder = "Maximum attempts reached!";
-        //   $el.setAttribute("disabled", "true");
-        //   document.querySelector("button").setAttribute("disabled", "true");
-  
-        //   return;
-        // }
         captcha.options.status = response;
         if (response == 'success') {
           captchaSubmitButton.classList.remove('captcha-error');
