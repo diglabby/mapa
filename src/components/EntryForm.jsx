@@ -123,7 +123,6 @@ class Form extends Component {
   componentDidMount() {
     initializationOfPhoneInput();
     this.initializationOfCaptcha(this.props.t);
-  }
 
   handleCountOfCharactersChange = (event) => {
     const textarea = event.target.value;
