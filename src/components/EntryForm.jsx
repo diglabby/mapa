@@ -11,8 +11,6 @@ import { reduxForm,
 
 import 'react-day-picker/lib/style.css';
 
-
-
 import Actions              from "../Actions";
 import validation           from "../util/validation";
 import NavButton            from "./pure/NavButton";
