@@ -239,16 +239,6 @@ class LandingPage extends Component {
             <div className="menu-wrapper pure-u-18-24 pure-u-md-9-12">
               <div className="top-wrapper">
                 <div className = "language-wrapper">
-
-                  { loggedIn ?
-                      <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
-                        {t("menu.logout")}
-                      </a>
-                      : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
-                        {t("menu.login")}
-                      </a>
-                  }
-
                   <a onClick={() => {
                     i18n.changeLanguage('by');
                     setLng('by');
@@ -380,6 +370,14 @@ class LandingPage extends Component {
               Account löschen
             </a> : ""}
           </p>
+          { loggedIn ?
+              <a onClick = {() => onClick(V.LOGOUT)} href="#" className="login-link">
+                {t("menu.logout")}
+              </a>
+              : <a onClick = {() => onClick(V.LOGIN)} href="#" className="login-link">
+                {t("menu.login")}
+              </a>
+          }
         </div>
       </LandingWrapper>);
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect }          from 'react-redux'
 import { translate        } from "react-i18next";
 import T                    from "prop-types";
-import styled               from "styled-components";
+import styled, { ThemeProvider }               from "styled-components";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
@@ -422,8 +422,14 @@ class Form extends Component {
                 alert(`${t("captchaPass")}. ${t("captchaError")}.`);
               } else {
                 this.props.handleSubmit();
-              }
-            }}
+                const arrOfNames = ['category','title','description','lat','lng'];
+                for (let i = 0; i < arrOfNames.length; i++) {
+                  if(!document.getElementsByName(arrOfNames[i])[0].value||document.getElementsByName(arrOfNames[i])[0].value=='-1'){
+                    document.getElementsByName(arrOfNames[i])[0].scrollIntoView({block: "center", behavior: "smooth"})
+                    break;
+                  }
+                }
+              }}}
             icon = "save"
             text = { t("save") }
           />

@@ -28,9 +28,9 @@ const IframeForm = ({ data, close }) => {
   const txtWidth = 'width="' + width
   const txtHeight = '" height="' + height
   const endIframe = '" ></iframe>'
-  const href = '<a href="https://mapa.falanster.by/" target="_blank">The map</a>'
+  // const href = '<a href="https://mapa.falanster.by/">The map</a>'
 
-  const code = startIframe + data + left + txtWidth + txtHeight + endIframe + href
+  const code = startIframe + data + left + txtWidth + txtHeight + endIframe; // + href
 
   const openOptions = () => setOptions(true)
 
