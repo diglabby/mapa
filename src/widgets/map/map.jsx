@@ -35,6 +35,6 @@ module.exports = ({marker, size, center, zoom, category, highlight,
       loggedIn = {loggedIn}
       showLocateButton = {false}
       ratings = {ratings}
-      />
+    />
     <MoreInfoLink target="_blank" href={URLs.APP.link + (highlight ? ("/#/?entry=" + highlight) : "")}>{i18n.t("mapWidget.showLargeMap")}</MoreInfoLink>
   </div>
