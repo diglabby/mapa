@@ -8,7 +8,7 @@ import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
          initialize, formValueSelector,  }       from "redux-form";
-         
+
 import 'react-day-picker/lib/style.css';
 
 import Actions              from "../Actions";
@@ -65,6 +65,12 @@ class Form extends Component {
     maxCountOfCharacters: 250,
     countOfCharacters: 0,
   };
+
+  componentDidMount() {
+    const phoneInput = document.querySelector('#input-telephone');
+    phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+    phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+  }
 
   handleCountOfCharactersChange = (event) => {
     const textarea = event.target.value;
@@ -272,7 +278,7 @@ class Form extends Component {
                     <FontAwesomeIcon icon="phone" />
                   </OptionalFieldLabel>
                   <div className= "pure-u-22-24">
-                    <FieldElement name="telephone" className="pure-input-1 optional" component="input" placeholder={t("phone")} />
+                    <FieldElement name="telephone" id="input-telephone" className="pure-input-1 optional" component="input" placeholder={t("phone")} maxLength={16}/>
                     <FieldElement name="telephone" component={errorMessage} />
                   </div>
                 </div>
