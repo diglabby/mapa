@@ -49,7 +49,8 @@ module.exports = {
   },
   APP: {
     name: "kartevonmorgen.org",
-    link: "https://kartevonmorgen.org"
+    link: "https://mapa.falanster.by"
+    // link: "https://kartevonmorgen.org"
   },
   PROTOTYPE: {
     name: "prototyp.kartevonmorgen.org",

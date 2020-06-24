@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { connect }          from 'react-redux'
 import { translate        } from "react-i18next";
 import T                    from "prop-types";
-import styled               from "styled-components";
+import styled, { ThemeProvider }               from "styled-components";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { FontAwesomeIcon }  from '@fortawesome/react-fontawesome'
 import { reduxForm,
          Field,
          initialize, formValueSelector,  }       from "redux-form";
-         
+
 import 'react-day-picker/lib/style.css';
 
 import Actions              from "../Actions";
@@ -62,7 +62,20 @@ class Form extends Component {
     isEventEntry: false,
     startDate: '',
     endDate: '',
+    maxCountOfCharacters: 250,
+    countOfCharacters: 0,
   };
+
+  componentDidMount() {
+    const phoneInput = document.querySelector('#input-telephone');
+    phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+    phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+  }
+
+  handleCountOfCharactersChange = (event) => {
+    const textarea = event.target.value;
+    this.setState({countOfCharacters: textarea.length});
+  }
 
   handleCategoryChange = (event) => {
     const category = event.target.value;
@@ -173,7 +186,10 @@ class Form extends Component {
 
                 )}
 
-                <FieldElement name="description" className="pure-input-1" component="textarea" placeholder={t("description")}  />
+                <FieldElement name="description" className="pure-input-1" id="description-form-textarea" onChange={this.handleCountOfCharactersChange} component="textarea" placeholder={t("description")} maxLength={this.state.maxCountOfCharacters}/>
+                <CountOfCharacters>
+                  <div className="countOfCharacters-block">{this.state.countOfCharacters}/{this.state.maxCountOfCharacters}</div>
+                </CountOfCharacters>
                 <FieldElement name="description" component={errorMessage} />
 
                 <FieldElement
@@ -262,7 +278,7 @@ class Form extends Component {
                     <FontAwesomeIcon icon="phone" />
                   </OptionalFieldLabel>
                   <div className= "pure-u-22-24">
-                    <FieldElement name="telephone" className="pure-input-1 optional" component="input" placeholder={t("phone")} />
+                    <FieldElement name="telephone" id="input-telephone" className="pure-input-1 optional" component="input" placeholder={t("phone")} maxLength={16}/>
                     <FieldElement name="telephone" component={errorMessage} />
                   </div>
                 </div>
@@ -338,6 +354,13 @@ class Form extends Component {
             classname = "pure-u-1-2"
             onClick = { () => {
               this.props.handleSubmit();
+              const arrOfNames = ['category','title','description','lat','lng'];
+              for (let i = 0; i < arrOfNames.length; i++) {
+                if(!document.getElementsByName(arrOfNames[i])[0].value||document.getElementsByName(arrOfNames[i])[0].value=='-1'){
+                  document.getElementsByName(arrOfNames[i])[0].scrollIntoView({block: "center", behavior: "smooth"})
+                  break;
+                }            
+              }
             }}
             icon = "save"
             text = { t("save") }
@@ -375,6 +398,15 @@ module.exports = reduxForm({
       return new Promise((resolve, reject) => resolve());
   }
 })(translate('translation')(Form));
+
+const CountOfCharacters = styled.div`
+    div.countOfCharacters-block {
+      font-size: .5em;
+      text-align: right;
+      margin-top: 0rem;
+      margin-bottom: .5rem;
+    }
+`
 
 const StyledNavButtonWrapper = styled(NavButtonWrapper)`
   height: 68px;
