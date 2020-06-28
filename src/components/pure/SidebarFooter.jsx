@@ -47,7 +47,7 @@ const MetaFoot = styled.div`
   margin-bottom: -1rem; */
   margin: 1rem 1.8em;
 
-  > a:link {color: #000; }
+  > a:link { color: #000; opacity 0.5; }
   >span { float: right; }
 `
 export default MetaFooter
