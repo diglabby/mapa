@@ -36,7 +36,7 @@
     "es6-promise": "^3.1.2",
     "formik": "^1.5.8",
     "i18next": "^10.6.0",
-    "i18next-browser-languagedetector": "^2.2.3",
+    "i18next-browser-languagedetector": "^5.0.0",
     "leaflet": "^1.4.0",
     "museo": "^0.1.0",
     "normalize.css": "^8.0.1",
