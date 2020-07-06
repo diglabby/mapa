@@ -68,7 +68,7 @@ Launch OpenfairDB
     RUST_LOG=info ROCKET_PORT=6767 DATABASE_URL=openfair.db ./openfairdb
 
 from 
-/path/to/mapa/ directory. Be sure openfair.db and openfairdb files should be in the mapa directory.
+/path/to/mapa/ directory. 
 
 `openfairdb` should now be listening on port 6767.
 
