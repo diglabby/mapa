@@ -48,6 +48,7 @@ const MetaFoot = styled.div`
   margin: 1rem 1.8em;
 
   > a:link { color: #000; opacity 0.5; }
+  > a:link:hover { opacity 1; }
   >span { float: right; }
 `
 export default MetaFooter
