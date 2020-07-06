@@ -17,22 +17,23 @@ have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
 To be able to start development you'll need the following tools:
 
 - [git](https://www.git-scm.com/)
-- [Node.js](https://nodejs.org/) version 6.x
-- [npm](https://www.npmjs.com/package/npm) version 3.x or [Yarn](https://yarnpkg.com/en/docs/getting-started)
+- [Node.js](https://nodejs.org/) version 8.x
+- [Yarn](https://yarnpkg.com/en/docs/getting-started) or [npm](https://www.npmjs.com/package/npm) version 3.x
 - [OpenFairDB](https://github.com/slowtec/openfairdb)
 
 Now clone this repository:
 
-    git clone https://github.com/diglabby/mapa
+    git clone https://github.com/diglabby/mapa.git
 
 Go to the root of it and install all the dependencies:
 
-    cd goodmap-old/
-    npm install
+    cd mapa/
+    yarn install
 or 
-    yarn
     
-### Local development setup
+    npm install
+    
+### OpenFairDB local development setup
 
 The easiest way to get a local setup running is by using the remote API of [OpenFairDB](https://github.com/slowtec/openfairdb).
 To do so change `src/constants/URLs.js` to
@@ -50,33 +51,47 @@ OFDB_API: {
 
 The alternative is to run OpenFairDB Server locally:
 
-####Linux setup:
+#### Linux setup:
 
 ``` sh
-wget https://download.ofdb.io/openfairdb-x86_64-linux-v0.3.1.tar.gz
-tar xzf openfairdb-x86_64-linux-v0.3.1.tar.gz
+wget https://github.com/slowtec/openfairdb/releases/download/v0.5.5/openfairdb_v0.5.5.x86_64-unknown-linux-musl.tar.xz
+tar xzf openfairdb_v0.5.5.x86_64-unknown-linux-musl.tar.xz
 ./openfairdb
 ```
-`openfairdb` should now be listening on port 6767.
 
 To actually get started you also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (Save database, copy it to local repository, unzip and override the previous database).
 
-####Docker setup:
+Change this file `webpack.config.babel.js` according to this [commit](https://github.com/kartevonmorgen/kartevonmorgen/pull/583/commits/b5d967c752df4b2e138e30fdbeb7101b5354be1c). And `src/constants/URLs.js` according to this [commit](https://github.com/kartevonmorgen/kartevonmorgen/pull/583/commits/57cb6aa7bfe590130b93ed1236b7bf88ee8dac1a)
+
+Launch OpenfairDB
+
+    RUST_LOG=info ROCKET_PORT=6767 DATABASE_URL=openfair.db ./openfairdb
+
+from 
+/path/to/mapa/ directory. Be sure openfair.db and openfairdb files should be in the mapa directory.
+
+`openfairdb` should now be listening on port 6767.
+
+1. Go to file `webpack.config.babel.js`.
+2. Change line 25 to this: ```target: "http://[::1]:6767",```
+3. Rerun the ``mapa`` app.
+
+#### Docker setup:
 
 1. Clone the [openfairdb](https://github.com/slowtec/openfairdb) repo.
 2. Go to `openfairdb` folder: `cd ./openfairdb`
 3. Build image and run the container by commands from [openfairdb](https://github.com/slowtec/openfairdb#docker) repo
 4. `openfairdb` should now be listening on port 6767.
 
-Get the web app running:
+### Get the web app running:
 
 ``` sh
-    cd /path/to/goodmap-old/
-    npm start
+    cd /path/to/mapa/
+    yarn start
 ```
 or 
 ```
-    yarn start
+    npm start
 ```
 
 The web app is now listening on port 8080.
