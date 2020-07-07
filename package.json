@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/flosse/kartevonmorgen",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.4.2",
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-brands-svg-icons": "^5.4.2",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
