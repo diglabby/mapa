@@ -1,0 +1,13 @@
+.leaflet-interactive:focus {
+  filter:  hue-rotate(333deg);
+  fill: #fcc01e;
+  color: black;
+}
+
+.initiative {
+  fill: rgb(174, 199, 34);
+}
+
+.initiative:hover {
+  color: black;
+}
