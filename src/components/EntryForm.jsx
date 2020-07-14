@@ -57,12 +57,6 @@ function convertToDateForPicker(date) {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-function initializationOfPhoneInput() {
-  const phoneInput = document.querySelector('#input-telephone');
-  phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
-  phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
-}
-
 class Form extends Component {
   state = {
     isEventEntry: false,
@@ -121,7 +115,9 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    initializationOfPhoneInput();
+    const phoneInput = document.querySelector('#input-telephone');
+    phoneInput.addEventListener('keyup', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
+    phoneInput.addEventListener('keydown', () => phoneInput.value = phoneInput.value.replace(/[^\d|+]/g,''));
     this.initializationOfCaptcha(this.props.t);
   }
 
