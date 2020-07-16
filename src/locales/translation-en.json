@@ -63,7 +63,13 @@
 		"acceptLicense": "Please accept the license",
 		"invalidLicenseAgreement": "Invalid License Agreement",
 		"invalidURL": "Invalid URL",
-		"httpMissing": "\"http://\" or \"https://\" missing"
+		"httpMissing": "\"http://\" or \"https://\" missing",
+		"captchaInput": "Type in result please",
+		"captchaSuccess": "Submit successful",
+		"captchaError": "Please try again",
+		"captchaCheckButton": "Check",
+		"captchaPass": "CAPTCHA failed",
+		"captchaTittle": "I am not a robot"
 	},
 	"entryDetails": {
 		"loadingEntry": "loading entry...",

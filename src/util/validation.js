@@ -101,6 +101,9 @@ const entryForm = (data) => {
       errors.image_link_url = t("invalidURL");
     }
   }
+  if (data.captcha == null) {
+    errors.captcha = t("requiredField");
+  }
   return errors;
 };
 
