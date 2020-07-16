@@ -59,7 +59,7 @@ tar xzf openfairdb_v0.5.5.x86_64-unknown-linux-musl.tar.xz
 ./openfairdb
 ```
 
-To actually get started you also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (Save database, copy it to local repository, unzip and override the previous database).
+To actually get started you also need to add some [content](https://github.com/flosse/openfairdb/files/2511314/openfair.db.zip). (Save database, copy it to openfairdb directory, unzip and override the previous database).
 
 Change this file `webpack.config.babel.js` according to this [commit](https://github.com/kartevonmorgen/kartevonmorgen/pull/583/commits/b5d967c752df4b2e138e30fdbeb7101b5354be1c). And `src/constants/URLs.js` according to this [commit](https://github.com/kartevonmorgen/kartevonmorgen/pull/583/commits/57cb6aa7bfe590130b93ed1236b7bf88ee8dac1a)
 
@@ -68,9 +68,15 @@ Launch OpenfairDB
     RUST_LOG=info ROCKET_PORT=6767 DATABASE_URL=openfair.db ./openfairdb
 
 from 
-/path/to/mapa/ directory. be sure openfair.db and openfairdb files should be in the mapa directory.
+/path/to/openfairdb/ directory.
 
 `openfairdb` should now be listening on port 6767.
+
+If both `openfairdb` and `mapa` app are running, but no entries are displayed in `mapa` and you have an `ECONNREFUSED` error in console, then you should do the following:
+
+1. Go to file `webpack.config.babel.js`.
+2. Change line 25 to this: ```target: "http://[::1]:6767",```
+3. Rerun the `mapa` app.
 
 #### Docker setup:
 
