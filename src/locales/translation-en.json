@@ -423,6 +423,14 @@
 			}
 		}
 	},
+	"api": {
+		"linkToBackEnd": "Link to the project backend",
+		"swaggerGuideTitle": "You can get the latest API documentation by taking a few steps to set up an online swagger editor:",
+		"swaggerGuideItem1": "Go here:",
+		"swaggerGuideItem2": "Then choose",
+		"swaggerGuideItem3": "Add a path to the file",
+		"swaggerGuideItem4": "Enjoy"
+	},
 	"donate": {
 		"heading": "Doing something good for tomorrow.",
 		"text": {
