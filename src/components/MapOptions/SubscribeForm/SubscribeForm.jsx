@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import ReactModal from 'react-modal';
 import styled from "styled-components"
+import i18n from "../../../i18n";
 
 const modalStyle = {
   content: {
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: '440px',
     border: '1px solid #E6E6E6',
     top: '50%',
     left: '60%',
@@ -23,12 +25,11 @@ const SubscribeForm = ({ data, close }) => {
   const [checked, setChecked] = useState('')
 
   const onSetMail = (e) => setMail(e.target.value)
-  const cancelChecked = () => setChecked('')
 
   const onSubscribe = () => {
-    if (!email && !checked) alert('Please write your mail and choose subscribe')
-    else if (!email) alert('Please write your mail')
-    else if (!checked) alert('Please choose subscribe')
+    if (!email && !checked) alert(i18n.t("subscribeForm.alerts.noMail&notChecked"))
+    else if (!email) alert(i18n.t("subscribeForm.alerts.noMail"))
+    else if (!checked) alert(i18n.t("subscribeForm.alerts.notChecked"))
     else {
       let data = { email: email, type: checked }
       if (checked === 'G') {
@@ -42,7 +43,7 @@ const SubscribeForm = ({ data, close }) => {
           let dataI = { id: i }
           data.data = dataI
         } else {
-          alert('Please choose initiative for subscribe')
+          alert(i18n.t("subscribeForm.alerts.initiativeNotChosen"))
           return
         }
       } else if (checked === 'TG') {
@@ -54,7 +55,7 @@ const SubscribeForm = ({ data, close }) => {
           }
           data.data = dataTG
         } else {
-          alert('Please enter tag into left search panel for subscribe')
+          alert(i18n.t("subscribeForm.alerts.noTags"))
           return
         }
 
@@ -73,33 +74,48 @@ const SubscribeForm = ({ data, close }) => {
     >
       <div>
         <ButtonsRadioContainer>
-          <Label >
-            Initiative
-            <InputRadio
-              type='radio' value="I" checked={'I' === checked}
-              onChange={() => setChecked('I')}
-            />
-          </Label>
-          <Label >
-            Geo
-            <InputRadio
-              type='radio' value="G" checked={'G' === checked}
-              onChange={() => setChecked('G')}
-            />
-          </Label>
-          <Label >
-            TagsGeo
-            <InputRadio
-              type='radio' value="TG" checked={'TG' === checked}
-              onChange={() => setChecked('TG')}
-            />
-          </Label>
+          <ButtonRadio>
+            <Label >
+              {i18n.t("subscribeForm.initiative.title")}
+              <InputRadio
+                type='radio' value="I" checked={'I' === checked}
+                onChange={() => setChecked('I')}
+              />
+            </Label>
+            <ButtonRadioDescription>
+              {i18n.t("subscribeForm.initiative.description")}
+            </ButtonRadioDescription>
+          </ButtonRadio>
+          <ButtonRadio>
+            <Label >
+              {i18n.t("subscribeForm.geo.title")}
+              <InputRadio
+                type='radio' value="G" checked={'G' === checked}
+                onChange={() => setChecked('G')}
+              />
+            </Label>
+            <ButtonRadioDescription>
+              {i18n.t("subscribeForm.geo.description")}
+            </ButtonRadioDescription>
+          </ButtonRadio>
+          <ButtonRadio>
+            <Label >
+              {i18n.t("subscribeForm.tagGeo.title")}
+              <InputRadio
+                type='radio' value="TG" checked={'TG' === checked}
+                onChange={() => setChecked('TG')}
+              />
+            </Label>
+            <ButtonRadioDescription>
+              {i18n.t("subscribeForm.tagGeo.description")}
+            </ButtonRadioDescription>
+          </ButtonRadio>
         </ButtonsRadioContainer>
+
         <InputEmail type='email' value={email} placeholder='Email' onChange={onSetMail} />
         <ButtonsContainer>
-          <Button type="button" onClick={onSubscribe}>Subscribe</Button>
-          <Button onClick={cancelChecked} >Cancel</Button>
-          <Button onClick={close} >Close</Button>
+          <Button type="button" onClick={onSubscribe}>{i18n.t("subscribeForm.subscribeButton")}</Button>
+          <Button onClick={close}>{i18n.t("subscribeForm.closeButton")}</Button>
         </ButtonsContainer>
       </div>
     </ReactModal>
@@ -108,14 +124,19 @@ const SubscribeForm = ({ data, close }) => {
 
 const ButtonsRadioContainer = styled.div`
   height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+  padding-bottom: 10px;
+`
+
+const ButtonRadio = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  padding-bottom: 4%;
 `
 
 const InputRadio = styled.input`
   cursor: pointer;
-  margin-left: 4px;
+  margin-left: 10px;
   vertical-align: middle;
 `
 
@@ -125,11 +146,15 @@ const Label = styled.label`
   color: rgba(0, 0, 0, 0.80);
 `
 
+const ButtonRadioDescription = styled.div`
+  padding-left: 10px;
+`
+
 const InputEmail = styled.input`
-  width: 300px;
+  width: 100%;
   height: auto;
   padding-left: 4px;
-  margin-top: 20px;
+  margin: auto;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.80);
   border: 1px solid rgb(204, 204, 204);
@@ -144,14 +169,13 @@ const InputEmail = styled.input`
 `
 const ButtonsContainer = styled.div`
   height: auto;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   padding-top: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
 `
 
 const Button = styled.button`
-  width: 90px;
+  width: 100px;
   height: auto;
   color: rgba(0, 0, 0, 0.80);
   background-color: rgb(232, 232, 232);
