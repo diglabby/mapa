@@ -12,7 +12,7 @@ The following is a description of a quickstart.
 If you're looking for a more comprehensive introduction,
 have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### Dependencies
+### 1. Dependencies
 
 To be able to start development you'll need the following tools:
 
@@ -33,7 +33,7 @@ or
     
     npm install
     
-### OpenFairDB local development setup
+### 2. OpenFairDB local development setup
 
 The easiest way to get a local setup running is by using the remote API of [OpenFairDB](https://github.com/slowtec/openfairdb).
 To do so change `src/constants/URLs.js` to
@@ -51,7 +51,7 @@ OFDB_API: {
 
 The alternative is to run OpenFairDB Server locally:
 
-#### Linux setup:
+#### 2.1. Linux setup:
 
 ``` sh
 wget https://github.com/slowtec/openfairdb/releases/download/v0.5.5/openfairdb_v0.5.5.x86_64-unknown-linux-musl.tar.xz
@@ -72,14 +72,14 @@ from
 
 `openfairdb` should now be listening on port 6767.
 
-#### Docker setup:
+#### 2.2. Docker setup:
 
 1. Clone the [openfairdb](https://github.com/slowtec/openfairdb) repo.
 2. Go to `openfairdb` folder: `cd ./openfairdb`
 3. Build image and run the container by commands from [openfairdb](https://github.com/slowtec/openfairdb#docker) repo
 4. `openfairdb` should now be listening on port 6767.
 
-### Get the web app running:
+### 3. Get the web app running:
 
 ``` sh
     cd /path/to/mapa/
@@ -96,30 +96,16 @@ Open it in your browser `https://localhost:8080`.
 On every file change in `src/`, the app will be build
 for you and the browser reloads automatically.
 
-### Tests
+### 4. Tests
 
 All the tests can be found in the `spec/` folder.
 To run the tests type
 
     npm t
 
-### Backend
+### 5. Backend
 
 KVM uses the [OpenFairDB](https://github.com/slowtec/openfairdb) as its backend.
-
-## Goodmap
-<3 Goodmap Consortium
-
-### Core
-* Navigate to `goodmap-core` folder
-* Add changes
-* Recompile by using `yarn build`
-
-### Webapp
-* Navigate to `goodmap-webapp` folder
-* Install via `yarn install`
-* Add changes
-* Run by using `yarn start`
 
 ## License
 
