@@ -423,6 +423,14 @@
 			}
 		}
 	},
+	"api": {
+		"linkToBackEnd": "Link to the project backend",
+		"swaggerGuideTitle": "You can get the latest API documentation by taking a few steps to set up an online swagger editor:",
+		"swaggerGuideItem1": "Go here:",
+		"swaggerGuideItem2": "Then choose",
+		"swaggerGuideItem3": "Add a path to the file",
+		"swaggerGuideItem4": "Enjoy"
+	},
 	"donate": {
 		"heading": "Doing something good for tomorrow.",
 		"text": {
@@ -553,5 +561,28 @@
 			"hashtag": "hashtag",
 			"getCode": "get code"
 		}
+	},
+	"subscribeForm": {
+		"alerts": {
+			"noMail&notChecked": "Please write your mail and choose subscription type",
+			"noMail": "Please write your mail",
+			"notChecked": "Please choose subscription type",
+			"initiativeNotChosen": "Please choose initiative",
+			"noTags": "Please enter tag into left search panel"
+		},
+		"initiative": {
+			"title": "Initiative",
+			"description": "You can subscribe to the initiative and receive updates from it"
+		},
+		"geo": {
+			"title": "Subscribe to area",
+			"description": "You can subscribe to the area, embraced by the screen of your device, and then receive news about local initiatives and events"
+		},
+		"tagGeo": {
+			"title": "Subscribe to geotag",
+			"description": "You can subscribe to the area, embraced by the screen of your device, and then receive news about local initiatives and events based on your tags"
+		},
+		"subscribeButton": "Subscribe",
+		"closeButton": "Close"
 	}
 }

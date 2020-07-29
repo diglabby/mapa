@@ -351,6 +351,14 @@
 			"boell-foundation" : "Das Projekt wurde in der Pilotphase von der Heinrich-Böll-Stiftung gefördert."
 		}
 	},
+	"api": {
+		"linkToBackEnd": "Link zum Projekt-Backend",
+		"swaggerGuideTitle": "Sie können die neueste API-Dokumentation erhalten, indem Sie einige Schritte ausführen, um einen Online-Swagger-Editor einzurichten:",
+		"swaggerGuideItem1": "Gehe hier hin:",
+		"swaggerGuideItem2": "Dann wähle",
+		"swaggerGuideItem3": "Fügen Sie der Datei einen Pfad hinzu",
+		"swaggerGuideItem4": "Genießen"
+	},
 	"donate" : {
 		"heading" : "Etwas Gutes für morgen tun.",
 		"text" : {

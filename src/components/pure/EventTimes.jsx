@@ -6,7 +6,7 @@ const TimesWrapper = styled.div`
   margin-top: 7px;
 `;
 
-const getHumanDate = (date) => new Date(date).toDateString();
+const getHumanDate = (date) => new Date(date*1000).toDateString();
 
 const EventTimes = ({ start, end }) => {
   return (

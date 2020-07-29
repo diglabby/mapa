@@ -86,7 +86,7 @@ const Actions = {
               const date = new window.Date();
               date.setHours(0, 0, 0, 0);
 
-              WebAPI.searchEvents(tags, bbox, date.getTime(), null, (err, res) => {
+              WebAPI.searchEvents(tags, bbox, getMidnightUnixtime(Date.now() / 1000), null, (err, res) => {
                 dispatch({
                   type: T.SEARCH_RESULT_EVENTS,
                   payload: err || res,

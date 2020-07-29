@@ -23,7 +23,10 @@ import NavButton            from "./pure/NavButton";
 import SearchBar            from "./SearchBar"
 import ScrollableDiv        from "./pure/ScrollableDiv";
 
-const converDateToTimestamp = (date) => new window.Date(date).getTime();
+const convertDateToTimestamp = date => {
+    date = new Date(date);
+    return Math.trunc(date / 1000) - (date.getTimezoneOffset() * 60);
+};
 
 class Sidebar extends Component {
 
@@ -195,9 +198,9 @@ class Sidebar extends Component {
                   categories: [data.category],
                   image_url: data.image_url,
                   image_link_url: data.image_link_url,
-                  end: data.end && converDateToTimestamp(data.end),
-                  start: data.start && converDateToTimestamp(data.start),
                   captcha: data.captcha,
+                  end: convertDateToTimestamp(data.end),
+                  start: convertDateToTimestamp(data.start)
                 }
               ))
             )}

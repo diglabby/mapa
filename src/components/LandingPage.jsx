@@ -10,6 +10,7 @@ import Contact              from "./pure/Contact";
 import Imprint              from "./pure/Imprint";
 import PrivacyStatement     from "./pure/PrivacyStatement";
 import Explain              from "./pure/LandingExplain";
+import APIPage              from "./pure/APIPage"
 import Register             from "./pure/Register";
 import Login                from "./pure/Login";
 import URLs                 from "../constants/URLs";
@@ -222,6 +223,9 @@ class LandingPage extends Component {
           </p>
         </div>;
         break;
+      case V.API: 
+        contentComp = <APIPage />
+        break;
       default:
     }
 
@@ -378,6 +382,7 @@ class LandingPage extends Component {
                 {t("menu.login")}
               </a>
           }
+          <a href="#api" className="api-link" onClick={() => onClick(V.API)}>API</a>
         </div>
       </LandingWrapper>);
   }
@@ -785,6 +790,9 @@ const LandingWrapper = styled.div`
     }
     a {
       color: #fff;
+    }
+    .api-link {
+      margin-left: 10px;
     }
     .smallLink {
       margin: 0 7px;
