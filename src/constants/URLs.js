@@ -13,9 +13,7 @@ const OFDB_API_LINK = (() => {
 
       console.log('env LOCAL');
 
-      return "/api/";
-
-      //return "https://dev.ofdb.io/";
+      return "https://dev.ofdb.io/";
       // return "https://kartevonmorgen.org/api/";
       // return "https://api.ofdb.io/";
       // return "https://nightly.ofdb.io/";
@@ -30,7 +28,7 @@ const OFDB_API_LINK = (() => {
 
     default:
       // production  // ?? api.ofdb.io ??
-      return 'https://cors-anywhere.herokuapp.com/' + "https://kartevonmorgen.org/api/";
+      return "https://kartevonmorgen.org/api/";
   }
 })() + API_VERSION;
 
@@ -51,7 +49,7 @@ module.exports = {
   },
   APP: {
     name: "kartevonmorgen.org",
-    link: "https://mapa.falanster.by"
+    link: "https://kartevonmorgen.org"
   },
   PROTOTYPE: {
     name: "prototyp.kartevonmorgen.org",

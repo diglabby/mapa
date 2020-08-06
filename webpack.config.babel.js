@@ -21,9 +21,9 @@ const config = {
     hot: true,
     inline: true,
     proxy: {
-      "/api/v0": {
-          target: "http://[::1]:6767",
-          pathRewrite: {"^/api/v0" : "/api"}
+      "/api": {
+        target: "http://localhost:6767",
+        pathRewrite: {"^/api/v0" : "/api"},
       }
     }
   },

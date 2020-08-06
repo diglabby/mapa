@@ -194,7 +194,6 @@ module.exports = {
   },
 
   saveNewEntry: (e, cb) => {
-    console.log(e);
     request
       .post('/entries/')
       .use(prefix)
