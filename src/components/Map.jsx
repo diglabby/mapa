@@ -132,7 +132,7 @@ class KVMMap extends Component {
             if (highlight.indexOf(e.id) == 0 || highlight.length == 0)
               opacity = 1;
             if (marker) opacity = 0.3;
-
+            const fillColor = e.id === highlight[0] ? STYLE.orange : this.getCategoryColorById(e.categories[0]);
             markers.push(
               <CircleMarker
                 onClick={() => {
@@ -144,7 +144,7 @@ class KVMMap extends Component {
                 radius={9}
                 color={'#fff'}
                 weight={0.7}
-                fillColor={this.getCategoryColorById(e.categories[0])}
+                fillColor={fillColor}
                 fillOpacity={opacity}
               >
                 <SmallTooltip direction='bottom' offset={[0, 10]}>

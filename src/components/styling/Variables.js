@@ -2,6 +2,7 @@ const grayBlue   = "rgb(100,  122,  133)";
 const blue       = "rgb(0,    153,  173)";
 const green      = "rgb(151,  191,  13 )";
 const yellow     = "rgb(255,  221,  0  )";
+const orange = "rgb(252, 192, 30)";
 const pink       = "rgb(229,  98,   146)";
 const berry      = "rgb(170,  56,   108)";
 const coal       = "rgb(26,   26,   26)";
@@ -30,7 +31,9 @@ module.exports = {
   grayBlue,
   blue,
   green,
+  gray,
   yellow,
+  orange,
   pink,
   berry,
   coal,

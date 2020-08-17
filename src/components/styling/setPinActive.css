@@ -1,0 +1,5 @@
+.leaflet-interactive:focus {
+  filter:  hue-rotate(333deg);
+  fill: #fcc01e;
+  color: black;
+}
